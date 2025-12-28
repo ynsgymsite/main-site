@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YNSGYM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="main-header">
+  <nav class="navbar">
+    <div class="logo"><a href="/" class="logo-link">YNSGYM</a></div>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <div class="nav-menu">
+      <ul class="nav-links">
+        <li><a href="/gyms/">Our Gyms</a></li>
+        <li><a href="/membership/">Membership</a></li>
+        <li><a href="/personal-training/">Personal Training</a></li>
+        <li><a href="/classes/">Classes</a></li>
+        <li><a href="/testimonials/">Testimonials</a></li>
+      </ul>
+      <div class="cta-buttons">
+        <a href="#" class="btn primary">FREE TRIAL</a>
+        <a href="#" class="btn secondary">JOIN NOW</a>
+      </div>
+    </div>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>ready to <span class="accent">snap?</span></h1>
+    <p>The biggest 24/7 gym in the West — home to Hyrox, HIIT, Yoga, Reformer & Mat Pilates.</p>
+    <div class="buttons">
+      <a class="btn primary" href="#">GROUP CLASSES</a>
+      <a class="btn secondary" href="#">MEMBERSHIP</a>
+    </div>
+  </section>
+
+  <section class="hero-split">
+    <div class="hero-split-text">
+      <h2>Level Up Your <span class="accent">GAINS</span> With Us</h2>
+      <p>Train with top-quality strength, cardio, and functional equipment tailored to your goals.</p>
+      <a class="btn dark" href="#">VIEW OUR GYMS</a>
+    </div>
+    <div class="hero-split-media">
+      <div class="hero-image hero-image-1" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="hero-split reverse">
+    <div class="hero-split-text">
+      <h2>Unlock Your <span class="accent">FULL POTENTIAL</span> With Us</h2>
+      <p>Work one-on-one with performance coaches for programming that moves the needle.</p>
+      <a class="btn dark" href="#">PERSONAL TRAINING</a>
+    </div>
+    <div class="hero-split-media">
+      <div class="hero-image hero-image-2" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="hero-split">
+    <div class="hero-split-text">
+      <h2>Take On New <span class="accent">CHALLENGES</span></h2>
+      <p>From Hyrox-style conditioning to calm, restorative flows — find classes that actually excite you.</p>
+      <a class="btn dark" href="#">EXPLORE OUR CLASSES</a>
+    </div>
+    <div class="hero-split-media">
+      <div class="hero-image hero-image-3" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="hero-split hero-form">
+    <div class="hero-split-text">
+      <h2>Let’s Talk <span class="accent">Goals</span></h2>
+      <p>Tell us what you’re chasing and we’ll line you up with the right coach, class, or trial.</p>
+    </div>
+    <div class="hero-split-media form-panel">
+      <form class="contact-form" action="#" method="post">
+        <div class="form-grid">
+          <label>
+            <span>First Name</span>
+            <input type="text" name="first_name" required>
+          </label>
+          <label>
+            <span>Last Name</span>
+            <input type="text" name="last_name" required>
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" required>
+          </label>
+          <label>
+            <span>Phone</span>
+            <input type="tel" name="phone" required>
+          </label>
+          <label class="full-width">
+            <span>Topic</span>
+            <select name="topic" required>
+              <option value="">Choose an option</option>
+              <option>Gym trial</option>
+              <option>Class trial</option>
+              <option>Personal training trial</option>
+              <option>Gym tour</option>
+              <option>Others</option>
+            </select>
+          </label>
+          <label class="full-width">
+            <span>Message</span>
+            <textarea name="message" rows="4" placeholder="Tell us what you need..."></textarea>
+          </label>
+        </div>
+        <button type="submit" class="btn primary">SEND MESSAGE</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>© 2025 YNSGYM. ALL RIGHTS RESERVED.</p>
+</footer>
+
+</body>
+</html>

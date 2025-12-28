@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YNSGYM – Membership</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="main-header">
+    <nav class="navbar">
+      <div class="logo"><a href="/" class="logo-link">YNSGYM</a></div>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <div class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="/gyms/">Our Gyms</a></li>
+          <li><a href="/membership/" class="active">Membership</a></li>
+          <li><a href="/personal-training/">Personal Training</a></li>
+          <li><a href="/classes/">Classes</a></li>
+          <li><a href="/testimonials/">Testimonials</a></li>
+        </ul>
+        <div class="cta-buttons">
+          <a href="#" class="btn primary">FREE TRIAL</a>
+          <a href="#" class="btn secondary">JOIN NOW</a>
+        </div>
+      </div>
+      <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    </nav>
+  </header>
+
+  <main>
+    <section class="membership-hero">
+      <div class="membership-hero-inner">
+        <p class="membership-eyebrow">Membership</p>
+        <h1>Plan your <span class="accent">COMEBACK</span> with us</h1>
+        <p class="membership-tagline">
+          Lock in founding rates on 24/7 access, premium kit, and coaching support before we open our doors.
+        </p>
+        <p class="membership-subcopy">
+          Choose a pre-sale tier that fits how you train today and how you want to train next year.
+        </p>
+      </div>
+    </section>
+
+    <section class="plans-section">
+      <div class="plans-inner">
+        <header class="plans-header">
+          <h2>Founding pre-sale <span class="accent">memberships</span></h2>
+          <p>
+            Secure limited founding rates while spots last. All tiers include 24/7 access, full gym floor, and community events.
+          </p>
+        </header>
+
+        <div class="plans-grid">
+          <article class="plan-card plan-gold">
+            <div class="plan-badge">Most Popular</div>
+            <h3 class="plan-label">Gold Tier</h3>
+            <p class="plan-meta">First 50 only</p>
+            <p class="plan-price">
+              <span class="price-amount">$78</span>
+              <span class="price-unit">/month</span>
+            </p>
+            <p class="plan-join-fee">$0 joining fee</p>
+          </article>
+
+          <article class="plan-card plan-silver">
+            <h3 class="plan-label">Silver Tier</h3>
+            <p class="plan-meta">First 100 only</p>
+            <p class="plan-price">
+              <span class="price-amount">$88</span>
+              <span class="price-unit">/month</span>
+            </p>
+            <p class="plan-join-fee">$0 joining fee</p>
+          </article>
+
+          <article class="plan-card plan-bronze">
+            <h3 class="plan-label">Bronze Tier</h3>
+            <p class="plan-meta">First 1150 only</p>
+            <p class="plan-price">
+              <span class="price-amount">$93</span>
+              <span class="price-unit">/month</span>
+            </p>
+            <p class="plan-join-fee">$0 joining fee</p>
+          </article>
+        </div>
+
+        <p class="membership-note">
+          <strong>Regular membership:</strong> $108/month + $90 joining fee.
+          Lock in pre-sale rates now before we reach capacity.
+        </p>
+      </div>
+    </section>
+
+    <section class="membership-cta-section membership-pt">
+      <div class="membership-cta-inner">
+        <h2>Want results even <span class="accent">faster</span>?</h2>
+        <p>
+          Add 1:1 personal training on top of your membership to get tailored programming,
+          accountability, and technique coaching that moves the needle.
+        </p>
+        <a class="btn dark" href="/personal-training/">VIEW PERSONAL TRAINING PLANS</a>
+      </div>
+    </section>
+
+    <section class="membership-cta-section membership-trial">
+      <div class="membership-cta-inner">
+        <h2>Try us out for <span class="accent">free</span></h2>
+        <p>
+          Not sure which tier fits best? Come down for a trial session, explore the space,
+          and chat with our team before you commit.
+        </p>
+        <a class="btn primary" href="#membership-contact">CLAIM A FREE TRIAL SPOT</a>
+      </div>
+    </section>
+
+    <section id="membership-contact" class="membership-contact">
+      <div class="membership-contact-inner">
+        <div class="membership-contact-copy">
+          <h2>Let’s talk <span class="accent">membership</span></h2>
+          <p>
+            Share a few details and the tier you’re interested in. We’ll get in touch to
+            walk you through availability, timelines, and next steps.
+          </p>
+        </div>
+        <div class="membership-contact-form">
+          <form class="contact-form" action="#" method="post">
+            <div class="form-grid">
+              <label>
+                <span>First Name</span>
+                <input type="text" name="first_name" required>
+              </label>
+              <label>
+                <span>Last Name</span>
+                <input type="text" name="last_name" required>
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" required>
+              </label>
+              <label>
+                <span>Phone</span>
+                <input type="tel" name="phone" required>
+              </label>
+              <label class="full-width">
+                <span>Topic</span>
+                <select name="topic" required>
+                  <option value="">Choose an option</option>
+                  <option>Gym trial</option>
+                  <option>Class trial</option>
+                  <option>Personal training trial</option>
+                  <option>Gym tour</option>
+                  <option>Others</option>
+                </select>
+              </label>
+              <label class="full-width">
+                <span>Message</span>
+                <textarea name="message" rows="4" placeholder="Tell us what you need..."></textarea>
+              </label>
+            </div>
+            <button type="submit" class="btn primary">SEND MESSAGE</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 YNSGYM. ALL RIGHTS RESERVED.</p>
+  </footer>
+</body>
+</html>
+

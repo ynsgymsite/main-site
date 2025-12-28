@@ -1,0 +1,884 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #111;
+}
+
+/* Header */
+.main-header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.logo {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+.logo-link {
+  color: inherit;
+  text-decoration: none;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #111;
+}
+.cta-buttons .btn {
+  margin-left: 1rem;
+}
+
+/* Hamburger toggle (hidden on desktop) */
+.nav-toggle {
+  display: none;
+}
+.nav-toggle-label {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.22rem;
+  z-index: 1001;
+}
+.nav-toggle-label span {
+  display: block;
+  width: 1.4rem;
+  height: 2px;
+  background: #111;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
+  transform: translateY(4px) rotate(45deg);
+}
+.nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.btn.primary {
+  background: #ff4a4a;
+  color: #fff;
+}
+.btn.primary:hover {
+  background: #e03f3f;
+}
+.btn.secondary {
+  background: #222;
+  color: #fff;
+}
+.btn.secondary:hover {
+  background: #000;
+}
+.btn.dark {
+  background: #111;
+  color: #fff;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #f9f9f9;
+}
+.hero h1 {
+  font-size: 2.75rem;
+  margin-bottom: 1rem;
+}
+.hero .accent {
+  color: #ff4a4a;
+}
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+.hero .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.hero .buttons .btn {
+  margin: 0;
+  flex: 0 0 auto;
+  width: auto;
+}
+
+/* Split Hero Sections */
+.hero-split {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 3rem 2rem;
+  background: #fff;
+}
+.hero-split:nth-of-type(even) {
+  background: #f3f3f3;
+}
+.hero-split.reverse {
+  flex-direction: row-reverse;
+}
+.hero-split-text {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.hero-split-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.hero-split-text .accent {
+  color: #ff4a4a;
+}
+.hero-split-text p {
+  margin-bottom: 0;
+}
+.hero-split-media {
+  flex: 1 1 50%;
+  position: relative;
+  overflow: hidden;
+  min-height: 260px;
+}
+.hero-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1.05);
+  transition: transform 0.4s ease-out;
+}
+.hero-split:hover .hero-image {
+  transform: scale(1.08);
+}
+.hero-form {
+  align-items: center;
+}
+.form-panel {
+  background: #fff;
+  border: 1px solid #e7e7e7;
+  border-radius: 16px;
+  padding: 1.5rem;
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  color: #222;
+}
+.form-grid label span {
+  font-weight: 600;
+}
+.form-grid .full-width {
+  grid-column: 1 / -1;
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 999px;
+  border: 1px solid #ccc;
+  background: #fdfdfd;
+  font-size: 1rem;
+  color: #111;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.contact-form textarea {
+  resize: vertical;
+  min-height: 140px;
+  border-radius: 24px;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #ff4a4a;
+  box-shadow: 0 0 0 3px rgba(255, 74, 74, 0.15);
+}
+.contact-form button {
+  align-self: flex-start;
+}
+
+/* Membership Page */
+.membership-hero {
+  text-align: center;
+  padding: 4rem 2rem 3rem;
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
+    url("https://placehold.co/1600x900/png?text=Membership+Hero");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+.membership-hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.membership-hero.pt-hero {
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.7)),
+    url("https://placehold.co/1600x900/png?text=Personal+Training+Hero");
+}
+.membership-hero.classes-hero {
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.65)),
+    url("https://placehold.co/1600x900/png?text=Classes+Hero");
+}
+.membership-hero.gyms-hero {
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+    url("https://placehold.co/1600x900/png?text=Our+Gyms");
+}
+.membership-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.8rem;
+  color: #777;
+}
+.membership-hero h1 {
+  font-size: 2.4rem;
+}
+.membership-tagline {
+  font-size: 1.05rem;
+}
+.membership-subcopy {
+  font-size: 0.98rem;
+}
+.membership-hero-actions {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.plans-section {
+  padding: 3rem 2rem 4rem;
+  background: #fff;
+}
+.plans-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.plans-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.plans-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+.plans-header p {
+  color: #444;
+}
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+.plan-card {
+  border-radius: 16px;
+  border: 1px solid #e5e5e5;
+  padding: 1.75rem 1.5rem;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-align: left;
+}
+.plan-card.plan-gold {
+  position: relative;
+  border-color: #ff4a4a;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(145deg, #fff8e1, #ffffff);
+}
+.plan-card.plan-silver {
+  background: linear-gradient(145deg, #f5f7fa, #ffffff);
+  border-color: #dde3ed;
+}
+.plan-card.plan-bronze {
+  background: linear-gradient(145deg, #fff3e6, #ffffff);
+  border-color: #f0b892;
+}
+.plan-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1.3rem;
+  background: #ff4a4a;
+  color: #fff;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.plan-label {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #666;
+}
+.plan-meta {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ff4a4a;
+}
+.plan-price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+.price-unit {
+  font-size: 0.9rem;
+  color: #444;
+}
+.plan-join-fee {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #111;
+}
+.plan-features {
+  margin-top: 0.5rem;
+  padding-left: 1.1rem;
+  list-style: disc;
+  font-size: 0.9rem;
+  color: #444;
+}
+.plan-features li + li {
+  margin-top: 0.25rem;
+}
+.plan-cta {
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+.membership-note {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+}
+
+.membership-cta-section {
+  padding: 3rem 2rem;
+  background: #f5f5f5;
+}
+.membership-cta-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.membership-pt {
+  background: #111;
+  color: #fff;
+}
+.membership-pt .accent {
+  color: #ff4a4a;
+}
+.membership-pt .btn.dark {
+  background: #fff;
+  color: #111;
+}
+.membership-referral {
+  background: #fff;
+}
+.membership-referral .membership-footnote {
+  font-size: 0.8rem;
+  color: #777;
+}
+.membership-trial {
+  background: #f9f9f9;
+}
+
+.membership-contact {
+  padding: 3.5rem 2rem 4rem;
+  background: #ffffff;
+}
+.membership-contact-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.3fr);
+  gap: 2rem;
+  align-items: flex-start;
+}
+.membership-contact-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.membership-contact-copy p {
+  color: #444;
+}
+.membership-contact-form {
+  background: #fff;
+  border: 1px solid #e7e7e7;
+  border-radius: 16px;
+  padding: 1.75rem 1.5rem;
+}
+
+/* Personal Training Page */
+.pt-benefits,
+.pt-pricing,
+.pt-fit {
+  padding: 3rem 2rem;
+}
+.pt-benefits-inner,
+.pt-pricing-inner,
+.pt-fit-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+.pt-benefits {
+  background: #ffffff;
+}
+.pt-pricing {
+  background: #f5f5f5;
+}
+.pt-fit {
+  background: #ffffff;
+}
+.pt-benefits h2,
+.pt-pricing h2,
+.pt-fit h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+.pt-benefits-grid,
+.pt-fit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.pt-benefit,
+.pt-fit-item {
+  border-radius: 16px;
+  border: 1px solid #e5e5e5;
+  padding: 1.5rem 1.4rem;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.pt-benefit h3,
+.pt-fit-item h3 {
+  font-size: 1.05rem;
+}
+.pt-benefit p,
+.pt-fit-item p {
+  font-size: 0.95rem;
+  color: #444;
+}
+.pt-pricing-inner > p {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+  color: #444;
+}
+.pt-pricing-card {
+  max-width: 480px;
+  margin: 0 auto;
+  margin-top: 0.75rem;
+  border-radius: 18px;
+  border: 1px solid #e7e7e7;
+  padding: 1.75rem 1.5rem 1.9rem;
+  background: linear-gradient(145deg, #fff5f0, #ffffff);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-align: left;
+  align-items: flex-start;
+}
+.pt-pricing-label {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #666;
+}
+.pt-pricing-price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+.pt-pricing-price .price-unit {
+  font-size: 0.95rem;
+  color: #444;
+}
+.pt-pricing-note {
+  font-size: 0.9rem;
+  color: #555;
+}
+.pt-pricing-card .btn {
+  margin-top: 0.9rem;
+}
+
+/* Classes Page */
+.classes-section,
+.classes-pricing {
+  padding: 3rem 2rem;
+}
+.classes-section {
+  background: #ffffff;
+}
+.classes-pricing {
+  background: #f5f5f5;
+}
+.classes-inner,
+.classes-pricing-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+.classes-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.classes-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+.classes-header p {
+  color: #444;
+}
+.classes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.class-card {
+  border-radius: 16px;
+  border: 1px solid #e5e5e5;
+  padding: 1.5rem 1.4rem;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.class-card h3 {
+  font-size: 1.05rem;
+}
+.class-card p {
+  font-size: 0.95rem;
+  color: #444;
+}
+.classes-pricing-inner > p {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+  color: #444;
+}
+.classes-pricing-card {
+  max-width: 480px;
+  margin: 0 auto;
+  margin-top: 0.75rem;
+  border-radius: 18px;
+  border: 1px solid #e7e7e7;
+  padding: 1.75rem 1.5rem 1.9rem;
+  background: linear-gradient(145deg, #f3f7ff, #ffffff);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-align: left;
+  align-items: flex-start;
+}
+.classes-pricing-label {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #666;
+}
+.classes-pricing-price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+.classes-pricing-price .price-unit {
+  font-size: 0.95rem;
+  color: #444;
+}
+.classes-pricing-note {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Nav active state */
+.nav-links a.active {
+  color: #ff4a4a;
+}
+
+/* Sample sections for nav tabs */
+.sample-section {
+  padding: 4rem 2rem;
+  background: #ffffff;
+}
+.sample-section.alt {
+  background: #f5f5f5;
+}
+.sample-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.sample-inner h2 {
+  font-size: 2rem;
+}
+.sample-inner p {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.testimonial-card {
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  text-align: left;
+  font-size: 0.95rem;
+}
+.testimonial-card .name {
+  display: block;
+  margin-top: 0.75rem;
+  font-weight: 600;
+  color: #333;
+}
+.hero-image-1 {
+  background-image: url("https://placehold.co/1600x1100/png?text=Strength+Zone");
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+}
+.hero-image-2 {
+  background-image: url("https://placehold.co/1600x1100/png?text=Coaching+Studio");
+  clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+}
+.hero-image-3 {
+  background-image: url("https://placehold.co/1600x1100/png?text=Classes+Floor");
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Responsive Layouts */
+@media (max-width: 900px) {
+  .main-header {
+    padding: 0.75rem 1.25rem;
+  }
+  .navbar {
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 1rem;
+  }
+  .logo {
+    flex: 0 0 auto;
+    font-size: 1.4rem;
+  }
+  .nav-toggle-label {
+    display: flex;
+  }
+  .nav-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease-out;
+    z-index: 998;
+  }
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 260px;
+    background: #111;
+    color: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 4.5rem 1.75rem 2rem;
+    gap: 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+    z-index: 999;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    width: 100%;
+    font-size: 0.95rem;
+  }
+  .nav-links a {
+    color: #fff;
+  }
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+  .cta-buttons .btn {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .nav-toggle:checked ~ .nav-menu {
+    transform: translateX(0);
+  }
+  .nav-toggle:checked ~ .nav-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .hero-split {
+    padding: 2.5rem 1.5rem;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .testimonials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .membership-contact-inner {
+    grid-template-columns: 1fr;
+  }
+  .plans-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+  .hero h1 {
+    font-size: 2.1rem;
+  }
+  .hero-split,
+  .hero-split.reverse {
+    flex-direction: column;
+  }
+  .hero-split-media {
+    order: -1;
+    min-height: 220px;
+  }
+  .hero-form .hero-split-media {
+    order: 0;
+  }
+  .hero-image,
+  .hero-image-1,
+  .hero-image-2,
+  .hero-image-3 {
+    clip-path: none;
+  }
+  .membership-hero {
+    padding: 3rem 1.5rem 2.75rem;
+  }
+  .membership-hero h1 {
+    font-size: 2.1rem;
+  }
+  .membership-contact {
+    padding: 3rem 1.5rem 3.25rem;
+  }
+  .membership-contact-form {
+    padding: 1.5rem 1.25rem;
+  }
+  .plans-section {
+    padding: 0 1.5rem 3rem;
+  }
+  .plans-grid {
+    grid-template-columns: 1fr;
+  }
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YNSGYM – Personal Training</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="main-header">
+    <nav class="navbar">
+      <div class="logo"><a href="/" class="logo-link">YNSGYM</a></div>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <div class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="/gyms/">Our Gyms</a></li>
+          <li><a href="/membership/">Membership</a></li>
+          <li><a href="/personal-training/" class="active">Personal Training</a></li>
+          <li><a href="/classes/">Classes</a></li>
+          <li><a href="/testimonials/">Testimonials</a></li>
+        </ul>
+        <div class="cta-buttons">
+          <a href="#pt-contact" class="btn primary">FREE TRIAL</a>
+          <a href="#" class="btn secondary">JOIN NOW</a>
+        </div>
+      </div>
+      <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    </nav>
+  </header>
+
+  <main>
+    <section class="membership-hero pt-hero">
+      <div class="membership-hero-inner">
+        <p class="membership-eyebrow">Personal Training</p>
+        <h1>Workouts built <span class="accent">JUST FOR YOU</span></h1>
+        <p class="membership-tagline">
+          Male and female certified trainers, flexible times, and sessions tailored to your goals — from first day to summer shred.
+        </p>
+        <p class="membership-subcopy">
+          No more guesswork. Show up, follow the plan, and let us handle the programming, coaching, and accountability.
+        </p>
+      </div>
+    </section>
+
+    <section class="pt-benefits">
+      <div class="pt-benefits-inner">
+        <h2>Why train <span class="accent">1:1</span> with us?</h2>
+        <div class="pt-benefits-grid">
+          <article class="pt-benefit">
+            <h3>Tailored to your goals</h3>
+            <p>
+              Whether you’re just getting started, coming back after a break, or chasing that summer body, every session is built around you.
+            </p>
+          </article>
+          <article class="pt-benefit">
+            <h3>Trainers you vibe with</h3>
+            <p>
+              Work with male or female personal trainers who match your style, schedule, and confidence level.
+            </p>
+          </article>
+          <article class="pt-benefit">
+            <h3>Real coaching, not guessing</h3>
+            <p>
+              Technique check, progression, and accountability each week so you stop guessing and start seeing actual progress.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pt-pricing">
+      <div class="pt-pricing-inner">
+        <h2>Pre-sale <span class="accent">PT offer</span></h2>
+        <p>
+          Lock in our launch promo and get a feel for coaching before you commit long term.
+        </p>
+        <div class="pt-pricing-card">
+          <p class="pt-pricing-label">Personal Training Starter Pack</p>
+          <p class="pt-pricing-price">
+            <span class="price-amount">$180</span>
+            <span class="price-unit">for 3 sessions</span>
+          </p>
+          <p class="pt-pricing-note">
+            Pre-sale promotion. Usual value: $300 for 3 sessions.
+          </p>
+          <a href="#pt-contact" class="btn dark">BOOK YOUR 3 SESSIONS</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="pt-fit">
+      <div class="pt-fit-inner">
+        <h2>Is personal training <span class="accent">right for you</span>?</h2>
+        <div class="pt-fit-grid">
+          <article class="pt-fit-item">
+            <h3>You’re new or restarting</h3>
+            <p>
+              Get a safe, confidence-building plan instead of wandering the gym floor wondering what to do next.
+            </p>
+          </article>
+          <article class="pt-fit-item">
+            <h3>You want faster results</h3>
+            <p>
+              Dial in your training with a coach who tracks your reps, tweaks your form, and pushes you just enough.
+            </p>
+          </article>
+          <article class="pt-fit-item">
+            <h3>You’re chasing something big</h3>
+            <p>
+              Prep for Hyrox, a photoshoot, a comeback season, or simply to feel stronger in everyday life.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pt-contact" class="membership-contact">
+      <div class="membership-contact-inner">
+        <div class="membership-contact-copy">
+          <h2>Let’s plan your <span class="accent">PT sessions</span></h2>
+          <p>
+            Share a few details and when you’d like to train. We’ll match you with a coach and lock in your 3-session starter pack.
+          </p>
+        </div>
+        <div class="membership-contact-form">
+          <form class="contact-form" action="#" method="post">
+            <div class="form-grid">
+              <label>
+                <span>First Name</span>
+                <input type="text" name="first_name" required>
+              </label>
+              <label>
+                <span>Last Name</span>
+                <input type="text" name="last_name" required>
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" required>
+              </label>
+              <label>
+                <span>Phone</span>
+                <input type="tel" name="phone" required>
+              </label>
+              <label class="full-width">
+                <span>Topic</span>
+                <select name="topic" required>
+                  <option value="">Choose an option</option>
+                  <option>Gym trial</option>
+                  <option>Class trial</option>
+                  <option>Personal training trial</option>
+                  <option>Gym tour</option>
+                  <option>Others</option>
+                </select>
+              </label>
+              <label class="full-width">
+                <span>Message</span>
+                <textarea name="message" rows="4" placeholder="Tell us what you need..."></textarea>
+              </label>
+            </div>
+            <button type="submit" class="btn primary">SEND MESSAGE</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  <footer class="site-footer">
+    <p>© 2025 YNSGYM. ALL RIGHTS RESERVED.</p>
+  </footer>
+</body>
+</html>
+
