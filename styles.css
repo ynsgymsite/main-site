@@ -874,17 +874,30 @@ body {
   .hero h1 {
     font-size: 2.1rem;
   }
-  .hero-split-inner,
   .hero-split,
-  .hero-split.reverse {
-    flex-direction: column;
+  .hero-split.reverse,
+  .hero-split-inner,
+  .hero-split.reverse .hero-split-inner {
+    flex-direction: column !important;
+  }
+  .hero-split-text,
+  .hero-split-media {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
   .hero-split-media {
-    order: -1;
+    order: -1 !important;
     min-height: 220px;
   }
+  .hero-split.reverse .hero-split-media {
+    order: -1 !important;
+  }
+  .hero-form .hero-split-text {
+    order: -1 !important;
+  }
   .hero-form .hero-split-media {
-    order: 0;
+    order: 0 !important;
   }
   .hero-form .hero-split-text,
   .hero-form .hero-split-media {
@@ -903,6 +916,12 @@ body {
   }
   .membership-hero {
     padding: 3rem 1.5rem 2.75rem;
+    background-size: cover;
+    background-position: center;
+    min-height: auto;
+  }
+  .membership-hero-inner {
+    width: 100%;
   }
   .membership-hero h1 {
     font-size: 2.1rem;
