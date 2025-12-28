@@ -25,7 +25,7 @@
           <li><a href="/testimonials/" class="active">Testimonials</a></li>
         </ul>
         <div class="cta-buttons">
-          <a href="#" class="btn primary">FREE TRIAL</a>
+          <a href="#testimonials-contact" class="btn primary">FREE TRIAL</a>
           <a href="#" class="btn secondary">JOIN NOW</a>
         </div>
       </div>
@@ -59,9 +59,58 @@
             <span class="name">Jess, Busy Professional</span>
           </article>
           <article class="testimonial-card">
-            <p>"Even at 5am, there’s energy. It feels like everyone in the room is pulling for you to win."</p>
+            <p>"Even at 5am, there's energy. It feels like everyone in the room is pulling for you to win."</p>
             <span class="name">Sam, Early-Morning Lifter</span>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials-contact" class="membership-contact">
+      <div class="membership-contact-inner">
+        <div class="membership-contact-copy">
+          <h2>Let's talk <span class="accent">goals</span></h2>
+          <p>
+            Share a few details and what you're looking for. We'll get in touch to help you get started.
+          </p>
+        </div>
+        <div class="membership-contact-form">
+          <form class="contact-form" action="#" method="post">
+            <div class="form-grid">
+              <label>
+                <span>First Name</span>
+                <input type="text" name="first_name" required>
+              </label>
+              <label>
+                <span>Last Name</span>
+                <input type="text" name="last_name" required>
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" required>
+              </label>
+              <label>
+                <span>Phone</span>
+                <input type="tel" name="phone" required>
+              </label>
+              <label class="full-width">
+                <span>Topic</span>
+                <select name="topic" required>
+                  <option value="">Choose an option</option>
+                  <option>Gym trial</option>
+                  <option>Class trial</option>
+                  <option>Personal training trial</option>
+                  <option>Gym tour</option>
+                  <option>Others</option>
+                </select>
+              </label>
+              <label class="full-width">
+                <span>Message</span>
+                <textarea name="message" rows="4" placeholder="Tell us what you need..."></textarea>
+              </label>
+            </div>
+            <button type="submit" class="btn primary">SEND MESSAGE</button>
+          </form>
         </div>
       </div>
     </section>
@@ -70,6 +119,49 @@
   <footer class="site-footer">
     <p>© 2025 YNSGYM. ALL RIGHTS RESERVED.</p>
   </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // WhatsApp number - replace with your actual number (include country code, no + or spaces)
+  const whatsappNumber = '6591234567'; // TODO: Replace with your actual WhatsApp number
+  
+  const form = document.querySelector('#testimonials-contact .contact-form');
+  
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Collect form data
+      const formData = new FormData(form);
+      const firstName = formData.get('first_name') || '';
+      const lastName = formData.get('last_name') || '';
+      const email = formData.get('email') || '';
+      const phone = formData.get('phone') || '';
+      const topic = formData.get('topic') || '';
+      const message = formData.get('message') || '';
+      
+      // Build the message
+      let whatsappMessage = 'Hello! I\'m interested in getting in touch.\n\n';
+      whatsappMessage += `Name: ${firstName} ${lastName}\n`;
+      whatsappMessage += `Email: ${email}\n`;
+      whatsappMessage += `Phone: ${phone}\n`;
+      if (topic) {
+        whatsappMessage += `Topic: ${topic}\n`;
+      }
+      if (message) {
+        whatsappMessage += `\nMessage: ${message}`;
+      }
+      
+      // Encode the message for URL
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+      
+      // Open WhatsApp
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+    });
+  }
+});
+</script>
+
 </body>
 </html>
 

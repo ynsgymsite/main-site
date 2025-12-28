@@ -25,7 +25,7 @@
           <li><a href="/testimonials/">Testimonials</a></li>
         </ul>
         <div class="cta-buttons">
-          <a href="#" class="btn primary">FREE TRIAL</a>
+          <a href="#membership-contact" class="btn primary">FREE TRIAL</a>
           <a href="#" class="btn secondary">JOIN NOW</a>
         </div>
       </div>
@@ -107,17 +107,6 @@
       </div>
     </section>
 
-    <section class="membership-cta-section membership-trial">
-      <div class="membership-cta-inner">
-        <h2>Try us out for <span class="accent">free</span></h2>
-        <p>
-          Not sure which tier fits best? Come down for a trial session, explore the space,
-          and chat with our team before you commit.
-        </p>
-        <a class="btn primary" href="#membership-contact">CLAIM A FREE TRIAL SPOT</a>
-      </div>
-    </section>
-
     <section id="membership-contact" class="membership-contact">
       <div class="membership-contact-inner">
         <div class="membership-contact-copy">
@@ -172,6 +161,49 @@
   <footer class="site-footer">
     <p>© 2025 YNSGYM. ALL RIGHTS RESERVED.</p>
   </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // WhatsApp number - replace with your actual number (include country code, no + or spaces)
+  const whatsappNumber = '6591234567'; // TODO: Replace with your actual WhatsApp number
+  
+  const form = document.querySelector('#membership-contact .contact-form');
+  
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Collect form data
+      const formData = new FormData(form);
+      const firstName = formData.get('first_name') || '';
+      const lastName = formData.get('last_name') || '';
+      const email = formData.get('email') || '';
+      const phone = formData.get('phone') || '';
+      const topic = formData.get('topic') || '';
+      const message = formData.get('message') || '';
+      
+      // Build the message
+      let whatsappMessage = 'Hello! I\'m interested in getting in touch.\n\n';
+      whatsappMessage += `Name: ${firstName} ${lastName}\n`;
+      whatsappMessage += `Email: ${email}\n`;
+      whatsappMessage += `Phone: ${phone}\n`;
+      if (topic) {
+        whatsappMessage += `Topic: ${topic}\n`;
+      }
+      if (message) {
+        whatsappMessage += `\nMessage: ${message}`;
+      }
+      
+      // Encode the message for URL
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+      
+      // Open WhatsApp
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+    });
+  }
+});
+</script>
+
 </body>
 </html>
 

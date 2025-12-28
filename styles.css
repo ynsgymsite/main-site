@@ -113,7 +113,19 @@ body {
 .hero {
   text-align: center;
   padding: 4rem 2rem;
-  background: #f9f9f9;
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
+    url("https://placehold.co/1600x900/png?text=Ready+to+Snap");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+.hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 .hero h1 {
   font-size: 2.75rem;
@@ -140,17 +152,27 @@ body {
 
 /* Split Hero Sections */
 .hero-split {
+  padding: 3rem 2rem;
+  background: #fff;
   display: flex;
   align-items: stretch;
   justify-content: space-between;
   gap: 2rem;
-  padding: 3rem 2rem;
-  background: #fff;
+}
+.hero-split-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
 }
 .hero-split:nth-of-type(even) {
-  background: #f3f3f3;
+  background: #fff;
 }
-.hero-split.reverse {
+.hero-split.reverse,
+.hero-split.reverse .hero-split-inner {
   flex-direction: row-reverse;
 }
 .hero-split-text {
@@ -311,7 +333,7 @@ body {
 }
 
 .plans-section {
-  padding: 3rem 2rem 4rem;
+  padding: 4rem 2rem 4rem;
   background: #fff;
 }
 .plans-inner {
@@ -637,8 +659,12 @@ body {
   font-size: 0.95rem;
   color: #444;
 }
+.classes-pricing h2 {
+  font-size: 2rem;
+  text-align: center;
+}
 .classes-pricing-inner > p {
-  max-width: 620px;
+  max-width: 800px;
   margin: 0 auto;
   text-align: center;
   color: #444;
@@ -834,6 +860,11 @@ body {
   .plans-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .classes-grid,
+  .pt-benefits-grid,
+  .pt-fit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 640px) {
@@ -843,6 +874,7 @@ body {
   .hero h1 {
     font-size: 2.1rem;
   }
+  .hero-split-inner,
   .hero-split,
   .hero-split.reverse {
     flex-direction: column;
@@ -853,6 +885,15 @@ body {
   }
   .hero-form .hero-split-media {
     order: 0;
+  }
+  .hero-form .hero-split-text,
+  .hero-form .hero-split-media {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  .form-panel {
+    width: 100%;
+    max-width: 100%;
   }
   .hero-image,
   .hero-image-1,
@@ -873,9 +914,14 @@ body {
     padding: 1.5rem 1.25rem;
   }
   .plans-section {
-    padding: 0 1.5rem 3rem;
+    padding: 3rem 1.5rem 3rem;
   }
   .plans-grid {
+    grid-template-columns: 1fr;
+  }
+  .classes-grid,
+  .pt-benefits-grid,
+  .pt-fit-grid {
     grid-template-columns: 1fr;
   }
   .testimonials-grid {

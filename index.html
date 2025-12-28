@@ -26,7 +26,7 @@
         <li><a href="/testimonials/">Testimonials</a></li>
       </ul>
       <div class="cta-buttons">
-        <a href="#" class="btn primary">FREE TRIAL</a>
+        <a href="#contact" class="btn primary">FREE TRIAL</a>
         <a href="#" class="btn secondary">JOIN NOW</a>
       </div>
     </div>
@@ -36,53 +36,62 @@
 
 <main>
   <section class="hero">
-    <h1>ready to <span class="accent">snap?</span></h1>
-    <p>The biggest 24/7 gym in the West — home to Hyrox, HIIT, Yoga, Reformer & Mat Pilates.</p>
-    <div class="buttons">
-      <a class="btn primary" href="#">GROUP CLASSES</a>
-      <a class="btn secondary" href="#">MEMBERSHIP</a>
+    <div class="hero-inner">
+      <h1>ready to <span class="accent">snap?</span></h1>
+      <p>The biggest 24/7 gym in the West — home to Hyrox, HIIT, Yoga, Reformer & Mat Pilates.</p>
+      <div class="buttons">
+        <a class="btn primary" href="/classes/">GROUP CLASSES</a>
+        <a class="btn secondary" href="/membership/">MEMBERSHIP</a>
+      </div>
     </div>
   </section>
 
   <section class="hero-split">
-    <div class="hero-split-text">
-      <h2>Level Up Your <span class="accent">GAINS</span> With Us</h2>
-      <p>Train with top-quality strength, cardio, and functional equipment tailored to your goals.</p>
-      <a class="btn dark" href="#">VIEW OUR GYMS</a>
-    </div>
-    <div class="hero-split-media">
-      <div class="hero-image hero-image-1" aria-hidden="true"></div>
+    <div class="hero-split-inner">
+      <div class="hero-split-text">
+        <h2>Level Up Your <span class="accent">GAINS</span> With Us</h2>
+        <p>Train with top-quality strength, cardio, and functional equipment tailored to your goals.</p>
+        <a class="btn dark" href="/gyms/">VIEW OUR GYMS</a>
+      </div>
+      <div class="hero-split-media">
+        <div class="hero-image hero-image-1" aria-hidden="true"></div>
+      </div>
     </div>
   </section>
 
   <section class="hero-split reverse">
-    <div class="hero-split-text">
-      <h2>Unlock Your <span class="accent">FULL POTENTIAL</span> With Us</h2>
-      <p>Work one-on-one with performance coaches for programming that moves the needle.</p>
-      <a class="btn dark" href="#">PERSONAL TRAINING</a>
-    </div>
-    <div class="hero-split-media">
-      <div class="hero-image hero-image-2" aria-hidden="true"></div>
+    <div class="hero-split-inner">
+      <div class="hero-split-text">
+        <h2>Unlock Your <span class="accent">FULL POTENTIAL</span> With Us</h2>
+        <p>Work one-on-one with performance coaches for programming that moves the needle.</p>
+        <a class="btn dark" href="/personal-training/">PERSONAL TRAINING</a>
+      </div>
+      <div class="hero-split-media">
+        <div class="hero-image hero-image-2" aria-hidden="true"></div>
+      </div>
     </div>
   </section>
 
   <section class="hero-split">
-    <div class="hero-split-text">
-      <h2>Take On New <span class="accent">CHALLENGES</span></h2>
-      <p>From Hyrox-style conditioning to calm, restorative flows — find classes that actually excite you.</p>
-      <a class="btn dark" href="#">EXPLORE OUR CLASSES</a>
-    </div>
-    <div class="hero-split-media">
-      <div class="hero-image hero-image-3" aria-hidden="true"></div>
+    <div class="hero-split-inner">
+      <div class="hero-split-text">
+        <h2>Take On New <span class="accent">CHALLENGES</span></h2>
+        <p>From Hyrox-style conditioning to calm, restorative flows — find classes that actually excite you.</p>
+        <a class="btn dark" href="/classes/">EXPLORE OUR CLASSES</a>
+      </div>
+      <div class="hero-split-media">
+        <div class="hero-image hero-image-3" aria-hidden="true"></div>
+      </div>
     </div>
   </section>
 
-  <section class="hero-split hero-form">
-    <div class="hero-split-text">
-      <h2>Let’s Talk <span class="accent">Goals</span></h2>
-      <p>Tell us what you’re chasing and we’ll line you up with the right coach, class, or trial.</p>
-    </div>
-    <div class="hero-split-media form-panel">
+  <section id="contact" class="hero-split hero-form">
+    <div class="hero-split-inner">
+      <div class="hero-split-text">
+        <h2>Let's Talk <span class="accent">Goals</span></h2>
+        <p>Tell us what you're chasing and we'll line you up with the right coach, class, or trial.</p>
+      </div>
+      <div class="hero-split-media form-panel">
       <form class="contact-form" action="#" method="post">
         <div class="form-grid">
           <label>
@@ -120,6 +129,7 @@
         <button type="submit" class="btn primary">SEND MESSAGE</button>
       </form>
     </div>
+    </div>
   </section>
 
 </main>
@@ -127,6 +137,49 @@
 <footer class="site-footer">
   <p>© 2025 YNSGYM. ALL RIGHTS RESERVED.</p>
 </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // WhatsApp number - replace with your actual number (include country code, no + or spaces)
+  // Example: 6591234567 for Singapore, 1234567890 for US
+  const whatsappNumber = '6591234567'; // TODO: Replace with your actual WhatsApp number
+  
+  const form = document.querySelector('#contact .contact-form');
+  
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Collect form data
+      const formData = new FormData(form);
+      const firstName = formData.get('first_name') || '';
+      const lastName = formData.get('last_name') || '';
+      const email = formData.get('email') || '';
+      const phone = formData.get('phone') || '';
+      const topic = formData.get('topic') || '';
+      const message = formData.get('message') || '';
+      
+      // Build the message
+      let whatsappMessage = 'Hello! I\'m interested in getting in touch.\n\n';
+      whatsappMessage += `Name: ${firstName} ${lastName}\n`;
+      whatsappMessage += `Email: ${email}\n`;
+      whatsappMessage += `Phone: ${phone}\n`;
+      if (topic) {
+        whatsappMessage += `Topic: ${topic}\n`;
+      }
+      if (message) {
+        whatsappMessage += `\nMessage: ${message}`;
+      }
+      
+      // Encode the message for URL
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+      
+      // Open WhatsApp
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+    });
+  }
+});
+</script>
 
 </body>
 </html>
