@@ -5,15 +5,18 @@
   box-sizing: border-box;
 }
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1.6;
   color: #111;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Header */
 .main-header {
-  background: #fff;
-  border-bottom: 1px solid #ddd;
+  background: #000;
+  border-bottom: 1px solid #000;
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
@@ -33,6 +36,7 @@ body {
 .logo {
   font-size: 1.75rem;
   font-weight: bold;
+  color: #fff;
 }
 .logo-link {
   color: inherit;
@@ -46,7 +50,7 @@ body {
 }
 .nav-links a {
   text-decoration: none;
-  color: #111;
+  color: #fff;
 }
 .cta-buttons .btn {
   margin-left: 1rem;
@@ -68,7 +72,7 @@ body {
   display: block;
   width: 1.4rem;
   height: 2px;
-  background: #111;
+  background: #fff;
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 .nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
@@ -112,10 +116,14 @@ body {
 /* Hero Section */
 .hero {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 6rem 2rem;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
-    url("https://placehold.co/1600x900/png?text=Ready+to+Snap");
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.45)),
+    url("public/landing.jpeg");
   background-size: cover;
   background-position: center;
   color: #fff;
@@ -128,11 +136,16 @@ body {
   gap: 1.25rem;
 }
 .hero h1 {
-  font-size: 2.75rem;
+  font-size: 4.5rem;
   margin-bottom: 1rem;
+  line-height: 1.1;
 }
 .hero .accent {
   color: #ff4a4a;
+  font-family: 'Bebas Neue', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.05em;
 }
 .hero p {
   font-size: 1.1rem;
@@ -154,10 +167,8 @@ body {
 .hero-split {
   padding: 3rem 2rem;
   background: #fff;
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  gap: 2rem;
+  position: relative;
+  overflow: hidden;
 }
 .hero-split-inner {
   max-width: 1100px;
@@ -167,6 +178,8 @@ body {
   justify-content: space-between;
   gap: 2rem;
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 .hero-split:nth-of-type(even) {
   background: #fff;
@@ -182,6 +195,8 @@ body {
   justify-content: center;
   align-items: flex-start;
   gap: 1rem;
+  position: relative;
+  z-index: 3;
 }
 .hero-split-text h2 {
   font-size: 2rem;
@@ -198,6 +213,24 @@ body {
   position: relative;
   overflow: hidden;
   min-height: 260px;
+  z-index: 1;
+}
+.hero-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.05);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.4s ease-out;
+}
+.hero-split:hover .hero-image {
+  transform: scale(1.08);
 }
 .hero-image {
   position: absolute;
@@ -280,9 +313,14 @@ body {
 .membership-hero {
   text-align: center;
   padding: 4rem 2rem 3rem;
+  height: 33.33vh;
+  min-height: 33.33vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
-    url("https://placehold.co/1600x900/png?text=Membership+Hero");
+    url("public/membership.jpeg");
   background-size: cover;
   background-position: center;
   color: #fff;
@@ -296,18 +334,18 @@ body {
 }
 .membership-hero.pt-hero {
   background:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.7)),
-    url("https://placehold.co/1600x900/png?text=Personal+Training+Hero");
+  linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
+  url("https://placehold.co/1600x900/png?text=Personal+Training+Hero");
 }
 .membership-hero.classes-hero {
   background:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.65)),
-    url("https://placehold.co/1600x900/png?text=Classes+Hero");
+  linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
+  url("https://placehold.co/1600x900/png?text=Classes+Hero");
 }
 .membership-hero.gyms-hero {
   background:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
-    url("https://placehold.co/1600x900/png?text=Our+Gyms");
+  linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.45)),
+  url("public/gyms.jpeg");
 }
 .membership-eyebrow {
   text-transform: uppercase;
@@ -316,7 +354,16 @@ body {
   color: #777;
 }
 .membership-hero h1 {
-  font-size: 2.4rem;
+  font-size: 4.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+.membership-hero .accent {
+  color: #ff4a4a;
+  font-family: 'Bebas Neue', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.05em;
 }
 .membership-tagline {
   font-size: 1.05rem;
@@ -496,6 +543,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+.membership-contact-copy h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.membership-contact-copy .accent {
+  color: #ff4a4a;
 }
 .membership-contact-copy p {
   color: #444;
@@ -754,15 +808,15 @@ body {
   color: #333;
 }
 .hero-image-1 {
-  background-image: url("https://placehold.co/1600x1100/png?text=Strength+Zone");
+  background-image: url("public/landing-1.jpeg");
   clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
 }
 .hero-image-2 {
-  background-image: url("https://placehold.co/1600x1100/png?text=Coaching+Studio");
+  background-image: url("public/landing-2.jpeg");
   clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
 }
 .hero-image-3 {
-  background-image: url("https://placehold.co/1600x1100/png?text=Classes+Floor");
+  background-image: url("public/landing-3.jpeg");
   clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
 }
 
@@ -889,20 +943,27 @@ body {
   .hero-split-media {
     order: -1 !important;
     min-height: 220px;
+    overflow: hidden;
   }
   .hero-split.reverse .hero-split-media {
     order: -1 !important;
   }
   .hero-form .hero-split-text {
-    order: -1 !important;
+    order: -1;
   }
   .hero-form .hero-split-media {
-    order: 0 !important;
+    order: 0;
   }
   .hero-form .hero-split-text,
   .hero-form .hero-split-media {
     flex: 1 1 100%;
     width: 100%;
+  }
+  .hero-image {
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin-left: 0;
   }
   .form-panel {
     width: 100%;
@@ -918,7 +979,8 @@ body {
     padding: 3rem 1.5rem 2.75rem;
     background-size: cover;
     background-position: center;
-    min-height: auto;
+    height: 33.33vh;
+    min-height: 33.33vh;
   }
   .membership-hero-inner {
     width: 100%;
