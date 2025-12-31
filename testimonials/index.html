@@ -138,6 +138,30 @@ document.addEventListener('DOMContentLoaded', function() {
   // WhatsApp number - replace with your actual number (include country code, no + or spaces)
   const whatsappNumber = '6591234567'; // TODO: Replace with your actual WhatsApp number
   
+  // Touch interaction for post-its on mobile
+  const postIts = document.querySelectorAll('.post-it');
+  postIts.forEach(function(postIt) {
+    let tapTimeout;
+    
+    postIt.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      this.classList.add('tapped');
+    }, { passive: false });
+    
+    postIt.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      const self = this;
+      clearTimeout(tapTimeout);
+      tapTimeout = setTimeout(function() {
+        self.classList.remove('tapped');
+      }, 300);
+    }, { passive: false });
+    
+    postIt.addEventListener('touchcancel', function() {
+      this.classList.remove('tapped');
+    });
+  });
+  
   const form = document.querySelector('#testimonials-contact .contact-form');
   
   if (form) {
