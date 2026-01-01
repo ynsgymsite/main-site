@@ -147,9 +147,7 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // WhatsApp number - replace with your actual number (include country code, no + or spaces)
-  // Example: 6591234567 for Singapore, 1234567890 for US
-  const whatsappNumber = '6591234567'; // TODO: Replace with your actual WhatsApp number
+  const whatsappNumber = '6587675510';
   
   const form = document.querySelector('#contact .contact-form');
   
@@ -157,7 +155,6 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // Collect form data
       const formData = new FormData(form);
       const firstName = formData.get('first_name') || '';
       const lastName = formData.get('last_name') || '';
@@ -166,7 +163,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const topic = formData.get('topic') || '';
       const message = formData.get('message') || '';
       
-      // Build the message
       let whatsappMessage = 'Hello! I\'m interested in getting in touch.\n\n';
       whatsappMessage += `Name: ${firstName} ${lastName}\n`;
       whatsappMessage += `Email: ${email}\n`;
@@ -178,10 +174,8 @@ document.addEventListener('DOMContentLoaded', function() {
         whatsappMessage += `\nMessage: ${message}`;
       }
       
-      // Encode the message for URL
       const encodedMessage = encodeURIComponent(whatsappMessage);
       
-      // Open WhatsApp
       window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
     });
   }
