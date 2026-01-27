@@ -46,9 +46,15 @@
     <div class="hero-inner">
       <h1>ready to <span class="accent">snap?</span></h1>
       <p>The biggest 24/7 gym in the West — home to Hyrox, HIIT, Yoga, Reformer & Mat Pilates.</p>
-      <div class="buttons">
-        <a class="btn primary" href="/classes/">GROUP CLASSES</a>
-        <a class="btn secondary" href="/membership/">MEMBERSHIP</a>
+      <div class="hero-cta-cards">
+        <a class="hero-cta-card" href="/classes/">
+          <span class="hero-cta-card-bg" style="background-image: url('public/classes.jpeg');"></span>
+          <span class="hero-cta-card-label">GROUP CLASSES</span>
+        </a>
+        <a class="hero-cta-card" href="/membership/">
+          <span class="hero-cta-card-bg" style="background-image: url('public/cta-membership.jpeg');"></span>
+          <span class="hero-cta-card-label">MEMBERSHIP</span>
+        </a>
       </div>
     </div>
   </section>
@@ -56,9 +62,11 @@
   <section class="hero-split">
     <div class="hero-split-inner">
       <div class="hero-split-text">
-        <h2>Level Up Your <span class="accent">GAINS</span> With Us</h2>
+        <h2>Level Up Your <span class="accent">GAINS</span></h2>
         <p>Train with top-quality strength, cardio, and functional equipment tailored to your goals.</p>
-        <a class="btn dark" href="/gyms/">VIEW OUR GYMS</a>
+        <div class="cta-group cta-group--left">
+          <a class="btn btn-lg dark" href="/gyms/">VIEW OUR GYMS</a>
+        </div>
       </div>
       <div class="hero-split-media">
         <div class="hero-image hero-image-1" aria-hidden="true"></div>
@@ -69,9 +77,11 @@
   <section class="hero-split reverse">
     <div class="hero-split-inner">
       <div class="hero-split-text">
-        <h2>Unlock Your <span class="accent">FULL POTENTIAL</span> With Us</h2>
+        <h2>Unlock Your <span class="accent">FULL POTENTIAL</span></h2>
         <p>Work one-on-one with performance coaches for a tailored training plan.</p>
-        <a class="btn dark" href="/personal-training/">PERSONAL TRAINING</a>
+        <div class="cta-group cta-group--left">
+          <a class="btn btn-lg dark" href="/personal-training/">PERSONAL TRAINING</a>
+        </div>
       </div>
       <div class="hero-split-media">
         <div class="hero-image hero-image-2" aria-hidden="true"></div>
@@ -84,7 +94,9 @@
       <div class="hero-split-text">
         <h2>Take On New <span class="accent">CHALLENGES</span></h2>
         <p>Choose from Hyrox-style conditioning to calm, restorative flows in pilates classes.</p>
-        <a class="btn dark" href="/classes/">EXPLORE OUR CLASSES</a>
+        <div class="cta-group cta-group--left">
+          <a class="btn btn-lg dark" href="/classes/">EXPLORE CLASSES</a>
+        </div>
       </div>
       <div class="hero-split-media">
         <div class="hero-image hero-image-3" aria-hidden="true"></div>
@@ -99,43 +111,43 @@
         <p>Tell us what you're chasing and we'll line you up with the right coach, class, or trial.</p>
       </div>
       <div class="hero-split-media form-panel">
-      <form class="contact-form" action="#" method="post">
-        <div class="form-grid">
-          <label>
-            <span>First Name</span>
-            <input type="text" name="first_name" required>
-          </label>
-          <label>
-            <span>Last Name</span>
-            <input type="text" name="last_name" required>
-          </label>
-          <label>
-            <span>Email</span>
-            <input type="email" name="email" required>
-          </label>
-          <label>
-            <span>Phone</span>
-            <input type="tel" name="phone" required>
-          </label>
-          <label class="full-width">
-            <span>Topic</span>
-            <select name="topic" required>
-              <option value="">Choose an option</option>
-              <option>Gym trial</option>
-              <option>Class trial</option>
-              <option>Personal training trial</option>
-              <option>Gym tour</option>
-              <option>Others</option>
-            </select>
-          </label>
-          <label class="full-width">
-            <span>Message</span>
-            <textarea name="message" rows="4" placeholder="Tell us what you need..."></textarea>
-          </label>
-        </div>
-        <button type="submit" class="btn primary">SEND MESSAGE</button>
-      </form>
-    </div>
+        <form class="contact-form" action="#" method="post">
+          <div class="form-grid">
+            <label>
+              <span>First Name</span>
+              <input type="text" name="first_name" required>
+            </label>
+            <label>
+              <span>Last Name</span>
+              <input type="text" name="last_name" required>
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" required>
+            </label>
+            <label>
+              <span>Phone</span>
+              <input type="tel" name="phone" required>
+            </label>
+            <label class="full-width">
+              <span>Topic</span>
+              <select name="topic" required>
+                <option value="">Choose an option</option>
+                <option>Gym trial</option>
+                <option>Class trial</option>
+                <option>Personal training trial</option>
+                <option>Gym tour</option>
+                <option>Others</option>
+              </select>
+            </label>
+            <label class="full-width">
+              <span>Message</span>
+              <textarea name="message" rows="4" placeholder="Tell us what you need..."></textarea>
+            </label>
+          </div>
+          <button type="submit" class="btn btn-lg primary btn-block">SEND MESSAGE</button>
+        </form>
+      </div>
     </div>
   </section>
 
