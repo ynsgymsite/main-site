@@ -91,18 +91,29 @@
   var galleryThumb = document.getElementById("gallery-scrollbar-thumb");
 
   if (galleryTrack && galleryScrollbar && galleryThumb) {
+    var scrollTicking = false;
+
     function updateScrollbar() {
       var scrollWidth = galleryTrack.scrollWidth;
       var clientWidth = galleryTrack.clientWidth;
       var scrollLeft = galleryTrack.scrollLeft;
       var thumbWidth = Math.max((clientWidth / scrollWidth) * 100, 20);
-      var thumbLeft = (scrollLeft / (scrollWidth - clientWidth)) * (100 - thumbWidth);
+      var maxScroll = scrollWidth - clientWidth;
+      var thumbLeft = maxScroll > 0 ? (scrollLeft / maxScroll) * (100 - thumbWidth) : 0;
       galleryThumb.style.width = thumbWidth + "%";
       galleryThumb.style.left = thumbLeft + "%";
+      scrollTicking = false;
+    }
+
+    function onScroll() {
+      if (!scrollTicking) {
+        requestAnimationFrame(updateScrollbar);
+        scrollTicking = true;
+      }
     }
 
     updateScrollbar();
-    galleryTrack.addEventListener("scroll", updateScrollbar);
+    galleryTrack.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", updateScrollbar);
   }
 })();
