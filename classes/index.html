@@ -4,204 +4,157 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YNSGYM – Classes</title>
-  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-  <link rel="manifest" href="/favicon/site.webmanifest" />
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
 </head>
-<body>
-  <header class="main-header">
-    <nav class="navbar">
-      <div class="logo"><a href="/" class="logo-link">YNSGYM</a></div>
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
-      <label for="nav-toggle" class="nav-toggle-label">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-      <div class="nav-menu">
-        <ul class="nav-links">
-          <li><a href="/gyms/">Our Gyms</a></li>
-          <li><a href="/membership/">Membership</a></li>
-          <li><a href="/personal-training/">Personal Training</a></li>
-          <li><a href="/classes/" class="active">Classes</a></li>
-          <li><a href="/testimonials/">Testimonials</a></li>
-        </ul>
-        <div class="cta-buttons">
-          <a href="#classes-contact" class="btn primary">FREE TRIAL</a>
-        </div>
-      </div>
-      <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
-    </nav>
+<body class="page-classes">
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">YNSGYM</a>
+      <nav id="nav-links" class="nav__links" data-open="false">
+        <a href="/gyms/">Our Gyms</a>
+        <a href="/membership/">Membership</a>
+        <a href="/personal-training/">Personal Training</a>
+        <a href="/classes/" class="active">Classes</a>
+        <a href="/testimonials/">Testimonials</a>
+        <a href="#classes-contact" class="btn btn--primary nav__cta--mobile">Free Trial</a>
+      </nav>
+      <a href="#classes-contact" class="btn btn--primary nav__cta">Free Trial</a>
+      <button type="button" id="nav-toggle" class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div id="nav-overlay" class="nav__overlay" data-open="false" aria-hidden="true"></div>
+    </div>
   </header>
 
   <main>
-    <section class="page-hero page-hero--classes">
-      <div class="page-hero-inner">
-        <p class="page-eyebrow">Group Classes</p>
-        <h1>Classes that make you <span class="accent">SHOW UP</span></h1>
-      </div>
+    <section class="page-hero">
+      <p class="eyebrow">Group Classes</p>
+      <h1 class="heading-xl">Classes that make you <span class="accent">show up</span></h1>
     </section>
 
-    <section class="classes-section">
-      <div class="classes-inner">
-        <div class="classes-diagonal">
-          <article class="class-card-diagonal class-1">
-            <div class="class-card-bg"></div>
+    <section class="section">
+      <div class="l-wrap">
+        <div class="class-tiles">
+          <a href="#classes-contact" class="class-tile">
+            <span style="background-image: url('/public/hyrox.jpeg');"></span>
             <h3>Hyrox</h3>
-          </article>
-          <article class="class-card-diagonal class-2">
-            <div class="class-card-bg"></div>
+          </a>
+          <a href="#classes-contact" class="class-tile">
+            <span style="background-image: url('/public/hiit.jpeg');"></span>
             <h3>HIIT</h3>
-          </article>
-          <article class="class-card-diagonal class-3">
-            <div class="class-card-bg"></div>
+          </a>
+          <a href="#classes-contact" class="class-tile">
+            <span style="background-image: url('/public/yoga.jpeg');"></span>
             <h3>Yoga</h3>
-          </article>
-          <article class="class-card-diagonal class-4">
-            <div class="class-card-bg"></div>
+          </a>
+          <a href="#classes-contact" class="class-tile">
+            <span style="background-image: url('/public/reformer.jpeg');"></span>
             <h3>Reformer Pilates</h3>
-          </article>
-          <article class="class-card-diagonal class-5">
-            <div class="class-card-bg"></div>
+          </a>
+          <a href="#classes-contact" class="class-tile">
+            <span style="background-image: url('/public/mat.jpeg');"></span>
             <h3>Mat Pilates</h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--sm" style="background: var(--color-surface);">
+      <div class="l-wrap">
+        <h2 class="heading-lg" style="text-align: center; margin-bottom: var(--space-2xl);">Pre-sale <span class="accent">offers</span></h2>
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+          <article class="card card--plan" style="border-color: var(--color-accent);">
+            <span class="badge">Limited time</span>
+            <p class="plan-name">Reformer & Mat Pilates</p>
+            <div class="pricing-card__compare" style="margin: var(--space-sm) 0;">
+              <span class="old">$120</span>
+              <span class="save">Save $40.10</span>
+            </div>
+            <p class="plan-price"><span class="accent">$79.90</span> <span class="unit">for 4 sessions</span></p>
+            <p class="plan-note">Launch offer on all Pilates class packs. Limited-time pre-sale pricing.</p>
+            <a href="#classes-contact" class="btn btn--primary">Book Now</a>
+          </article>
+          <article class="card card--plan" style="opacity: 0.85;">
+            <span class="badge" style="background: var(--color-text-muted);">Coming soon</span>
+            <p class="plan-name">Hyrox</p>
+            <p class="plan-note">Race-style conditioning classes launching soon.</p>
+          </article>
+          <article class="card card--plan" style="opacity: 0.85;">
+            <span class="badge" style="background: var(--color-text-muted);">Coming soon</span>
+            <p class="plan-name">HIIT</p>
+            <p class="plan-note">High-intensity interval training classes launching soon.</p>
+          </article>
+          <article class="card card--plan" style="opacity: 0.85;">
+            <span class="badge" style="background: var(--color-text-muted);">Coming soon</span>
+            <p class="plan-name">Yoga</p>
+            <p class="plan-note">Restorative yoga flows launching soon.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="classes-pricing">
-      <div class="classes-pricing-inner">
-        <h2>Pre-Sale <span class="accent">Offers</span></h2>
-        <div class="classes-pricing-grid">
-          <div class="classes-pricing-card">
-            <div class="classes-pricing-badge">LIMITED TIME</div>
-            <p class="classes-pricing-label">Reformer & Mat Pilates</p>
-            <div class="classes-pricing-comparison">
-              <span class="classes-pricing-original">$120</span>
-              <span class="classes-pricing-savings">Save $40.10</span>
+    <section id="classes-contact" class="section">
+      <div class="l-wrap">
+        <div class="contact-block">
+          <div class="contact-block__grid">
+            <div class="contact-block__copy">
+              <h2 class="heading-lg">Plan your <span class="accent">class schedule</span></h2>
+              <p>Share a few details and which classes you’re interested in. We’ll get in touch to help you build your weekly routine.</p>
             </div>
-            <p class="classes-pricing-price">
-              <span class="price-amount">$79.90</span>
-              <span class="price-unit">for 4 sessions</span>
-            </p>
-            <p class="classes-pricing-note">
-              Launch offer on all Pilates class packs. Limited-time pre-sale pricing.
-            </p>
-            <a href="#classes-contact" class="btn primary">BOOK NOW</a>
+            <form class="contact-form" action="#" method="post">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="cls-first">First Name</label>
+                  <input type="text" id="cls-first" name="first_name" required>
+                </div>
+                <div class="form-group">
+                  <label for="cls-last">Last Name</label>
+                  <input type="text" id="cls-last" name="last_name" required>
+                </div>
+                <div class="form-group">
+                  <label for="cls-email">Email</label>
+                  <input type="email" id="cls-email" name="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="cls-phone">Phone</label>
+                  <input type="tel" id="cls-phone" name="phone" required>
+                </div>
+                <div class="form-group full">
+                  <label for="cls-topic">Topic</label>
+                  <select id="cls-topic" name="topic" required>
+                    <option value="">Choose an option</option>
+                    <option>Gym trial</option>
+                    <option>Class trial</option>
+                    <option>Personal training trial</option>
+                    <option>Gym tour</option>
+                    <option>Others</option>
+                  </select>
+                </div>
+                <div class="form-group full">
+                  <label for="cls-message">Message</label>
+                  <textarea id="cls-message" name="message" rows="4" placeholder="Tell us what you need…"></textarea>
+                </div>
+              </div>
+              <button type="submit" class="btn btn--primary btn--block">Send Message</button>
+            </form>
           </div>
-          <div class="classes-pricing-card classes-coming-soon">
-            <div class="classes-pricing-badge classes-badge-coming">COMING SOON</div>
-            <p class="classes-pricing-label">Hyrox</p>
-            <p class="classes-coming-text">Race-style conditioning classes launching soon</p>
-          </div>
-          <div class="classes-pricing-card classes-coming-soon">
-            <div class="classes-pricing-badge classes-badge-coming">COMING SOON</div>
-            <p class="classes-pricing-label">HIIT</p>
-            <p class="classes-coming-text">High-intensity interval training classes launching soon</p>
-          </div>
-          <div class="classes-pricing-card classes-coming-soon">
-            <div class="classes-pricing-badge classes-badge-coming">COMING SOON</div>
-            <p class="classes-pricing-label">Yoga</p>
-            <p class="classes-coming-text">Restorative yoga flows launching soon</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="classes-contact" class="contact-section">
-      <div class="contact-section-inner">
-        <div class="contact-section-copy">
-          <h2>Let's plan your <span class="accent">class schedule</span></h2>
-          <p>
-            Share a few details and which classes you're interested in. We'll get in touch to help you build your weekly routine.
-          </p>
-        </div>
-        <div class="contact-section-form">
-          <form class="contact-form" action="#" method="post">
-            <div class="form-grid">
-              <label>
-                <span>First Name</span>
-                <input type="text" name="first_name" required>
-              </label>
-              <label>
-                <span>Last Name</span>
-                <input type="text" name="last_name" required>
-              </label>
-              <label>
-                <span>Email</span>
-                <input type="email" name="email" required>
-              </label>
-              <label>
-                <span>Phone</span>
-                <input type="tel" name="phone" required>
-              </label>
-              <label class="full-width">
-                <span>Topic</span>
-                <select name="topic" required>
-                  <option value="">Choose an option</option>
-                  <option>Gym trial</option>
-                  <option>Class trial</option>
-                  <option>Personal training trial</option>
-                  <option>Gym tour</option>
-                  <option>Others</option>
-                </select>
-              </label>
-              <label class="full-width">
-                <span>Message</span>
-                <textarea name="message" rows="4" placeholder="Tell us what you need..."></textarea>
-              </label>
-            </div>
-            <button type="submit" class="btn primary">SEND MESSAGE</button>
-          </form>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© 2025 YNSGYM. ALL RIGHTS RESERVED.</p>
+    <p>© 2025 YNSGYM. All rights reserved.</p>
   </footer>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const whatsappNumber = '6587675510';
-  
-  const form = document.querySelector('#classes-contact .contact-form');
-  
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const formData = new FormData(form);
-      const firstName = formData.get('first_name') || '';
-      const lastName = formData.get('last_name') || '';
-      const email = formData.get('email') || '';
-      const phone = formData.get('phone') || '';
-      const topic = formData.get('topic') || '';
-      const message = formData.get('message') || '';
-      
-      let whatsappMessage = 'Hello! I\'m interested in getting in touch.\n\n';
-      whatsappMessage += `Name: ${firstName} ${lastName}\n`;
-      whatsappMessage += `Email: ${email}\n`;
-      whatsappMessage += `Phone: ${phone}\n`;
-      if (topic) {
-        whatsappMessage += `Topic: ${topic}\n`;
-      }
-      if (message) {
-        whatsappMessage += `\nMessage: ${message}`;
-      }
-      
-      const encodedMessage = encodeURIComponent(whatsappMessage);
-      
-      window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
-    });
-  }
-});
-</script>
-
+  <script src="/js/main.js"></script>
 </body>
 </html>
-

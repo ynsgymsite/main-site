@@ -4,200 +4,135 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YNSGYM – Testimonials</title>
-  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-  <link rel="manifest" href="/favicon/site.webmanifest" />
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
 </head>
-<body>
-  <header class="main-header">
-    <nav class="navbar">
-      <div class="logo"><a href="/" class="logo-link">YNSGYM</a></div>
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
-      <label for="nav-toggle" class="nav-toggle-label">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-      <div class="nav-menu">
-        <ul class="nav-links">
-          <li><a href="/gyms/">Our Gyms</a></li>
-          <li><a href="/membership/">Membership</a></li>
-          <li><a href="/personal-training/">Personal Training</a></li>
-          <li><a href="/classes/">Classes</a></li>
-          <li><a href="/testimonials/" class="active">Testimonials</a></li>
-        </ul>
-        <div class="cta-buttons">
-          <a href="#testimonials-contact" class="btn primary">FREE TRIAL</a>
-        </div>
-      </div>
-      <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
-    </nav>
+<body class="page-testimonials">
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">YNSGYM</a>
+      <nav id="nav-links" class="nav__links" data-open="false">
+        <a href="/gyms/">Our Gyms</a>
+        <a href="/membership/">Membership</a>
+        <a href="/personal-training/">Personal Training</a>
+        <a href="/classes/">Classes</a>
+        <a href="/testimonials/" class="active">Testimonials</a>
+        <a href="#testimonials-contact" class="btn btn--primary nav__cta--mobile">Free Trial</a>
+      </nav>
+      <a href="#testimonials-contact" class="btn btn--primary nav__cta">Free Trial</a>
+      <button type="button" id="nav-toggle" class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div id="nav-overlay" class="nav__overlay" data-open="false" aria-hidden="true"></div>
+    </div>
   </header>
 
   <main>
-    <section class="page-hero page-hero--testimonials">
-      <div class="page-hero-inner">
-        <p class="page-eyebrow">Testimonials</p>
-        <h1>Meet the crew who <span class="accent">TRAIN HERE</span></h1>
-      </div>
+    <section class="page-hero">
+      <p class="eyebrow">Testimonials</p>
+      <h1 class="heading-xl">Meet the crew who <span class="accent">train here</span></h1>
     </section>
 
-    <section class="testimonials-wall">
-      <div class="testimonials-wall-inner">
-        <div class="post-it-wall">
-          <article class="post-it post-it-yellow post-it-1">
+    <section class="section">
+      <div class="l-wrap">
+        <div class="testimonial-grid">
+          <article class="testimonial-card">
             <p>"I joined for the 24/7 access and stayed for the coaching. My strength numbers are up across the board."</p>
-            <span class="name">— Wei Ming, Hyrox Athlete</span>
+            <span class="author">— Wei Ming, Hyrox Athlete</span>
           </article>
-          <article class="post-it post-it-pink post-it-2">
+          <article class="testimonial-card">
             <p>"The mix of strength and Pilates has completely changed how my body feels day to day."</p>
-            <span class="name">— Priya, Busy Professional</span>
+            <span class="author">— Priya, Busy Professional</span>
           </article>
-          <article class="post-it post-it-blue post-it-3">
+          <article class="testimonial-card">
             <p>"Even at 5am, there's energy. It feels like everyone in the room is pulling for you to win."</p>
-            <span class="name">— Sarah, Early-Morning Lifter</span>
+            <span class="author">— Sarah, Early-Morning Lifter</span>
           </article>
-          <article class="post-it post-it-green post-it-4">
+          <article class="testimonial-card">
             <p>"Wah, the trainers here really know their stuff lah. My form improved so much after just a few sessions!"</p>
-            <span class="name">— Marcus, Regular Member</span>
+            <span class="author">— Marcus, Regular Member</span>
           </article>
-          <article class="post-it post-it-yellow post-it-5">
+          <article class="testimonial-card">
             <p>"Best gym in Singapore. The community here is solid and the equipment is always clean."</p>
-            <span class="name">— Jasmine, Fitness Enthusiast</span>
+            <span class="author">— Jasmine, Fitness Enthusiast</span>
           </article>
-          <article class="post-it post-it-orange post-it-6">
+          <article class="testimonial-card">
             <p>"Can't believe how much stronger I've gotten. The PT sessions are worth every dollar!"</p>
-            <span class="name">— David, 6 Months Member</span>
+            <span class="author">— David, 6 Months Member</span>
           </article>
-          <article class="post-it post-it-pink post-it-7">
+          <article class="testimonial-card">
             <p>"The Pilates classes are shiok! My back pain is gone and I feel so much more flexible now."</p>
-            <span class="name">— Michelle, Pilates Regular</span>
+            <span class="author">— Michelle, Pilates Regular</span>
           </article>
-          <article class="post-it post-it-blue post-it-8">
+          <article class="testimonial-card">
             <p>"This place got everything I need. No need to go other gyms already. Really convenient!"</p>
-            <span class="name">— Kevin, New Member</span>
+            <span class="author">— Kevin, New Member</span>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="testimonials-contact" class="contact-section">
-      <div class="contact-section-inner">
-        <div class="contact-section-copy">
-          <h2>Let's talk <span class="accent">goals</span></h2>
-          <p>
-            Share a few details and what you're looking for. We'll get in touch to help you get started.
-          </p>
-        </div>
-        <div class="contact-section-form">
-          <form class="contact-form" action="#" method="post">
-            <div class="form-grid">
-              <label>
-                <span>First Name</span>
-                <input type="text" name="first_name" required>
-              </label>
-              <label>
-                <span>Last Name</span>
-                <input type="text" name="last_name" required>
-              </label>
-              <label>
-                <span>Email</span>
-                <input type="email" name="email" required>
-              </label>
-              <label>
-                <span>Phone</span>
-                <input type="tel" name="phone" required>
-              </label>
-              <label class="full-width">
-                <span>Topic</span>
-                <select name="topic" required>
-                  <option value="">Choose an option</option>
-                  <option>Gym trial</option>
-                  <option>Class trial</option>
-                  <option>Personal training trial</option>
-                  <option>Gym tour</option>
-                  <option>Others</option>
-                </select>
-              </label>
-              <label class="full-width">
-                <span>Message</span>
-                <textarea name="message" rows="4" placeholder="Tell us what you need..."></textarea>
-              </label>
+    <section id="testimonials-contact" class="section">
+      <div class="l-wrap">
+        <div class="contact-block">
+          <div class="contact-block__grid">
+            <div class="contact-block__copy">
+              <h2 class="heading-lg">Let’s talk <span class="accent">goals</span></h2>
+              <p>Share a few details and what you’re looking for. We’ll get in touch to help you get started.</p>
             </div>
-            <button type="submit" class="btn primary">SEND MESSAGE</button>
-          </form>
+            <form class="contact-form" action="#" method="post">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="test-first">First Name</label>
+                  <input type="text" id="test-first" name="first_name" required>
+                </div>
+                <div class="form-group">
+                  <label for="test-last">Last Name</label>
+                  <input type="text" id="test-last" name="last_name" required>
+                </div>
+                <div class="form-group">
+                  <label for="test-email">Email</label>
+                  <input type="email" id="test-email" name="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="test-phone">Phone</label>
+                  <input type="tel" id="test-phone" name="phone" required>
+                </div>
+                <div class="form-group full">
+                  <label for="test-topic">Topic</label>
+                  <select id="test-topic" name="topic" required>
+                    <option value="">Choose an option</option>
+                    <option>Gym trial</option>
+                    <option>Class trial</option>
+                    <option>Personal training trial</option>
+                    <option>Gym tour</option>
+                    <option>Others</option>
+                  </select>
+                </div>
+                <div class="form-group full">
+                  <label for="test-message">Message</label>
+                  <textarea id="test-message" name="message" rows="4" placeholder="Tell us what you need…"></textarea>
+                </div>
+              </div>
+              <button type="submit" class="btn btn--primary btn--block">Send Message</button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© 2025 YNSGYM. ALL RIGHTS RESERVED.</p>
+    <p>© 2025 YNSGYM. All rights reserved.</p>
   </footer>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const whatsappNumber = '6587675510';
-  
-  const postIts = document.querySelectorAll('.post-it');
-  postIts.forEach(function(postIt) {
-    let tapTimeout;
-    
-    postIt.addEventListener('touchstart', function(e) {
-      e.preventDefault();
-      this.classList.add('tapped');
-    }, { passive: false });
-    
-    postIt.addEventListener('touchend', function(e) {
-      e.preventDefault();
-      const self = this;
-      clearTimeout(tapTimeout);
-      tapTimeout = setTimeout(function() {
-        self.classList.remove('tapped');
-      }, 300);
-    }, { passive: false });
-    
-    postIt.addEventListener('touchcancel', function() {
-      this.classList.remove('tapped');
-    });
-  });
-  
-  const form = document.querySelector('#testimonials-contact .contact-form');
-  
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const formData = new FormData(form);
-      const firstName = formData.get('first_name') || '';
-      const lastName = formData.get('last_name') || '';
-      const email = formData.get('email') || '';
-      const phone = formData.get('phone') || '';
-      const topic = formData.get('topic') || '';
-      const message = formData.get('message') || '';
-      
-      let whatsappMessage = 'Hello! I\'m interested in getting in touch.\n\n';
-      whatsappMessage += `Name: ${firstName} ${lastName}\n`;
-      whatsappMessage += `Email: ${email}\n`;
-      whatsappMessage += `Phone: ${phone}\n`;
-      if (topic) {
-        whatsappMessage += `Topic: ${topic}\n`;
-      }
-      if (message) {
-        whatsappMessage += `\nMessage: ${message}`;
-      }
-      
-      const encodedMessage = encodeURIComponent(whatsappMessage);
-      
-      window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
-    });
-  }
-});
-</script>
-
+  <script src="/js/main.js"></script>
 </body>
 </html>
-

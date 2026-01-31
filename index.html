@@ -4,195 +4,159 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YNSGYM</title>
-  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-  <link rel="manifest" href="/favicon/site.webmanifest" />
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
 </head>
-<body>
-
-<header class="main-header">
-  <nav class="navbar">
-    <div class="logo"><a href="/" class="logo-link">YNSGYM</a></div>
-    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
-    <label for="nav-toggle" class="nav-toggle-label">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-    <div class="nav-menu">
-      <ul class="nav-links">
-        <li><a href="/gyms/">Our Gyms</a></li>
-        <li><a href="/membership/">Membership</a></li>
-        <li><a href="/personal-training/">Personal Training</a></li>
-        <li><a href="/classes/">Classes</a></li>
-        <li><a href="/testimonials/">Testimonials</a></li>
-      </ul>
-      <div class="cta-buttons">
-        <a href="#contact" class="btn primary">FREE TRIAL</a>
-      </div>
+<body class="page-home">
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">YNSGYM</a>
+      <nav id="nav-links" class="nav__links" data-open="false">
+        <a href="/gyms/">Our Gyms</a>
+        <a href="/membership/">Membership</a>
+        <a href="/personal-training/">Personal Training</a>
+        <a href="/classes/">Classes</a>
+        <a href="/testimonials/">Testimonials</a>
+        <a href="#contact" class="btn btn--primary nav__cta--mobile">Free Trial</a>
+      </nav>
+      <a href="#contact" class="btn btn--primary nav__cta">Free Trial</a>
+      <button type="button" id="nav-toggle" class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div id="nav-overlay" class="nav__overlay" data-open="false" aria-hidden="true"></div>
     </div>
-    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
-  </nav>
-</header>
+  </header>
 
-<main>
-  <section class="hero">
-    <div class="hero-inner">
-      <h1>ready to <span class="accent">snap?</span></h1>
-      <p>The biggest 24/7 gym in the West — home to Hyrox, HIIT, Yoga, Reformer & Mat Pilates.</p>
-      <div class="hero-cta-cards">
-        <a class="hero-cta-card" href="/classes/">
-          <span class="hero-cta-card-bg" style="background-image: url('public/classes.jpeg');"></span>
-          <span class="hero-cta-card-label">GROUP CLASSES</span>
+  <main>
+    <section class="hero-full">
+      <h1 class="hero-full__title heading-hero">Ready to <span class="accent">snap?</span></h1>
+      <p class="hero-full__tagline">The biggest 24/7 gym in the West — Hyrox, HIIT, Yoga, Reformer & Mat Pilates.</p>
+      <div class="hero-full__actions">
+        <a href="/classes/" class="btn btn--primary">Group Classes</a>
+        <a href="/membership/" class="btn btn--outline">Membership</a>
+        <a href="#contact" class="btn btn--outline">Get in Touch</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="bento">
+        <a href="/gyms/" class="bento__item bento__item--span-2">
+          <span style="background-image: url('/public/gyms.jpeg');"></span>
+          <h3>Our Gyms</h3>
         </a>
-        <a class="hero-cta-card" href="/membership/">
-          <span class="hero-cta-card-bg" style="background-image: url('public/cta-membership.jpeg');"></span>
-          <span class="hero-cta-card-label">MEMBERSHIP</span>
+        <a href="/membership/" class="bento__item">
+          <span style="background-image: url('/public/cta-membership.jpeg');"></span>
+          <h3>Membership</h3>
+        </a>
+        <a href="/personal-training/" class="bento__item">
+          <span style="background-image: url('/public/pt.jpeg');"></span>
+          <h3>Personal Training</h3>
+        </a>
+        <a href="/classes/" class="bento__item bento__item--span-2">
+          <span style="background-image: url('/public/classes.jpeg');"></span>
+          <h3>Classes</h3>
+        </a>
+        <a href="/testimonials/" class="bento__item bento__item--span-2">
+          <span style="background-image: url('/public/testimonials.jpeg');"></span>
+          <h3>Testimonials</h3>
         </a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="hero-split">
-    <div class="hero-split-inner">
-      <div class="hero-split-text">
-        <h2>Level Up Your <span class="accent">GAINS</span></h2>
-        <p>Train with top-quality strength, cardio, and functional equipment tailored to your goals.</p>
-        <div class="cta-group cta-group--left">
-          <a class="btn btn-lg dark" href="/gyms/">VIEW OUR GYMS</a>
-        </div>
+    <section class="section block-split">
+      <div class="block-split__media">
+        <div class="block-split__bg" style="background-image: url('/public/landing-1.jpeg');"></div>
       </div>
-      <div class="hero-split-media">
-        <div class="hero-image hero-image-1" aria-hidden="true"></div>
+      <div class="block-split__content">
+        <h2 class="heading-lg">Level up your <span class="accent">gains</span></h2>
+        <p>Train with strength, cardio, and functional equipment built for your goals.</p>
+        <a href="/gyms/" class="btn btn--primary">View Our Gyms</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="hero-split reverse">
-    <div class="hero-split-inner">
-      <div class="hero-split-text">
-        <h2>Unlock Your <span class="accent">FULL POTENTIAL</span></h2>
-        <p>Work one-on-one with performance coaches for a tailored training plan.</p>
-        <div class="cta-group cta-group--left">
-          <a class="btn btn-lg dark" href="/personal-training/">PERSONAL TRAINING</a>
-        </div>
+    <section class="section block-split block-split--reverse">
+      <div class="block-split__media">
+        <div class="block-split__bg" style="background-image: url('/public/landing-2.jpeg');"></div>
       </div>
-      <div class="hero-split-media">
-        <div class="hero-image hero-image-2" aria-hidden="true"></div>
+      <div class="block-split__content">
+        <h2 class="heading-lg">Unlock your <span class="accent">full potential</span></h2>
+        <p>One-on-one with performance coaches and a plan made for you.</p>
+        <a href="/personal-training/" class="btn btn--primary">Personal Training</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="hero-split">
-    <div class="hero-split-inner">
-      <div class="hero-split-text">
-        <h2>Take On New <span class="accent">CHALLENGES</span></h2>
-        <p>Choose from Hyrox-style conditioning to calm, restorative flows in pilates classes.</p>
-        <div class="cta-group cta-group--left">
-          <a class="btn btn-lg dark" href="/classes/">EXPLORE CLASSES</a>
-        </div>
+    <section class="section block-split">
+      <div class="block-split__media">
+        <div class="block-split__bg" style="background-image: url('/public/landing-3.jpeg');"></div>
       </div>
-      <div class="hero-split-media">
-        <div class="hero-image hero-image-3" aria-hidden="true"></div>
+      <div class="block-split__content">
+        <h2 class="heading-lg">Take on new <span class="accent">challenges</span></h2>
+        <p>From Hyrox-style conditioning to restorative Pilates and yoga.</p>
+        <a href="/classes/" class="btn btn--primary">Explore Classes</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact" class="hero-split hero-form">
-    <div class="hero-split-inner">
-      <div class="hero-split-text">
-        <h2>Let's Talk <span class="accent">Goals</span></h2>
-        <p>Tell us what you're chasing and we'll line you up with the right coach, class, or trial.</p>
-      </div>
-      <div class="hero-split-media form-panel">
-        <form class="contact-form" action="#" method="post">
-          <div class="form-grid">
-            <label>
-              <span>First Name</span>
-              <input type="text" name="first_name" required>
-            </label>
-            <label>
-              <span>Last Name</span>
-              <input type="text" name="last_name" required>
-            </label>
-            <label>
-              <span>Email</span>
-              <input type="email" name="email" required>
-            </label>
-            <label>
-              <span>Phone</span>
-              <input type="tel" name="phone" required>
-            </label>
-            <label class="full-width">
-              <span>Topic</span>
-              <select name="topic" required>
-                <option value="">Choose an option</option>
-                <option>Gym trial</option>
-                <option>Class trial</option>
-                <option>Personal training trial</option>
-                <option>Gym tour</option>
-                <option>Others</option>
-              </select>
-            </label>
-            <label class="full-width">
-              <span>Message</span>
-              <textarea name="message" rows="4" placeholder="Tell us what you need..."></textarea>
-            </label>
+    <section id="contact" class="section">
+      <div class="l-wrap">
+        <div class="contact-block">
+          <div class="contact-block__grid">
+            <div class="contact-block__copy">
+              <h2 class="heading-lg">Let’s talk <span class="accent">goals</span></h2>
+              <p>Tell us what you’re chasing and we’ll line you up with the right coach, class, or trial.</p>
+            </div>
+            <form class="contact-form" action="#" method="post">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="home-first">First Name</label>
+                  <input type="text" id="home-first" name="first_name" required>
+                </div>
+                <div class="form-group">
+                  <label for="home-last">Last Name</label>
+                  <input type="text" id="home-last" name="last_name" required>
+                </div>
+                <div class="form-group">
+                  <label for="home-email">Email</label>
+                  <input type="email" id="home-email" name="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="home-phone">Phone</label>
+                  <input type="tel" id="home-phone" name="phone" required>
+                </div>
+                <div class="form-group full">
+                  <label for="home-topic">Topic</label>
+                  <select id="home-topic" name="topic" required>
+                    <option value="">Choose an option</option>
+                    <option>Gym trial</option>
+                    <option>Class trial</option>
+                    <option>Personal training trial</option>
+                    <option>Gym tour</option>
+                    <option>Others</option>
+                  </select>
+                </div>
+                <div class="form-group full">
+                  <label for="home-message">Message</label>
+                  <textarea id="home-message" name="message" rows="4" placeholder="Tell us what you need…"></textarea>
+                </div>
+              </div>
+              <button type="submit" class="btn btn--primary btn--block">Send Message</button>
+            </form>
           </div>
-          <button type="submit" class="btn btn-lg primary btn-block">SEND MESSAGE</button>
-        </form>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-</main>
+  <footer class="site-footer">
+    <p>© 2025 YNSGYM. All rights reserved.</p>
+  </footer>
 
-<footer class="site-footer">
-  <p>© 2025 YNSGYM. ALL RIGHTS RESERVED.</p>
-</footer>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const whatsappNumber = '6587675510';
-  
-  const form = document.querySelector('#contact .contact-form');
-  
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const formData = new FormData(form);
-      const firstName = formData.get('first_name') || '';
-      const lastName = formData.get('last_name') || '';
-      const email = formData.get('email') || '';
-      const phone = formData.get('phone') || '';
-      const topic = formData.get('topic') || '';
-      const message = formData.get('message') || '';
-      
-      let whatsappMessage = 'Hello! I\'m interested in getting in touch.\n\n';
-      whatsappMessage += `Name: ${firstName} ${lastName}\n`;
-      whatsappMessage += `Email: ${email}\n`;
-      whatsappMessage += `Phone: ${phone}\n`;
-      if (topic) {
-        whatsappMessage += `Topic: ${topic}\n`;
-      }
-      if (message) {
-        whatsappMessage += `\nMessage: ${message}`;
-      }
-      
-      const encodedMessage = encodeURIComponent(whatsappMessage);
-      
-      window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
-    });
-  }
-});
-</script>
-
+  <script src="/js/main.js"></script>
 </body>
 </html>
