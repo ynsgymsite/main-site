@@ -48,4 +48,61 @@
       });
     }
   }
+
+  var galleryModal = document.getElementById("gallery-modal");
+  var galleryModalImg = galleryModal ? galleryModal.querySelector(".gallery-modal__img") : null;
+  var galleryModalClose = galleryModal ? galleryModal.querySelector(".gallery-modal__close") : null;
+
+  if (galleryModal && galleryModalImg) {
+    document.querySelectorAll(".gallery-carousel__item").forEach(function (item) {
+      item.addEventListener("click", function () {
+        var src = this.getAttribute("data-src");
+        galleryModalImg.src = src;
+        galleryModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    function closeGalleryModal() {
+      galleryModal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      galleryModalImg.src = "";
+    }
+
+    if (galleryModalClose) {
+      galleryModalClose.addEventListener("click", closeGalleryModal);
+    }
+
+    galleryModal.addEventListener("click", function (e) {
+      if (e.target === galleryModal) {
+        closeGalleryModal();
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && galleryModal.getAttribute("aria-hidden") === "false") {
+        closeGalleryModal();
+      }
+    });
+  }
+
+  var galleryTrack = document.getElementById("gallery-track");
+  var galleryScrollbar = document.getElementById("gallery-scrollbar");
+  var galleryThumb = document.getElementById("gallery-scrollbar-thumb");
+
+  if (galleryTrack && galleryScrollbar && galleryThumb) {
+    function updateScrollbar() {
+      var scrollWidth = galleryTrack.scrollWidth;
+      var clientWidth = galleryTrack.clientWidth;
+      var scrollLeft = galleryTrack.scrollLeft;
+      var thumbWidth = Math.max((clientWidth / scrollWidth) * 100, 20);
+      var thumbLeft = (scrollLeft / (scrollWidth - clientWidth)) * (100 - thumbWidth);
+      galleryThumb.style.width = thumbWidth + "%";
+      galleryThumb.style.left = thumbLeft + "%";
+    }
+
+    updateScrollbar();
+    galleryTrack.addEventListener("scroll", updateScrollbar);
+    window.addEventListener("resize", updateScrollbar);
+  }
 })();
