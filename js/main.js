@@ -1,6 +1,39 @@
 (function () {
   var WHATSAPP_NUMBER = "6587675510";
 
+  // Touch-friendly hover effects for mobile
+  var touchElements = [
+    ".btn",
+    ".bento__item",
+    ".card",
+    ".pt-intro-card",
+    ".pt-session-card",
+    ".class-tile",
+    ".gallery-carousel__item",
+    ".nav__links a"
+  ];
+
+  var isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+  if (isTouchDevice) {
+    document.querySelectorAll(touchElements.join(", ")).forEach(function (el) {
+      el.addEventListener("touchstart", function () {
+        this.classList.add("touch-active");
+      }, { passive: true });
+
+      el.addEventListener("touchend", function () {
+        var element = this;
+        setTimeout(function () {
+          element.classList.remove("touch-active");
+        }, 500);
+      }, { passive: true });
+
+      el.addEventListener("touchcancel", function () {
+        this.classList.remove("touch-active");
+      }, { passive: true });
+    });
+  }
+
   function buildWhatsAppMessage(form) {
     var data = new FormData(form);
     var parts = [

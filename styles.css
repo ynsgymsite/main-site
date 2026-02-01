@@ -191,7 +191,9 @@ ul, ol {
 }
 
 .nav__links a:hover,
-.nav__links a.active { color: var(--color-text); }
+.nav__links a:active,
+.nav__links a.active,
+.nav__links a.touch-active { color: var(--color-text); }
 
 .nav__toggle {
   display: none;
@@ -243,7 +245,9 @@ ul, ol {
   color: #fff;
 }
 
-.btn--primary:hover {
+.btn--primary:hover,
+.btn--primary:active,
+.btn--primary.touch-active {
   background: var(--color-accent-hover);
   transform: translateY(-1px);
 }
@@ -254,7 +258,9 @@ ul, ol {
   border: 2px solid var(--color-border);
 }
 
-.btn--outline:hover {
+.btn--outline:hover,
+.btn--outline:active,
+.btn--outline.touch-active {
   border-color: var(--color-text-muted);
   color: var(--color-text);
 }
@@ -360,7 +366,9 @@ body.page-home .hero-full::before { background-image: linear-gradient(180deg, rg
   transition: transform 0.5s ease;
 }
 
-.bento__item:hover span { transform: scale(1.06); }
+.bento__item:hover span,
+.bento__item:active span,
+.bento__item.touch-active span { transform: scale(1.06); }
 
 .bento__item h3 {
   position: relative;
@@ -413,7 +421,8 @@ body.page-home .hero-full::before { background-image: linear-gradient(180deg, rg
   transition: transform 0.5s ease;
 }
 
-.block-split:hover .block-split__bg { transform: scale(1.04); }
+.block-split:hover .block-split__bg,
+.block-split:active .block-split__bg { transform: scale(1.04); }
 
 .block-split__content h2 {
   margin-bottom: var(--space-md);
@@ -529,7 +538,9 @@ body.page-testimonials .page-hero::before { background-image: linear-gradient(18
   transition: border-color var(--transition), transform var(--transition);
 }
 
-.card:hover {
+.card:hover,
+.card:active,
+.card.touch-active {
   border-color: var(--color-accent-muted);
   transform: translateY(-2px);
 }
@@ -862,7 +873,9 @@ body.page-testimonials .page-hero::before { background-image: linear-gradient(18
   transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
 }
 
-.pt-intro-card:hover {
+.pt-intro-card:hover,
+.pt-intro-card:active,
+.pt-intro-card.touch-active {
   transform: translateY(-3px);
   box-shadow: 0 12px 32px rgba(255, 59, 59, 0.4);
   background: var(--color-accent-hover);
@@ -914,7 +927,9 @@ body.page-testimonials .page-hero::before { background-image: linear-gradient(18
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
-.pt-session-card:hover {
+.pt-session-card:hover,
+.pt-session-card:active,
+.pt-session-card.touch-active {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(255, 59, 59, 0.2);
   border-color: var(--color-accent-hover);
@@ -1024,7 +1039,9 @@ body.page-testimonials .page-hero::before { background-image: linear-gradient(18
   transition: transform 0.4s ease;
 }
 
-.class-tile:hover span { transform: scale(1.08); }
+.class-tile:hover span,
+.class-tile:active span,
+.class-tile.touch-active span { transform: scale(1.08); }
 
 .class-tile h3 {
   position: relative;
@@ -1098,7 +1115,8 @@ body.page-testimonials .page-hero::before { background-image: linear-gradient(18
   transition: color var(--transition);
 }
 
-.link-phone:hover {
+.link-phone:hover,
+.link-phone:active {
   color: var(--color-accent-hover);
   text-decoration: underline;
 }
@@ -1155,7 +1173,9 @@ body.page-testimonials .page-hero::before { background-image: linear-gradient(18
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
-.gallery-carousel__item:hover {
+.gallery-carousel__item:hover,
+.gallery-carousel__item:active,
+.gallery-carousel__item.touch-active {
   transform: scale(1.03);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
@@ -1198,7 +1218,8 @@ body.page-testimonials .page-hero::before { background-image: linear-gradient(18
   transition: transform var(--transition);
 }
 
-.gallery-modal__close:hover {
+.gallery-modal__close:hover,
+.gallery-modal__close:active {
   transform: scale(1.1);
 }
 
@@ -1285,4 +1306,61 @@ body.page-testimonials .page-hero::before { background-image: linear-gradient(18
   .contact-block { padding: var(--space-md); margin-inline: 0; }
   .section { padding-block: var(--space-2xl); }
   .l-wrap { padding-inline: var(--space-sm); }
+}
+
+/* Enhanced touch effects for mobile */
+@media (hover: none) and (pointer: coarse) {
+  .btn--primary.touch-active {
+    background: var(--color-accent-hover);
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(255, 59, 59, 0.4);
+  }
+
+  .btn--outline.touch-active {
+    border-color: var(--color-accent);
+    color: var(--color-text);
+    transform: scale(1.05);
+  }
+
+  .bento__item.touch-active {
+    box-shadow: 0 0 0 3px var(--color-accent);
+  }
+
+  .bento__item.touch-active span {
+    transform: scale(1.1);
+  }
+
+  .card.touch-active {
+    border-color: var(--color-accent);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(255, 59, 59, 0.2);
+  }
+
+  .pt-intro-card.touch-active {
+    transform: scale(1.03);
+    box-shadow: 0 16px 48px rgba(255, 59, 59, 0.5);
+  }
+
+  .pt-session-card.touch-active {
+    transform: scale(1.03);
+    border-color: var(--color-accent);
+    box-shadow: 0 12px 32px rgba(255, 59, 59, 0.3);
+  }
+
+  .class-tile.touch-active {
+    box-shadow: 0 0 0 3px var(--color-accent);
+  }
+
+  .class-tile.touch-active span {
+    transform: scale(1.12);
+  }
+
+  .gallery-carousel__item.touch-active {
+    transform: scale(1.08);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav__links a.touch-active {
+    color: var(--color-accent);
+  }
 }
