@@ -795,6 +795,192 @@ body.page-testimonials .page-hero::before { background-image: linear-gradient(18
 
 .pricing-card__note { font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: var(--space-lg); }
 
+/* PT Pricing Layout */
+.pt-pricing-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+.pt-pricing-layout__copy {
+  padding-top: var(--space-lg);
+}
+
+.pt-pricing-layout__copy .heading-xl {
+  margin-bottom: var(--space-lg);
+}
+
+.pt-pricing-layout__desc {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-2xl);
+}
+
+.pt-pricing-layout__perk {
+  margin-top: var(--space-xl);
+}
+
+.pt-pricing-layout__perk-title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-md);
+}
+
+.pt-pricing-layout__perk-title::first-word {
+  color: var(--color-accent);
+}
+
+.pt-pricing-layout__perk-list {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.pt-pricing-layout__perk-list li {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: var(--space-xs);
+  list-style: disc;
+}
+
+.pt-pricing-layout__cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.pt-intro-card {
+  display: block;
+  background: var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-2xl);
+  text-align: center;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+.pt-intro-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(255, 59, 59, 0.4);
+  background: var(--color-accent-hover);
+}
+
+.pt-intro-card__label {
+  font-family: var(--font-head);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--space-sm);
+}
+
+.pt-intro-card__price {
+  font-family: var(--font-head);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+.pt-intro-card__amount {
+  font-size: 2.5rem;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.pt-intro-card__note {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: var(--space-sm);
+}
+
+.pt-session-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.pt-session-card {
+  display: block;
+  background: var(--color-bg);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.pt-session-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(255, 59, 59, 0.2);
+  border-color: var(--color-accent-hover);
+}
+
+.pt-session-card__sessions {
+  font-family: var(--font-head);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.pt-session-card__price {
+  font-family: var(--font-head);
+}
+
+.pt-session-card__amount {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.pt-session-card__unit {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .pt-pricing-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+  
+  .pt-pricing-layout__copy {
+    text-align: center;
+    padding-top: 0;
+  }
+  
+  .pt-pricing-layout__perk-list {
+    text-align: left;
+    max-width: 280px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .pt-session-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pt-intro-card {
+    padding: var(--space-lg);
+  }
+  
+  .pt-intro-card__price {
+    font-size: 1.25rem;
+  }
+  
+  .pt-intro-card__amount {
+    font-size: 2rem;
+  }
+}
+
 .strip-cta {
   background: var(--color-surface-2);
   padding: var(--space-2xl) var(--space-lg);

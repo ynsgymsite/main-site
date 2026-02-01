@@ -37,7 +37,7 @@
   <main>
     <section class="page-hero">
       <p class="eyebrow">Personal Training</p>
-      <h1 class="heading-xl">Workouts built <span class="accent">just for you</span></h1>
+      <h1 class="heading-xl">Workouts built <span class="accent" style="white-space: nowrap;">just for you</span></h1>
     </section>
 
     <section class="section">
@@ -63,19 +63,46 @@
       </div>
     </section>
 
-    <section class="section section--sm" style="background: var(--color-surface);">
+    <section class="section section--lg" style="background: var(--color-surface);">
       <div class="l-wrap">
-        <h2 class="heading-lg" style="text-align: center; margin-bottom: var(--space-lg);">Pre-sale <span class="accent">offer</span></h2>
-        <div class="pricing-card">
-          <span class="badge">Limited time</span>
-          <p class="pricing-card__label">PT Starter Pack</p>
-          <div class="pricing-card__compare">
-            <span class="old">$300</span>
-            <span class="save">Save $120</span>
+        <div class="pt-pricing-layout">
+          <div class="pt-pricing-layout__copy">
+            <h2 class="heading-xl">train with <span class="accent italic">PURPOSE</span></h2>
+            <p class="pt-pricing-layout__desc">Get expert guidance with one-on-one coaching designed around your body, your schedule, and the results you want to achieve.</p>
+            <div class="pt-pricing-layout__perk">
+              <p class="pt-pricing-layout__perk-title">FREE ADVANCED BODY COMPOSITION SCAN</p>
+              <ul class="pt-pricing-layout__perk-list">
+                <li>Evolt 360 body scan</li>
+                <li>Body fat and muscle Percentage</li>
+                <li>Data-based workout plans</li>
+              </ul>
+            </div>
           </div>
-          <p class="pricing-card__price"><span class="accent">$180</span> <span class="unit">for 3 sessions</span></p>
-          <p class="pricing-card__note">Pre-sale promotion. U.P. $300 for 3 sessions.</p>
-          <a href="#pt-contact" class="btn btn--primary btn--block">Book Now</a>
+          <div class="pt-pricing-layout__cards">
+            <a href="#pt-contact" class="pt-intro-card pt-pack-cta" data-pack="Intro Pack - 3 Sessions ($180)">
+              <p class="pt-intro-card__label">INTRO PACK</p>
+              <p class="pt-intro-card__price">3 SESSIONS FOR <span class="pt-intro-card__amount">$180</span></p>
+              <p class="pt-intro-card__note">*valid for first PT purchase only</p>
+            </a>
+            <div class="pt-session-grid">
+              <a href="#pt-contact" class="pt-session-card pt-pack-cta" data-pack="6 Sessions ($100/session)">
+                <p class="pt-session-card__sessions">6 SESSIONS</p>
+                <p class="pt-session-card__price"><span class="pt-session-card__amount">$100</span><span class="pt-session-card__unit">/session</span></p>
+              </a>
+              <a href="#pt-contact" class="pt-session-card pt-pack-cta" data-pack="12 Sessions ($95/session)">
+                <p class="pt-session-card__sessions">12 SESSIONS</p>
+                <p class="pt-session-card__price"><span class="pt-session-card__amount">$95</span><span class="pt-session-card__unit">/session</span></p>
+              </a>
+              <a href="#pt-contact" class="pt-session-card pt-pack-cta" data-pack="24 Sessions ($90/session)">
+                <p class="pt-session-card__sessions">24 SESSIONS</p>
+                <p class="pt-session-card__price"><span class="pt-session-card__amount">$90</span><span class="pt-session-card__unit">/session</span></p>
+              </a>
+              <a href="#pt-contact" class="pt-session-card pt-pack-cta" data-pack="36 Sessions ($85/session)">
+                <p class="pt-session-card__sessions">36 SESSIONS</p>
+                <p class="pt-session-card__price"><span class="pt-session-card__amount">$85</span><span class="pt-session-card__unit">/session</span></p>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -139,11 +166,11 @@
                   <label for="pt-topic">Topic</label>
                   <select id="pt-topic" name="topic" required>
                     <option value="">Choose an option</option>
-                    <option value="Gym sign up">Gym sign up</option>
-                    <option value="Gym trial">Gym trial</option>
-                    <option value="Class trial">Class trial</option>
-                    <option value="Personal training trial">Personal training trial</option>
-                    <option value="Gym tour">Gym tour</option>
+                    <option value="Gym Tour">Gym Tour</option>
+                    <option value="Gym Trial">Gym Trial</option>
+                    <option value="Personal Training">Personal Training</option>
+                    <option value="Group Classes">Group Classes</option>
+                    <option value="Current Promotions">Current Promotions</option>
                     <option value="Others">Others</option>
                   </select>
                 </div>
@@ -165,5 +192,25 @@
   </footer>
 
   <script src="/js/main.js"></script>
+  <script>
+    // Auto-populate form when clicking PT package cards
+    document.querySelectorAll('.pt-pack-cta').forEach(function(card) {
+      card.addEventListener('click', function() {
+        var pack = this.getAttribute('data-pack');
+        if (pack) {
+          setTimeout(function() {
+            var topicSelect = document.getElementById('pt-topic');
+            var messageField = document.getElementById('pt-message');
+            if (topicSelect) {
+              topicSelect.value = 'Personal Training';
+            }
+            if (messageField) {
+              messageField.value = "I'm interested in the " + pack + " package.";
+            }
+          }, 100);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
