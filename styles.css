@@ -603,6 +603,136 @@ body.page-testimonials .page-hero::before { background-image: linear-gradient(18
 .card--plan .plan-note { font-size: 0.9rem; color: var(--color-text-muted); margin-top: var(--space-md); }
 .card--plan .btn { margin-top: var(--space-lg); }
 
+/* Taller plan cards with features */
+.card--plan.card--tall {
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xl) var(--space-lg);
+}
+
+.card--plan.card--tall .btn {
+  margin-top: auto;
+}
+
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-md) 0 var(--space-lg);
+  flex-grow: 1;
+}
+
+.plan-features li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: var(--space-sm);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  list-style: none;
+}
+
+.plan-features li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 8px;
+  display: block;
+  width: 6px;
+  height: 10px;
+  border-style: solid;
+  border-color: var(--color-accent);
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* Founding Member Card - Striking promotional style */
+.card--plan.card--founding {
+  position: relative;
+  max-width: 1000px;
+  margin-inline: auto;
+  padding: var(--space-2xl);
+  background: linear-gradient(135deg, var(--color-surface) 0%, rgba(255, 59, 59, 0.08) 100%);
+  border: 2px solid var(--color-accent);
+  box-shadow: 0 0 40px rgba(255, 59, 59, 0.2), 0 0 80px rgba(255, 59, 59, 0.1);
+  overflow: hidden;
+  text-align: center;
+}
+
+.card--plan.card--founding::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, rgba(255, 59, 59, 0.1), transparent 30%);
+  animation: founding-rotate 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes founding-rotate {
+  100% { transform: rotate(360deg); }
+}
+
+.card--plan.card--founding .plan-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.15em;
+}
+
+.card--plan.card--founding .plan-price {
+  font-size: 3rem;
+}
+
+.card--plan.card--founding .plan-features {
+  margin-top: var(--space-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm) var(--space-xl);
+  text-align: left;
+}
+
+.card--plan.card--founding .plan-features li {
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.badge--founding {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #ff6b6b 100%);
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 59, 59, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(255, 59, 59, 0); }
+}
+
+.card-grid--plans {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 900px) {
+  .card-grid--plans {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  
+  .card--plan.card--founding {
+    max-width: 100%;
+    text-align: left;
+  }
+  
+  .card--plan.card--founding .plan-features {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+}
+
 .pricing-card {
   max-width: 420px;
   margin-inline: auto;
