@@ -1006,10 +1006,43 @@ body.page-testimonials .page-hero::before { background-image: linear-gradient(18
 .strip-cta h2 { margin-bottom: var(--space-sm); }
 .strip-cta p { color: var(--color-text-muted); margin-bottom: var(--space-lg); }
 
+/* Class Tiles Grid - Centered for odd numbers */
 .class-tiles {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: var(--space-md);
+}
+
+.class-tiles--centered {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-lg);
+}
+
+.class-tiles--centered .class-tile {
+  flex: 0 0 calc(25% - var(--space-lg));
+  max-width: 280px;
+  min-width: 200px;
+}
+
+@media (max-width: 1100px) {
+  .class-tiles--centered .class-tile {
+    flex: 0 0 calc(33.333% - var(--space-lg));
+  }
+}
+
+@media (max-width: 800px) {
+  .class-tiles--centered .class-tile {
+    flex: 0 0 calc(50% - var(--space-md));
+  }
+}
+
+@media (max-width: 500px) {
+  .class-tiles--centered .class-tile {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
 
 .class-tile {
@@ -1020,6 +1053,10 @@ body.page-testimonials .page-hero::before { background-image: linear-gradient(18
   display: flex;
   align-items: flex-end;
   padding: var(--space-lg);
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
 }
 
 .class-tile::before {
@@ -1030,7 +1067,7 @@ body.page-testimonials .page-hero::before { background-image: linear-gradient(18
   z-index: 1;
 }
 
-.class-tile span {
+.class-tile > span:first-child {
   position: absolute;
   inset: 0;
   background-size: cover;
@@ -1039,9 +1076,9 @@ body.page-testimonials .page-hero::before { background-image: linear-gradient(18
   transition: transform 0.4s ease;
 }
 
-.class-tile:hover span,
-.class-tile:active span,
-.class-tile.touch-active span { transform: scale(1.08); }
+.class-tile:hover > span:first-child,
+.class-tile:active > span:first-child,
+.class-tile.touch-active > span:first-child { transform: scale(1.08); }
 
 .class-tile h3 {
   position: relative;
@@ -1051,9 +1088,163 @@ body.page-testimonials .page-hero::before { background-image: linear-gradient(18
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  color: var(--color-text);
 }
 
 .class-tile a { position: absolute; inset: 0; z-index: 2; }
+
+/* Class Tile Badge */
+.class-tile__badge {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  z-index: 3;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: var(--radius-sm);
+}
+
+.class-tile__badge--free {
+  background: #22c55e;
+}
+
+/* Class Modal */
+.class-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+
+.class-modal[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.class-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.class-modal__content {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  transform: translateY(20px);
+  transition: transform var(--transition);
+}
+
+.class-modal[aria-hidden="false"] .class-modal__content {
+  transform: translateY(0);
+}
+
+.class-modal__close {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.75rem;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.class-modal__close:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+.class-modal__image {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.class-modal__body {
+  padding: var(--space-xl);
+}
+
+.class-modal__body .heading-lg {
+  margin-bottom: var(--space-xs);
+}
+
+.class-modal__price {
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: var(--space-md);
+}
+
+.class-modal__price--free {
+  color: #22c55e;
+}
+
+.class-modal__desc {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+
+.class-modal__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-xl);
+}
+
+.class-modal__features li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: var(--space-sm);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.class-modal__features li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 6px;
+  display: block;
+  width: 6px;
+  height: 10px;
+  border-style: solid;
+  border-color: var(--color-accent);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.class-modal__cta {
+  margin-top: var(--space-md);
+}
 
 .testimonial-grid {
   display: grid;

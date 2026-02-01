@@ -37,66 +37,49 @@
   <main>
     <section class="page-hero">
       <p class="eyebrow">Group Classes</p>
-      <h1 class="heading-xl">Classes that make you <span class="accent">show up</span></h1>
+      <h1 class="heading-xl">Classes that make you <span class="accent" style="white-space: nowrap;">show up</span></h1>
     </section>
 
     <section class="section">
       <div class="l-wrap">
-        <div class="class-tiles">
-          <a href="#classes-contact" class="class-tile">
+        <div class="section-header" style="text-align: center; margin-bottom: var(--space-2xl);">
+          <h2 class="heading-lg">Explore our <span class="accent">classes</span></h2>
+          <p style="color: var(--color-text-muted); margin-top: var(--space-sm);">Train together, push each other, get better together.</p>
+        </div>
+        <div class="class-tiles class-tiles--centered">
+          <button type="button" class="class-tile" data-class="hyrox">
             <span style="background-image: url('/public/hyrox.jpeg');"></span>
             <h3>Hyrox</h3>
-          </a>
-          <a href="#classes-contact" class="class-tile">
+            <span class="class-tile__badge class-tile__badge--free">Free</span>
+          </button>
+          <button type="button" class="class-tile" data-class="hiit">
             <span style="background-image: url('/public/hiit.jpeg');"></span>
             <h3>HIIT</h3>
-          </a>
-          <a href="#classes-contact" class="class-tile">
+            <span class="class-tile__badge class-tile__badge--free">Free</span>
+          </button>
+          <button type="button" class="class-tile" data-class="yoga">
             <span style="background-image: url('/public/yoga.jpeg');"></span>
             <h3>Yoga</h3>
-          </a>
-          <a href="#classes-contact" class="class-tile">
+            <span class="class-tile__badge class-tile__badge--free">Free</span>
+          </button>
+          <button type="button" class="class-tile" data-class="zumba">
+            <span style="background-image: url('/public/zumba.jpeg');"></span>
+            <h3>Zumba</h3>
+            <span class="class-tile__badge class-tile__badge--free">Free</span>
+          </button>
+          <button type="button" class="class-tile" data-class="boxing">
+            <span style="background-image: url('/public/boxing.jpeg');"></span>
+            <h3>Boxing</h3>
+            <span class="class-tile__badge class-tile__badge--free">Free</span>
+          </button>
+          <button type="button" class="class-tile" data-class="reformer">
             <span style="background-image: url('/public/reformer.jpeg');"></span>
             <h3>Reformer Pilates</h3>
-          </a>
-          <a href="#classes-contact" class="class-tile">
+          </button>
+          <button type="button" class="class-tile" data-class="mat">
             <span style="background-image: url('/public/mat.jpeg');"></span>
             <h3>Mat Pilates</h3>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--sm" style="background: var(--color-surface);">
-      <div class="l-wrap">
-        <h2 class="heading-lg" style="text-align: center; margin-bottom: var(--space-2xl);">Pre-sale <span class="accent">offers</span></h2>
-        <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-          <article class="card card--plan" style="border-color: var(--color-accent);">
-            <span class="badge">Limited time</span>
-            <p class="plan-name">Reformer & Mat Pilates</p>
-            <div class="pricing-card__compare" style="margin: var(--space-sm) 0;">
-              <span class="old">$120</span>
-              <span class="save">Save $40.10</span>
-            </div>
-            <p class="plan-price"><span class="accent">$79.90</span> <span class="unit">for 4 sessions</span></p>
-            <p class="plan-note">Launch offer on all Pilates class packs. Limited-time pre-sale pricing.</p>
-            <a href="#classes-contact" class="btn btn--primary">Book Now</a>
-          </article>
-          <article class="card card--plan" style="opacity: 0.85;">
-            <span class="badge" style="background: var(--color-text-muted);">Coming soon</span>
-            <p class="plan-name">Hyrox</p>
-            <p class="plan-note">Race-style conditioning classes launching soon.</p>
-          </article>
-          <article class="card card--plan" style="opacity: 0.85;">
-            <span class="badge" style="background: var(--color-text-muted);">Coming soon</span>
-            <p class="plan-name">HIIT</p>
-            <p class="plan-note">High-intensity interval training classes launching soon.</p>
-          </article>
-          <article class="card card--plan" style="opacity: 0.85;">
-            <span class="badge" style="background: var(--color-text-muted);">Coming soon</span>
-            <p class="plan-name">Yoga</p>
-            <p class="plan-note">Restorative yoga flows launching soon.</p>
-          </article>
+          </button>
         </div>
       </div>
     </section>
@@ -156,6 +139,150 @@
     <p>© 2025 YNSGYM. All rights reserved.</p>
   </footer>
 
+  <!-- Class Info Modal -->
+  <div id="class-modal" class="class-modal" aria-hidden="true">
+    <div class="class-modal__overlay"></div>
+    <div class="class-modal__content">
+      <button type="button" class="class-modal__close" aria-label="Close modal">&times;</button>
+      <div class="class-modal__image" id="modal-image"></div>
+      <div class="class-modal__body">
+        <h3 class="heading-lg" id="modal-title"></h3>
+        <p class="class-modal__price" id="modal-price"></p>
+        <p class="class-modal__desc" id="modal-desc"></p>
+        <ul class="class-modal__features" id="modal-features"></ul>
+        <a href="#classes-contact" class="btn btn--primary btn--block class-modal__cta" id="modal-cta">Book This Class</a>
+      </div>
+    </div>
+  </div>
+
   <script src="/js/main.js"></script>
+  <script>
+    // Class data
+    var classData = {
+      hyrox: {
+        title: 'Hyrox',
+        image: '/public/hyrox.jpeg',
+        price: 'Free with Membership',
+        isFree: true,
+        desc: 'Train like a Hyrox athlete with our race-style conditioning classes. Combines running with functional exercises for the ultimate hybrid fitness challenge.',
+        features: ['60-minute sessions', 'Functional fitness movements', 'Running intervals', 'Competition prep available', 'All fitness levels welcome']
+      },
+      hiit: {
+        title: 'HIIT',
+        image: '/public/hiit.jpeg',
+        price: 'Free with Membership',
+        isFree: true,
+        desc: 'High-intensity interval training designed to torch calories, build strength, and boost your metabolism. Short bursts of intense effort with active recovery.',
+        features: ['45-minute sessions', 'Full-body workouts', 'Metabolic conditioning', 'Scalable for all levels', 'No equipment needed']
+      },
+      yoga: {
+        title: 'Yoga',
+        image: '/public/yoga.jpeg',
+        price: 'Free with Membership',
+        isFree: true,
+        desc: 'Find balance and flexibility with our yoga classes. From power flows to restorative sessions, perfect for recovery and mindfulness.',
+        features: ['60-minute sessions', 'Multiple styles offered', 'Improve flexibility', 'Stress relief & recovery', 'Beginner-friendly options']
+      },
+      zumba: {
+        title: 'Zumba',
+        image: '/public/zumba.jpeg',
+        price: 'Free with Membership',
+        isFree: true,
+        desc: 'Dance your way to fitness with high-energy Zumba classes. Latin-inspired rhythms and easy-to-follow moves make exercise feel like a party.',
+        features: ['60-minute sessions', 'Latin & international music', 'Burns 400-600 calories', 'No dance experience needed', 'Fun party atmosphere']
+      },
+      boxing: {
+        title: 'Boxing',
+        image: '/public/boxing.jpeg',
+        price: 'Free with Membership',
+        isFree: true,
+        desc: 'Learn proper boxing technique while getting an incredible cardio workout. Build strength, speed, and confidence with our coached sessions.',
+        features: ['60-minute sessions', 'Technique-focused coaching', 'Cardio & conditioning', 'Stress relief', 'Gloves provided']
+      },
+      reformer: {
+        title: 'Reformer Pilates',
+        image: '/public/reformer.jpeg',
+        price: '$79.90 for 4 sessions',
+        isFree: false,
+        desc: 'Experience low-impact, high-results training on our state-of-the-art reformer machines. Sculpt, tone, and strengthen with expert instruction.',
+        features: ['50-minute sessions', 'Small group sizes (max 8)', 'Core & full-body focus', 'Improves posture', 'Launch offer: Save $40.10']
+      },
+      mat: {
+        title: 'Mat Pilates',
+        image: '/public/mat.jpeg',
+        price: '$79.90 for 4 sessions',
+        isFree: false,
+        desc: 'Classic Pilates on the mat focusing on core strength, flexibility, and body control. Perfect for building a strong foundation.',
+        features: ['50-minute sessions', 'Core-focused exercises', 'Improves flexibility', 'Great for beginners', 'Launch offer: Save $40.10']
+      }
+    };
+
+    // Modal functionality
+    var modal = document.getElementById('class-modal');
+    var modalOverlay = modal.querySelector('.class-modal__overlay');
+    var modalClose = modal.querySelector('.class-modal__close');
+    var modalCta = document.getElementById('modal-cta');
+    var currentClass = null;
+
+    function openModal(classKey) {
+      var data = classData[classKey];
+      if (!data) return;
+      
+      currentClass = data;
+      document.getElementById('modal-image').style.backgroundImage = 'url(' + data.image + ')';
+      document.getElementById('modal-title').textContent = data.title;
+      document.getElementById('modal-price').textContent = data.price;
+      document.getElementById('modal-price').className = 'class-modal__price' + (data.isFree ? ' class-modal__price--free' : '');
+      document.getElementById('modal-desc').textContent = data.desc;
+      
+      var featuresHtml = '';
+      data.features.forEach(function(f) {
+        featuresHtml += '<li>' + f + '</li>';
+      });
+      document.getElementById('modal-features').innerHTML = featuresHtml;
+      
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      currentClass = null;
+    }
+
+    // Event listeners for class tiles
+    document.querySelectorAll('.class-tile[data-class]').forEach(function(tile) {
+      tile.addEventListener('click', function() {
+        openModal(this.getAttribute('data-class'));
+      });
+    });
+
+    modalClose.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+        closeModal();
+      }
+    });
+
+    // CTA auto-populates form
+    modalCta.addEventListener('click', function() {
+      var className = currentClass ? currentClass.title : 'Group Classes';
+      closeModal();
+      
+      setTimeout(function() {
+        var topicSelect = document.getElementById('cls-topic');
+        var messageField = document.getElementById('cls-message');
+        if (topicSelect) {
+          topicSelect.value = 'Group Classes';
+        }
+        if (messageField) {
+          messageField.value = "I'm interested in the " + className + " class. Please send me more information about schedules and availability.";
+        }
+      }, 100);
+    });
+  </script>
 </body>
 </html>
