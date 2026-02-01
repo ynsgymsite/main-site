@@ -43,36 +43,66 @@
     <section class="section">
       <div class="l-wrap">
         <div class="contact-block__copy" style="text-align: center; margin-bottom: var(--space-2xl);">
-          <h2 class="heading-lg">Pre-sale prices</h2>
-          <p>While spots last. All tiers include 24/7 access, full gym floor, and community events.</p>
+          <h2 class="heading-lg">Membership Plans</h2>
+          <p>All tiers include 24/7 access, full gym floor, and community events.</p>
         </div>
-        <div class="card-grid" style="max-width: 1000px; margin-inline: auto;">
-          <article class="card card--plan card--highlight">
-            <span class="badge">Most Popular</span>
-            <p class="plan-name">Gold Tier</p>
-            <p style="font-size: 0.85rem; color: var(--color-accent); font-weight: 600;">First 50 only</p>
-            <p class="plan-price"><span class="accent">$78</span> <span class="unit">/month</span></p>
-            <p class="plan-note">$0 joining fee</p>
-            <a href="#membership-contact" class="btn btn--primary">Get Started</a>
+
+        <!-- Founding Price - Promotional Card -->
+        <article class="card card--plan card--founding">
+          <div class="founding-glow"></div>
+          <span class="badge badge--founding">Limited Time</span>
+          <p class="plan-name">Founding Member</p>
+          <p class="plan-price"><span class="accent">$93</span> <span class="unit">/month</span></p>
+          <ul class="plan-features">
+            <li>Lock in this rate forever</li>
+            <li>$0 joining fee</li>
+            <li>Priority booking for classes</li>
+            <li>Exclusive founding member perks</li>
+            <li>24/7 unlimited access</li>
+          </ul>
+          <a href="#membership-contact" class="btn btn--primary btn--block plan-cta" data-plan="Founding Member ($93/month)">Claim Your Spot</a>
+        </article>
+
+        <!-- Regular Plans -->
+        <div class="card-grid card-grid--plans" style="max-width: 1000px; margin-inline: auto; margin-top: var(--space-xl);">
+          <article class="card card--plan card--tall">
+            <p class="plan-name">1 Month</p>
+            <p class="plan-price"><span class="accent">$148</span> <span class="unit">/month</span></p>
+            <ul class="plan-features">
+              <li>No commitment</li>
+              <li>Full gym access</li>
+              <li>24/7 entry</li>
+              <li>Community events</li>
+              <li>Cancel anytime</li>
+            </ul>
+            <a href="#membership-contact" class="btn btn--outline plan-cta" data-plan="1 Month ($148/month)">Get Started</a>
           </article>
-          <article class="card card--plan">
-            <p class="plan-name">Silver Tier</p>
-            <p style="font-size: 0.85rem; color: var(--color-text-muted); font-weight: 600;">First 100 only</p>
-            <p class="plan-price"><span class="accent">$88</span> <span class="unit">/month</span></p>
-            <p class="plan-note">$0 joining fee</p>
-            <a href="#membership-contact" class="btn btn--outline">Get Started</a>
+          <article class="card card--plan card--tall card--highlight">
+            <span class="badge">Best Value</span>
+            <p class="plan-name">6 Months</p>
+            <p class="plan-price"><span class="accent">$128</span> <span class="unit">/month</span></p>
+            <ul class="plan-features">
+              <li>Save $120 vs monthly</li>
+              <li>Full gym access</li>
+              <li>24/7 entry</li>
+              <li>Community events</li>
+              <li>$0 joining fee</li>
+            </ul>
+            <a href="#membership-contact" class="btn btn--primary plan-cta" data-plan="6 Months ($128/month)">Get Started</a>
           </article>
-          <article class="card card--plan">
-            <p class="plan-name">Bronze Tier</p>
-            <p style="font-size: 0.85rem; color: var(--color-text-muted); font-weight: 600;">First 1150 only</p>
-            <p class="plan-price"><span class="accent">$93</span> <span class="unit">/month</span></p>
-            <p class="plan-note">$0 joining fee</p>
-            <a href="#membership-contact" class="btn btn--outline">Get Started</a>
+          <article class="card card--plan card--tall">
+            <p class="plan-name">12 Months</p>
+            <p class="plan-price"><span class="accent">$108</span> <span class="unit">/month</span></p>
+            <ul class="plan-features">
+              <li>Save $480 vs monthly</li>
+              <li>Full gym access</li>
+              <li>24/7 entry</li>
+              <li>Community events</li>
+              <li>$0 joining fee</li>
+            </ul>
+            <a href="#membership-contact" class="btn btn--outline plan-cta" data-plan="12 Months ($108/month)">Get Started</a>
           </article>
         </div>
-        <p style="text-align: center; margin-top: var(--space-xl); font-size: 0.9rem; color: var(--color-text-muted);">
-          <strong>Regular membership:</strong> $108/month + $90 joining fee.
-        </p>
       </div>
     </section>
 
@@ -114,11 +144,12 @@
                   <label for="mem-topic">Topic</label>
                   <select id="mem-topic" name="topic" required>
                     <option value="">Choose an option</option>
-                    <option>Gym trial</option>
-                    <option>Class trial</option>
-                    <option>Personal training trial</option>
-                    <option>Gym tour</option>
-                    <option>Others</option>
+                    <option value="Gym sign up">Gym sign up</option>
+                    <option value="Gym trial">Gym trial</option>
+                    <option value="Class trial">Class trial</option>
+                    <option value="Personal training trial">Personal training trial</option>
+                    <option value="Gym tour">Gym tour</option>
+                    <option value="Others">Others</option>
                   </select>
                 </div>
                 <div class="form-group full">
@@ -139,5 +170,25 @@
   </footer>
 
   <script src="/js/main.js"></script>
+  <script>
+    // Auto-populate form when clicking plan buttons
+    document.querySelectorAll('.plan-cta').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var plan = this.getAttribute('data-plan');
+        if (plan) {
+          setTimeout(function() {
+            var topicSelect = document.getElementById('mem-topic');
+            var messageField = document.getElementById('mem-message');
+            if (topicSelect) {
+              topicSelect.value = 'Gym sign up';
+            }
+            if (messageField) {
+              messageField.value = "I'm interested in the " + plan + " membership plan.";
+            }
+          }, 100);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
