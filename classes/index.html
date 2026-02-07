@@ -42,9 +42,9 @@
 
     <section class="section">
       <div class="l-wrap">
-        <div class="section-header" style="text-align: center; margin-bottom: var(--space-2xl);">
+        <div class="section-header">
           <h2 class="heading-lg">Explore our <span class="accent">classes</span></h2>
-          <p style="color: var(--color-text-muted); margin-top: var(--space-sm);">Train together, push each other, get better together.</p>
+          <p>Train together, push each other, get better together.</p>
         </div>
         <div class="class-tiles class-tiles--centered">
           <button type="button" class="class-tile" data-class="hyrox">
@@ -257,6 +257,18 @@
         openModal(this.getAttribute('data-class'));
       });
     });
+
+    // Deep link support: /classes/?class=hyrox or /classes/#class-hyrox
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var classKey = params.get('class');
+      if (!classKey && window.location.hash && window.location.hash.indexOf('#class-') === 0) {
+        classKey = window.location.hash.slice('#class-'.length);
+      }
+      if (classKey) {
+        openModal(classKey);
+      }
+    })();
 
     modalClose.addEventListener('click', closeModal);
     modalOverlay.addEventListener('click', closeModal);
