@@ -1,5 +1,5 @@
 (function () {
-  var WHATSAPP_NUMBER = "6587675510";
+  var WHATSAPP_NUMBER = document.body.getAttribute("data-whatsapp") || "6587675510";
 
   // Touch-friendly hover effects for mobile
   var touchElements = [

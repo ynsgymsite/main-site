@@ -1,0 +1,121 @@
+---
+layout: base.njk
+pageTitle: "YNSGYM"
+bodyClass: page-home
+navCtaHref: "#contact"
+---
+
+<section class="hero-full">
+  <h1 class="hero-full__title heading-hero">Ready to <span class="accent italic">SNAP?</span></h1>
+  <p class="hero-full__tagline">The biggest 24/7 gym in the West — Hyrox, HIIT, Yoga, Pilates and more.</p>
+  <div class="hero-full__actions">
+    <a href="/classes/" class="btn btn--primary">Group Classes</a>
+    <a href="/membership/" class="btn btn--outline">Membership</a>
+    <a href="#contact" class="btn btn--outline">Get in Touch</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="bento">
+    <a href="/gyms/" class="bento__item bento__item--span-2">
+      <span style="background-image: url('/public/gyms.jpeg');"></span>
+      <h3>Our Gyms</h3>
+    </a>
+    <a href="/membership/" class="bento__item">
+      <span style="background-image: url('/public/cta-membership.jpeg');"></span>
+      <h3>Membership</h3>
+    </a>
+    <a href="/personal-training/" class="bento__item">
+      <span style="background-image: url('/public/pt.jpeg');"></span>
+      <h3>Personal Training</h3>
+    </a>
+    <a href="/classes/" class="bento__item bento__item--span-2">
+      <span style="background-image: url('/public/classes.jpeg');"></span>
+      <h3>Classes</h3>
+    </a>
+    <a href="/testimonials/" class="bento__item bento__item--span-2">
+      <span style="background-image: url('/public/testimonials.jpeg');"></span>
+      <h3>Testimonials</h3>
+    </a>
+  </div>
+</section>
+
+<section class="section block-split">
+  <div class="block-split__media">
+    <div class="block-split__bg" style="background-image: url('/public/landing-1.jpeg');"></div>
+  </div>
+  <div class="block-split__content">
+    <h2 class="heading-lg">Level up your <span class="accent">gains</span></h2>
+    <p>Train with strength, cardio, and functional equipment built for your goals.</p>
+    <a href="/gyms/" class="btn btn--primary">View Our Gyms</a>
+  </div>
+</section>
+
+<section class="section block-split block-split--reverse">
+  <div class="block-split__media">
+    <div class="block-split__bg" style="background-image: url('/public/landing-2.jpeg');"></div>
+  </div>
+  <div class="block-split__content">
+    <h2 class="heading-lg">Unlock your <span class="accent">full potential</span></h2>
+    <p>One-on-one with performance coaches and a plan made for you.</p>
+    <a href="/personal-training/" class="btn btn--primary">Personal Training</a>
+  </div>
+</section>
+
+<section class="section block-split">
+  <div class="block-split__media">
+    <div class="block-split__bg" style="background-image: url('/public/landing-3.jpeg');"></div>
+  </div>
+  <div class="block-split__content">
+    <h2 class="heading-lg">Take on new <span class="accent">challenges</span></h2>
+    <p>From Hyrox-style conditioning to restorative Pilates and yoga.</p>
+    <a href="/classes/" class="btn btn--primary">Explore Classes</a>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="l-wrap">
+    <div class="contact-block">
+      <div class="contact-block__grid">
+        <div class="contact-block__copy">
+          <h2 class="heading-lg">Let's talk <span class="accent">goals</span></h2>
+          <p>Tell us what you're chasing and we'll line you up with the right coach, class, or trial.</p>
+        </div>
+        <form class="contact-form" action="#" method="post">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="home-first">First Name</label>
+              <input type="text" id="home-first" name="first_name" required>
+            </div>
+            <div class="form-group">
+              <label for="home-last">Last Name</label>
+              <input type="text" id="home-last" name="last_name" required>
+            </div>
+            <div class="form-group">
+              <label for="home-email">Email</label>
+              <input type="email" id="home-email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="home-phone">Phone</label>
+              <input type="tel" id="home-phone" name="phone" required>
+            </div>
+            <div class="form-group full">
+              <label for="home-topic">Topic</label>
+              <select id="home-topic" name="topic" required>
+                <option value="">Choose an option</option>
+                {% for topic in site.contactTopics %}
+                  <option value="{{ topic }}">{{ topic }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="form-group full">
+              <label for="home-message">Message</label>
+              <textarea id="home-message" name="message" rows="4" placeholder="Tell us what you need…"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

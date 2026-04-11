@@ -1,0 +1,21 @@
+{
+  "logo": "YNSGYM",
+  "navCtaLabel": "Free Trial",
+  "whatsappNumber": "6587675510",
+  "footerCopyright": "© 2025 YNSGYM. All rights reserved.",
+  "navLinks": [
+    { "label": "Our Gyms", "url": "/gyms/" },
+    { "label": "Membership", "url": "/membership/" },
+    { "label": "Personal Training", "url": "/personal-training/" },
+    { "label": "Classes", "url": "/classes/" },
+    { "label": "Testimonials", "url": "/testimonials/" }
+  ],
+  "contactTopics": [
+    "Gym Tour",
+    "Gym Trial",
+    "Personal Training",
+    "Group Classes",
+    "Current Promotions",
+    "Others"
+  ]
+}
