@@ -16,61 +16,35 @@ navCtaHref: "#membership-contact"
           <p>All tiers include 24/7 access, full gym floor, and community events.</p>
         </div>
 
-        <!-- Founding Price - Promotional Card -->
-        <article class="card card--plan card--founding">
-          <div class="founding-glow"></div>
-          <span class="badge badge--founding">Limited Time</span>
-          <p class="plan-name">Founding Member</p>
-          <p class="plan-price"><span class="accent">$93</span> <span class="unit">/month</span></p>
-          <ul class="plan-features">
-            <li>Lock in this rate forever</li>
-            <li>$0 joining fee</li>
-            <li>Priority booking for classes</li>
-            <li>Exclusive founding member perks</li>
-            <li>24/7 unlimited access</li>
-          </ul>
-          <a href="#membership-contact" class="btn btn--primary btn--block plan-cta" data-plan="Founding Member ($93/month)">Claim Your Spot</a>
-        </article>
+        {% for plan in membership.plans %}
+          {% if plan.isFounding %}
+          <article class="card card--plan card--founding">
+            <div class="founding-glow"></div>
+            {% if plan.badge %}<span class="badge badge--founding">{{ plan.badge }}</span>{% endif %}
+            <p class="plan-name">{{ plan.name }}</p>
+            <p class="plan-price"><span class="accent">{{ plan.price }}</span> <span class="unit">{{ plan.unit }}</span></p>
+            <ul class="plan-features">
+              {% for feature in plan.features %}<li>{{ feature }}</li>{% endfor %}
+            </ul>
+            <a href="#membership-contact" class="btn {{ plan.ctaStyle }} btn--block plan-cta" data-plan="{{ plan.dataPlan }}">{{ plan.ctaLabel }}</a>
+          </article>
+          {% endif %}
+          {% endfor %}
 
-        <!-- Regular Plans -->
         <div class="card-grid card-grid--plans" style="max-width: 1000px; margin-inline: auto; margin-top: var(--space-xl);">
-          <article class="card card--plan card--tall">
-            <p class="plan-name">1 Month</p>
-            <p class="plan-price"><span class="accent">$148</span> <span class="unit">/month</span></p>
+          {% for plan in membership.plans %}
+          {% if not plan.isFounding %}
+          <article class="card card--plan card--tall{% if plan.ctaStyle == 'btn--primary' %} card--highlight{% endif %}">
+            {% if plan.badge %}<span class="badge">{{ plan.badge }}</span>{% endif %}
+            <p class="plan-name">{{ plan.name }}</p>
+            <p class="plan-price"><span class="accent">{{ plan.price }}</span> <span class="unit">{{ plan.unit }}</span></p>
             <ul class="plan-features">
-              <li>No commitment</li>
-              <li>Full gym access</li>
-              <li>24/7 entry</li>
-              <li>Community events</li>
-              <li>Cancel anytime</li>
+              {% for feature in plan.features %}<li>{{ feature }}</li>{% endfor %}
             </ul>
-            <a href="#membership-contact" class="btn btn--outline plan-cta" data-plan="1 Month ($148/month)">Get Started</a>
+            <a href="#membership-contact" class="btn {{ plan.ctaStyle }} plan-cta" data-plan="{{ plan.dataPlan }}">{{ plan.ctaLabel }}</a>
           </article>
-          <article class="card card--plan card--tall card--highlight">
-            <span class="badge">Best Value</span>
-            <p class="plan-name">6 Months</p>
-            <p class="plan-price"><span class="accent">$128</span> <span class="unit">/month</span></p>
-            <ul class="plan-features">
-              <li>Save $120 vs monthly</li>
-              <li>Full gym access</li>
-              <li>24/7 entry</li>
-              <li>Community events</li>
-              <li>$0 joining fee</li>
-            </ul>
-            <a href="#membership-contact" class="btn btn--primary plan-cta" data-plan="6 Months ($128/month)">Get Started</a>
-          </article>
-          <article class="card card--plan card--tall">
-            <p class="plan-name">12 Months</p>
-            <p class="plan-price"><span class="accent">$108</span> <span class="unit">/month</span></p>
-            <ul class="plan-features">
-              <li>Save $480 vs monthly</li>
-              <li>Full gym access</li>
-              <li>24/7 entry</li>
-              <li>Community events</li>
-              <li>$0 joining fee</li>
-            </ul>
-            <a href="#membership-contact" class="btn btn--outline plan-cta" data-plan="12 Months ($108/month)">Get Started</a>
-          </article>
+          {% endif %}
+          {% endfor %}
         </div>
       </div>
     </section>

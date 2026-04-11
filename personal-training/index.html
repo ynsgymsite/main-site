@@ -48,28 +48,18 @@ navCtaHref: "#pt-contact"
             </div>
           </div>
           <div class="pt-pricing-layout__cards">
-            <a href="#pt-contact" class="pt-intro-card pt-pack-cta" data-pack="Intro Pack - 3 Sessions ($180)">
-              <p class="pt-intro-card__label">INTRO PACK</p>
-              <p class="pt-intro-card__price">3 SESSIONS FOR <span class="pt-intro-card__amount">$180</span></p>
-              <p class="pt-intro-card__note">*valid for first PT purchase only</p>
+            <a href="#pt-contact" class="pt-intro-card pt-pack-cta" data-pack="{{ pt.introPack.label }} - {{ pt.introPack.sessionsText }} {{ pt.introPack.price }}">
+              <p class="pt-intro-card__label">{{ pt.introPack.label }}</p>
+              <p class="pt-intro-card__price">{{ pt.introPack.sessionsText }} <span class="pt-intro-card__amount">{{ pt.introPack.price }}</span></p>
+              <p class="pt-intro-card__note">{{ pt.introPack.note }}</p>
             </a>
             <div class="pt-session-grid">
-              <a href="#pt-contact" class="pt-session-card pt-pack-cta" data-pack="6 Sessions ($100/session)">
-                <p class="pt-session-card__sessions">6 SESSIONS</p>
-                <p class="pt-session-card__price"><span class="pt-session-card__amount">$100</span><span class="pt-session-card__unit">/session</span></p>
+              {% for pack in pt.sessionPacks %}
+              <a href="#pt-contact" class="pt-session-card pt-pack-cta" data-pack="{{ pack.sessions }} ({{ pack.pricePerSession }}/session)" data-shopify-product="{{ pack.shopifyProduct }}">
+                <p class="pt-session-card__sessions">{{ pack.sessions }}</p>
+                <p class="pt-session-card__price"><span class="pt-session-card__amount">{{ pack.pricePerSession }}</span><span class="pt-session-card__unit">/session</span></p>
               </a>
-              <a href="#pt-contact" class="pt-session-card pt-pack-cta" data-pack="12 Sessions ($95/session)">
-                <p class="pt-session-card__sessions">12 SESSIONS</p>
-                <p class="pt-session-card__price"><span class="pt-session-card__amount">$95</span><span class="pt-session-card__unit">/session</span></p>
-              </a>
-              <a href="#pt-contact" class="pt-session-card pt-pack-cta" data-pack="24 Sessions ($90/session)">
-                <p class="pt-session-card__sessions">24 SESSIONS</p>
-                <p class="pt-session-card__price"><span class="pt-session-card__amount">$90</span><span class="pt-session-card__unit">/session</span></p>
-              </a>
-              <a href="#pt-contact" class="pt-session-card pt-pack-cta" data-pack="36 Sessions ($85/session)">
-                <p class="pt-session-card__sessions">36 SESSIONS</p>
-                <p class="pt-session-card__price"><span class="pt-session-card__amount">$85</span><span class="pt-session-card__unit">/session</span></p>
-              </a>
+              {% endfor %}
             </div>
           </div>
         </div>
