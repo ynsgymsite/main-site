@@ -1,40 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YNSGYM – Our Gyms</title>
-  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
-  <link rel="shortcut icon" href="/favicon/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-  <link rel="manifest" href="/favicon/site.webmanifest">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
-</head>
-<body class="page-gyms">
-  <header class="nav">
-    <div class="nav__inner">
-      <a href="/" class="nav__logo">YNSGYM</a>
-      <nav id="nav-links" class="nav__links" data-open="false">
-        <a href="/gyms/" class="active">Our Gyms</a>
-        <a href="/membership/">Membership</a>
-        <a href="/personal-training/">Personal Training</a>
-        <a href="/classes/">Classes</a>
-        <a href="/testimonials/">Testimonials</a>
-        <a href="#gyms-contact" class="btn btn--primary nav__cta--mobile">Free Trial</a>
-      </nav>
-      <a href="#gyms-contact" class="btn btn--primary nav__cta">Free Trial</a>
-      <button type="button" id="nav-toggle" class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-  <div id="nav-overlay" class="nav__overlay" data-open="false" aria-hidden="true"></div>
-
-  <main>
+---
+layout: base.njk
+pageTitle: "YNSGYM – Our Gyms"
+bodyClass: page-gyms
+navCtaHref: "#gyms-contact"
+---
     <section class="page-hero">
       <p class="eyebrow">Our Gyms</p>
       <h1 class="heading-xl">Find your <span class="accent" style="white-space: nowrap;">home base</span></h1>
@@ -121,12 +90,9 @@
                   <label for="gyms-topic">Topic</label>
                   <select id="gyms-topic" name="topic" required>
                     <option value="">Choose an option</option>
-                    <option value="Gym Tour">Gym Tour</option>
-                    <option value="Gym Trial">Gym Trial</option>
-                    <option value="Personal Training">Personal Training</option>
-                    <option value="Group Classes">Group Classes</option>
-                    <option value="Current Promotions">Current Promotions</option>
-                    <option value="Others">Others</option>
+                    {% for topic in site.contactTopics %}
+                      <option value="{{ topic }}">{{ topic }}</option>
+                    {% endfor %}
                   </select>
                 </div>
                 <div class="form-group full">
@@ -140,12 +106,3 @@
         </div>
       </div>
     </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>© 2025 YNSGYM. All rights reserved.</p>
-  </footer>
-
-  <script src="/js/main.js"></script>
-</body>
-</html>

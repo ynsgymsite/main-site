@@ -1,0 +1,30 @@
+{
+  "introPack": {
+    "label": "INTRO PACK",
+    "sessionsText": "3 SESSIONS FOR",
+    "price": "$180",
+    "note": "*valid for first PT purchase only"
+  },
+  "sessionPacks": [
+    {
+      "sessions": "6 SESSIONS",
+      "pricePerSession": "$100",
+      "shopifyProduct": "pt-6"
+    },
+    {
+      "sessions": "12 SESSIONS",
+      "pricePerSession": "$95",
+      "shopifyProduct": "pt-12"
+    },
+    {
+      "sessions": "24 SESSIONS",
+      "pricePerSession": "$90",
+      "shopifyProduct": "pt-24"
+    },
+    {
+      "sessions": "36 SESSIONS",
+      "pricePerSession": "$85",
+      "shopifyProduct": "pt-36"
+    }
+  ]
+}

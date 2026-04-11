@@ -1,0 +1,164 @@
+backend:
+  name: git-gateway
+  branch: cms/eleventy-decap
+
+media_folder: "public/uploads"
+public_folder: "/public/uploads"
+
+collections:
+
+  # ── GLOBAL SITE SETTINGS ──────────────────────────────────────────
+  - name: "site"
+    label: "Site Settings"
+    files:
+      - name: "global"
+        label: "Global Settings"
+        file: "_data/site.json"
+        format: json
+        fields:
+          - { label: "Logo Text", name: "logo", widget: "string" }
+          - { label: "Nav CTA Button Label", name: "navCtaLabel", widget: "string" }
+          - { label: "WhatsApp Number", name: "whatsappNumber", widget: "string", hint: "Digits only, e.g. 6587675510" }
+          - { label: "Footer Copyright", name: "footerCopyright", widget: "string" }
+          - label: "Nav Links"
+            name: "navLinks"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - label: "Contact Form Topics"
+            name: "contactTopics"
+            widget: "list"
+            field: { label: "Topic", name: "topic", widget: "string" }
+
+  # ── MEMBERSHIP ────────────────────────────────────────────────────
+  - name: "membership"
+    label: "Membership"
+    files:
+      - name: "plans"
+        label: "Membership Plans"
+        file: "_data/membership.json"
+        format: json
+        fields:
+          - label: "Page Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Accent Word", name: "accent", widget: "string", hint: "The word shown in red" }
+          - label: "Plans"
+            name: "plans"
+            widget: "list"
+            fields:
+              - { label: "Plan Name", name: "name", widget: "string" }
+              - { label: "Price", name: "price", widget: "string", hint: "e.g. $93" }
+              - { label: "Price Unit", name: "unit", widget: "string", hint: "e.g. /month" }
+              - { label: "Badge Text", name: "badge", widget: "string", required: false, hint: "e.g. Best Value or Limited Time. Leave blank for none." }
+              - { label: "Is Founding/Promo style", name: "isFounding", widget: "boolean", default: false }
+              - { label: "CTA Button Label", name: "ctaLabel", widget: "string" }
+              - { label: "CTA Button Style", name: "ctaStyle", widget: "select", options: ["btn--primary", "btn--outline"], default: "btn--outline" }
+              - { label: "data-plan value", name: "dataPlan", widget: "string", hint: "Used to pre-fill contact form. e.g. Founding Member ($93/month)" }
+              - label: "Features"
+                name: "features"
+                widget: "list"
+                field: { label: "Feature", name: "feature", widget: "string" }
+
+  # ── PERSONAL TRAINING ─────────────────────────────────────────────
+  - name: "pt"
+    label: "Personal Training"
+    files:
+      - name: "content"
+        label: "PT Content"
+        file: "_data/pt.json"
+        format: json
+        fields:
+          - label: "Intro Pack"
+            name: "introPack"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string", hint: "e.g. INTRO PACK" }
+              - { label: "Sessions text", name: "sessionsText", widget: "string", hint: "e.g. 3 SESSIONS FOR" }
+              - { label: "Price", name: "price", widget: "string", hint: "e.g. $180" }
+              - { label: "Note", name: "note", widget: "string", hint: "e.g. *valid for first PT purchase only" }
+          - label: "Session Packs"
+            name: "sessionPacks"
+            widget: "list"
+            fields:
+              - { label: "Sessions label", name: "sessions", widget: "string", hint: "e.g. 6 SESSIONS" }
+              - { label: "Price per session", name: "pricePerSession", widget: "string", hint: "e.g. $100" }
+              - { label: "data-shopify-product", name: "shopifyProduct", widget: "string", hint: "e.g. pt-6" }
+
+  # ── CLASSES ───────────────────────────────────────────────────────
+  - name: "classes"
+    label: "Classes"
+    files:
+      - name: "list"
+        label: "Class List"
+        file: "_data/classes.json"
+        format: json
+        fields:
+          - label: "Classes"
+            name: "classes"
+            widget: "list"
+            fields:
+              - { label: "Key (no spaces)", name: "key", widget: "string", hint: "e.g. hyrox — used in URLs and JS" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Tile Image", name: "image", widget: "image" }
+              - { label: "Is Free with Membership", name: "isFree", widget: "boolean", default: true }
+              - { label: "Price", name: "price", widget: "string", hint: "e.g. Free with Membership or $79.90 for 4 sessions" }
+              - { label: "Description", name: "desc", widget: "text" }
+              - label: "Features"
+                name: "features"
+                widget: "list"
+                field: { label: "Feature", name: "feature", widget: "string" }
+
+  # ── TESTIMONIALS ──────────────────────────────────────────────────
+  - name: "testimonials"
+    label: "Testimonials"
+    files:
+      - name: "list"
+        label: "Testimonial List"
+        file: "_data/testimonials.json"
+        format: json
+        fields:
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Avatar Photo", name: "avatar", widget: "image" }
+              - { label: "Role / Description", name: "role", widget: "string", hint: "e.g. Desk-bound PM" }
+              - { label: "Time at gym", name: "duration", widget: "string", hint: "e.g. 9 months in" }
+              - { label: "Quote", name: "quote", widget: "text" }
+              - label: "Stats (2 results)"
+                name: "stats"
+                widget: "list"
+                fields:
+                  - { label: "Stat Label", name: "label", widget: "string", hint: "e.g. Deadlift" }
+                  - { label: "Stat Value", name: "value", widget: "string", hint: "e.g. 70kg → 115kg" }
+              - label: "Tags"
+                name: "tags"
+                widget: "list"
+                fields:
+                  - { label: "Tag Label", name: "label", widget: "string" }
+                  - { label: "Tag URL", name: "url", widget: "string" }
+
+  # ── GYM LOCATIONS ────────────────────────────────────────────────
+  - name: "gyms"
+    label: "Gyms"
+    files:
+      - name: "locations"
+        label: "Gym Locations"
+        file: "_data/gyms.json"
+        format: json
+        fields:
+          - label: "Locations"
+            name: "locations"
+            widget: "list"
+            fields:
+              - { label: "Gym Name", name: "name", widget: "string" }
+              - { label: "Address", name: "address", widget: "string" }
+              - { label: "Phone", name: "phone", widget: "string" }
+              - { label: "Map Latitude", name: "lat", widget: "string" }
+              - { label: "Map Longitude", name: "lng", widget: "string" }

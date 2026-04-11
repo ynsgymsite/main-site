@@ -1,0 +1,67 @@
+{
+  "classes": [
+    {
+      "key": "hyrox",
+      "name": "Hyrox",
+      "image": "/public/hyrox.jpeg",
+      "isFree": true,
+      "price": "Free with Membership",
+      "desc": "Train like a Hyrox athlete with functional fitness movements, running intervals, and competition-style conditioning. Open to all fitness levels.",
+      "features": ["60-minute sessions", "Functional fitness movements", "Running intervals", "Competition prep available", "All fitness levels welcome"]
+    },
+    {
+      "key": "hiit",
+      "name": "HIIT",
+      "image": "/public/hiit.jpeg",
+      "isFree": true,
+      "price": "Free with Membership",
+      "desc": "High-intensity interval training that pushes your limits and maximises calorie burn. Full-body workouts that are scalable for any fitness level.",
+      "features": ["45-minute sessions", "Full-body workouts", "Metabolic conditioning", "Scalable for all levels", "No equipment needed"]
+    },
+    {
+      "key": "yoga",
+      "name": "Yoga",
+      "image": "/public/yoga.jpeg",
+      "isFree": true,
+      "price": "Free with Membership",
+      "desc": "Improve flexibility, reduce stress and recover faster. Multiple styles offered to suit beginners and experienced practitioners alike.",
+      "features": ["60-minute sessions", "Multiple styles offered", "Improve flexibility", "Stress relief & recovery", "Beginner-friendly options"]
+    },
+    {
+      "key": "zumba",
+      "name": "Zumba",
+      "image": "/public/zumba.jpeg",
+      "isFree": true,
+      "price": "Free with Membership",
+      "desc": "Dance your way to fitness with Latin and international rhythms. No dance experience needed — just bring the energy.",
+      "features": ["60-minute sessions", "Latin & international music", "Burns 400-600 calories", "No dance experience needed", "Fun party atmosphere"]
+    },
+    {
+      "key": "boxing",
+      "name": "Boxing",
+      "image": "/public/boxing.jpeg",
+      "isFree": true,
+      "price": "Free with Membership",
+      "desc": "Technique-focused boxing that builds cardio, strength and confidence. Gloves provided. Great for stress relief and conditioning.",
+      "features": ["60-minute sessions", "Technique-focused coaching", "Cardio & conditioning", "Stress relief", "Gloves provided"]
+    },
+    {
+      "key": "reformer",
+      "name": "Reformer Pilates",
+      "image": "/public/reformer.jpeg",
+      "isFree": false,
+      "price": "$79.90 for 4 sessions",
+      "desc": "Small group reformer Pilates (max 8 per class) focused on core strength, posture and full-body control. Launch offer — save $40.10.",
+      "features": ["50-minute sessions", "Small group sizes (max 8)", "Core & full-body focus", "Improves posture", "Launch offer: Save $40.10"]
+    },
+    {
+      "key": "mat",
+      "name": "Mat Pilates",
+      "image": "/public/mat.jpeg",
+      "isFree": false,
+      "price": "$79.90 for 4 sessions",
+      "desc": "Core-focused mat Pilates that improves flexibility and builds functional strength. Great for beginners. Launch offer — save $40.10.",
+      "features": ["50-minute sessions", "Core-focused exercises", "Improves flexibility", "Great for beginners", "Launch offer: Save $40.10"]
+    }
+  ]
+}

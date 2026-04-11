@@ -1,40 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YNSGYM – Testimonials</title>
-  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
-  <link rel="shortcut icon" href="/favicon/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-  <link rel="manifest" href="/favicon/site.webmanifest">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
-</head>
-<body class="page-testimonials">
-  <header class="nav">
-    <div class="nav__inner">
-      <a href="/" class="nav__logo">YNSGYM</a>
-      <nav id="nav-links" class="nav__links" data-open="false">
-        <a href="/gyms/">Our Gyms</a>
-        <a href="/membership/">Membership</a>
-        <a href="/personal-training/">Personal Training</a>
-        <a href="/classes/">Classes</a>
-        <a href="/testimonials/" class="active">Testimonials</a>
-        <a href="#testimonials-contact" class="btn btn--primary nav__cta--mobile">Free Trial</a>
-      </nav>
-      <a href="#testimonials-contact" class="btn btn--primary nav__cta">Free Trial</a>
-      <button type="button" id="nav-toggle" class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-  <div id="nav-overlay" class="nav__overlay" data-open="false" aria-hidden="true"></div>
-
-  <main>
+---
+layout: base.njk
+pageTitle: "YNSGYM – Testimonials"
+bodyClass: page-testimonials
+navCtaHref: "#testimonials-contact"
+---
     <section class="page-hero">
       <p class="eyebrow">Testimonials</p>
       <h1 class="heading-xl">Meet the crew who <span class="accent">train here</span></h1>
@@ -50,144 +19,29 @@
         <div class="testimonial-carousel" data-testimonial-carousel>
           <div class="testimonial-carousel__viewport" data-carousel-viewport tabindex="0" aria-label="Testimonials carousel">
             <div class="testimonial-grid">
+              {% for t in testimonials.testimonials %}
               <article class="testimonial-card">
                 <div class="testimonial-card__top">
                   <div class="testimonial-card__avatar">
-                    <img src="/public/avatar-1.png" alt="Portrait for Lena Park">
+                    <img src="{{ t.avatar }}" alt="Portrait for {{ t.name }}" onerror="this.style.display='none'">
                   </div>
                   <div class="testimonial-card__identity">
-                    <p class="testimonial-card__name">Lena Park</p>
-                    <p class="testimonial-card__role"><span>Desk-bound PM</span><span>9 months in</span></p>
+                    <p class="testimonial-card__name">{{ t.name }}</p>
+                    <p class="testimonial-card__role"><span>{{ t.role }}</span><span>{{ t.duration }}</span></p>
                     <div class="testimonial-card__tags">
-                      <a href="/classes/#class-hiit">HIIT</a>
-                      <a href="/personal-training/">Personal Training</a>
+                      {% for tag in t.tags %}<a href="{{ tag.url }}">{{ tag.label }}</a>{% endfor %}
                     </div>
                   </div>
                 </div>
                 <div class="testimonial-card__stats">
                   <p class="testimonial-card__stats-title">Big Wins</p>
                   <ul class="testimonial-card__stats-list">
-                    <li><span>Deadlift</span><strong>70kg → 115kg</strong></li>
-                    <li><span>Body fat</span><strong>29% → 23%</strong></li>
+                    {% for stat in t.stats %}<li><span>{{ stat.label }}</span><strong>{{ stat.value }}</strong></li>{% endfor %}
                   </ul>
                 </div>
-                <div class="testimonial-card__quote">“I stopped guessing and started progressing. The coaches made every session feel doable and measurable.”</div>
+                <div class="testimonial-card__quote">"{{ t.quote }}"</div>
               </article>
-              <article class="testimonial-card">
-                <div class="testimonial-card__top">
-                  <div class="testimonial-card__avatar">
-                    <img src="/public/avatar-2.png" alt="Portrait for Priya Nair">
-                  </div>
-                  <div class="testimonial-card__identity">
-                    <p class="testimonial-card__name">Priya Nair</p>
-                    <p class="testimonial-card__role"><span>Busy professional</span><span>5 months in</span></p>
-                    <div class="testimonial-card__tags">
-                      <a href="/classes/#class-reformer">Reformer Pilates</a>
-                      <a href="/classes/#class-mat">Mat Pilates</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial-card__stats">
-                  <p class="testimonial-card__stats-title">Big Wins</p>
-                  <ul class="testimonial-card__stats-list">
-                    <li><span>Core strength</span><strong>2x plank time</strong></li>
-                    <li><span>Lower-back pain</span><strong>Gone</strong></li>
-                  </ul>
-                </div>
-                <div class="testimonial-card__quote">“I finally found a routine that makes me feel strong without feeling broken. Pilates + strength is my sweet spot.”</div>
-              </article>
-              <article class="testimonial-card">
-                <div class="testimonial-card__top">
-                  <div class="testimonial-card__avatar">
-                    <img src="/public/avatar-3.png" alt="Portrait for Sarah Lim">
-                  </div>
-                  <div class="testimonial-card__identity">
-                    <p class="testimonial-card__name">Sarah Lim</p>
-                    <p class="testimonial-card__role"><span>Early-morning lifter</span><span>1 year in</span></p>
-                    <div class="testimonial-card__tags">
-                      <a href="/classes/#class-hyrox">Hyrox</a>
-                      <a href="/classes/#class-hiit">HIIT</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial-card__stats">
-                  <p class="testimonial-card__stats-title">Big Wins</p>
-                  <ul class="testimonial-card__stats-list">
-                    <li><span>Bench press</span><strong>45kg → 70kg</strong></li>
-                    <li><span>5K run</span><strong>29:10 → 23:40</strong></li>
-                  </ul>
-                </div>
-                <div class="testimonial-card__quote">“The 6am crew pushes you without the ego. I’ve never stuck to a gym this long.”</div>
-              </article>
-              <article class="testimonial-card">
-                <div class="testimonial-card__top">
-                  <div class="testimonial-card__avatar">
-                    <img src="/public/avatar-4.png" alt="Portrait for Marcus Tan">
-                  </div>
-                  <div class="testimonial-card__identity">
-                    <p class="testimonial-card__name">Marcus Tan</p>
-                    <p class="testimonial-card__role"><span>New to lifting</span><span>4 months in</span></p>
-                    <div class="testimonial-card__tags">
-                      <a href="/personal-training/">Personal Training</a>
-                      <a href="/classes/#class-hiit">HIIT</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial-card__stats">
-                  <p class="testimonial-card__stats-title">Big Wins</p>
-                  <ul class="testimonial-card__stats-list">
-                    <li><span>Squat</span><strong>40kg → 80kg</strong></li>
-                    <li><span>Pull-ups</span><strong>0 → 5 reps</strong></li>
-                  </ul>
-                </div>
-                <div class="testimonial-card__quote">“The coaching fixed my form fast. Now I actually know what I’m doing and it shows.”</div>
-              </article>
-              <article class="testimonial-card">
-                <div class="testimonial-card__top">
-                  <div class="testimonial-card__avatar">
-                    <img src="/public/avatar-5.png" alt="Portrait for Jasmine Koh">
-                  </div>
-                  <div class="testimonial-card__identity">
-                    <p class="testimonial-card__name">Jasmine Koh</p>
-                    <p class="testimonial-card__role"><span>Fitness enthusiast</span><span>2 years in</span></p>
-                    <div class="testimonial-card__tags">
-                      <a href="/classes/#class-hyrox">Hyrox</a>
-                      <a href="/personal-training/">Personal Training</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial-card__stats">
-                  <p class="testimonial-card__stats-title">Big Wins</p>
-                  <ul class="testimonial-card__stats-list">
-                    <li><span>Deadlift</span><strong>90kg → 140kg</strong></li>
-                    <li><span>Bodyweight</span><strong>68kg → 62kg</strong></li>
-                  </ul>
-                </div>
-                <div class="testimonial-card__quote">“Everything is clean, the vibe is focused, and the staff actually remember your goals.”</div>
-              </article>
-              <article class="testimonial-card">
-                <div class="testimonial-card__top">
-                  <div class="testimonial-card__avatar">
-                    <img src="/public/avatar-6.png" alt="Portrait for David Lee">
-                  </div>
-                  <div class="testimonial-card__identity">
-                    <p class="testimonial-card__name">David Lee</p>
-                    <p class="testimonial-card__role"><span>Shift worker</span><span>6 months in</span></p>
-                    <div class="testimonial-card__tags">
-                      <a href="/personal-training/">Personal Training</a>
-                      <a href="/classes/#class-boxing">Boxing</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial-card__stats">
-                  <p class="testimonial-card__stats-title">Big Wins</p>
-                  <ul class="testimonial-card__stats-list">
-                    <li><span>Bench press</span><strong>60kg → 85kg</strong></li>
-                    <li><span>Bodyweight</span><strong>92kg → 84kg</strong></li>
-                  </ul>
-                </div>
-                <div class="testimonial-card__quote">“I needed accountability more than motivation. The PT plan kept me consistent even with a crazy schedule.”</div>
-              </article>
+              {% endfor %}
             </div>
           </div>
           <div class="testimonial-carousel__controls" aria-hidden="true">
@@ -230,12 +84,9 @@
                   <label for="test-topic">Topic</label>
                   <select id="test-topic" name="topic" required>
                     <option value="">Choose an option</option>
-                    <option value="Gym Tour">Gym Tour</option>
-                    <option value="Gym Trial">Gym Trial</option>
-                    <option value="Personal Training">Personal Training</option>
-                    <option value="Group Classes">Group Classes</option>
-                    <option value="Current Promotions">Current Promotions</option>
-                    <option value="Others">Others</option>
+                    {% for topic in site.contactTopics %}
+                      <option value="{{ topic }}">{{ topic }}</option>
+                    {% endfor %}
                   </select>
                 </div>
                 <div class="form-group full">
@@ -249,12 +100,3 @@
         </div>
       </div>
     </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>© 2025 YNSGYM. All rights reserved.</p>
-  </footer>
-
-  <script src="/js/main.js"></script>
-</body>
-</html>

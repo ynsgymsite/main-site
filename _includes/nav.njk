@@ -1,0 +1,15 @@
+<header class="nav">
+  <div class="nav__inner">
+    <a href="/" class="nav__logo">{{ site.logo or "YNSGYM" }}</a>
+    <nav id="nav-links" class="nav__links" data-open="false">
+      {% for link in site.navLinks %}
+        <a href="{{ link.url }}"{% if page.url == link.url %} class="active"{% endif %}>{{ link.label }}</a>
+      {% endfor %}
+      <a href="{{ navCtaHref }}" class="btn btn--primary nav__cta--mobile">{{ site.navCtaLabel }}</a>
+    </nav>
+    <a href="{{ navCtaHref }}" class="btn btn--primary nav__cta">{{ site.navCtaLabel }}</a>
+    <button type="button" id="nav-toggle" class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>

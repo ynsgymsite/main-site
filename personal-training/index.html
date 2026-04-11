@@ -1,40 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YNSGYM – Personal Training</title>
-  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
-  <link rel="shortcut icon" href="/favicon/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-  <link rel="manifest" href="/favicon/site.webmanifest">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
-</head>
-<body class="page-pt">
-  <header class="nav">
-    <div class="nav__inner">
-      <a href="/" class="nav__logo">YNSGYM</a>
-      <nav id="nav-links" class="nav__links" data-open="false">
-        <a href="/gyms/">Our Gyms</a>
-        <a href="/membership/">Membership</a>
-        <a href="/personal-training/" class="active">Personal Training</a>
-        <a href="/classes/">Classes</a>
-        <a href="/testimonials/">Testimonials</a>
-        <a href="#pt-contact" class="btn btn--primary nav__cta--mobile">Free Trial</a>
-      </nav>
-      <a href="#pt-contact" class="btn btn--primary nav__cta">Free Trial</a>
-      <button type="button" id="nav-toggle" class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-  <div id="nav-overlay" class="nav__overlay" data-open="false" aria-hidden="true"></div>
-
-  <main>
+---
+layout: base.njk
+pageTitle: "YNSGYM – Personal Training"
+bodyClass: page-pt
+navCtaHref: "#pt-contact"
+---
     <section class="page-hero">
       <p class="eyebrow">Personal Training</p>
       <h1 class="heading-xl">Workouts built <span class="accent" style="white-space: nowrap;">just for you</span></h1>
@@ -79,28 +48,18 @@
             </div>
           </div>
           <div class="pt-pricing-layout__cards">
-            <a href="#pt-contact" class="pt-intro-card pt-pack-cta" data-pack="Intro Pack - 3 Sessions ($180)">
-              <p class="pt-intro-card__label">INTRO PACK</p>
-              <p class="pt-intro-card__price">3 SESSIONS FOR <span class="pt-intro-card__amount">$180</span></p>
-              <p class="pt-intro-card__note">*valid for first PT purchase only</p>
+            <a href="#pt-contact" class="pt-intro-card pt-pack-cta" data-pack="{{ pt.introPack.label }} - {{ pt.introPack.sessionsText }} {{ pt.introPack.price }}">
+              <p class="pt-intro-card__label">{{ pt.introPack.label }}</p>
+              <p class="pt-intro-card__price">{{ pt.introPack.sessionsText }} <span class="pt-intro-card__amount">{{ pt.introPack.price }}</span></p>
+              <p class="pt-intro-card__note">{{ pt.introPack.note }}</p>
             </a>
             <div class="pt-session-grid">
-              <a href="#pt-contact" class="pt-session-card pt-pack-cta" data-pack="6 Sessions ($100/session)">
-                <p class="pt-session-card__sessions">6 SESSIONS</p>
-                <p class="pt-session-card__price"><span class="pt-session-card__amount">$100</span><span class="pt-session-card__unit">/session</span></p>
+              {% for pack in pt.sessionPacks %}
+              <a href="#pt-contact" class="pt-session-card pt-pack-cta" data-pack="{{ pack.sessions }} ({{ pack.pricePerSession }}/session)" data-shopify-product="{{ pack.shopifyProduct }}">
+                <p class="pt-session-card__sessions">{{ pack.sessions }}</p>
+                <p class="pt-session-card__price"><span class="pt-session-card__amount">{{ pack.pricePerSession }}</span><span class="pt-session-card__unit">/session</span></p>
               </a>
-              <a href="#pt-contact" class="pt-session-card pt-pack-cta" data-pack="12 Sessions ($95/session)">
-                <p class="pt-session-card__sessions">12 SESSIONS</p>
-                <p class="pt-session-card__price"><span class="pt-session-card__amount">$95</span><span class="pt-session-card__unit">/session</span></p>
-              </a>
-              <a href="#pt-contact" class="pt-session-card pt-pack-cta" data-pack="24 Sessions ($90/session)">
-                <p class="pt-session-card__sessions">24 SESSIONS</p>
-                <p class="pt-session-card__price"><span class="pt-session-card__amount">$90</span><span class="pt-session-card__unit">/session</span></p>
-              </a>
-              <a href="#pt-contact" class="pt-session-card pt-pack-cta" data-pack="36 Sessions ($85/session)">
-                <p class="pt-session-card__sessions">36 SESSIONS</p>
-                <p class="pt-session-card__price"><span class="pt-session-card__amount">$85</span><span class="pt-session-card__unit">/session</span></p>
-              </a>
+              {% endfor %}
             </div>
           </div>
         </div>
@@ -166,12 +125,9 @@
                   <label for="pt-topic">Topic</label>
                   <select id="pt-topic" name="topic" required>
                     <option value="">Choose an option</option>
-                    <option value="Gym Tour">Gym Tour</option>
-                    <option value="Gym Trial">Gym Trial</option>
-                    <option value="Personal Training">Personal Training</option>
-                    <option value="Group Classes">Group Classes</option>
-                    <option value="Current Promotions">Current Promotions</option>
-                    <option value="Others">Others</option>
+                    {% for topic in site.contactTopics %}
+                      <option value="{{ topic }}">{{ topic }}</option>
+                    {% endfor %}
                   </select>
                 </div>
                 <div class="form-group full">
@@ -185,13 +141,6 @@
         </div>
       </div>
     </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>© 2025 YNSGYM. All rights reserved.</p>
-  </footer>
-
-  <script src="/js/main.js"></script>
   <script>
     // Auto-populate form when clicking PT package cards
     document.querySelectorAll('.pt-pack-cta').forEach(function(card) {
@@ -212,5 +161,3 @@
       });
     });
   </script>
-</body>
-</html>

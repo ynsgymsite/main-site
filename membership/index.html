@@ -1,40 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YNSGYM – Membership</title>
-  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
-  <link rel="shortcut icon" href="/favicon/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-  <link rel="manifest" href="/favicon/site.webmanifest">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
-</head>
-<body class="page-membership">
-  <header class="nav">
-    <div class="nav__inner">
-      <a href="/" class="nav__logo">YNSGYM</a>
-      <nav id="nav-links" class="nav__links" data-open="false">
-        <a href="/gyms/">Our Gyms</a>
-        <a href="/membership/" class="active">Membership</a>
-        <a href="/personal-training/">Personal Training</a>
-        <a href="/classes/">Classes</a>
-        <a href="/testimonials/">Testimonials</a>
-        <a href="#membership-contact" class="btn btn--primary nav__cta--mobile">Free Trial</a>
-      </nav>
-      <a href="#membership-contact" class="btn btn--primary nav__cta">Free Trial</a>
-      <button type="button" id="nav-toggle" class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-  <div id="nav-overlay" class="nav__overlay" data-open="false" aria-hidden="true"></div>
-
-  <main>
+---
+layout: base.njk
+pageTitle: "YNSGYM – Membership"
+bodyClass: page-membership
+navCtaHref: "#membership-contact"
+---
     <section class="page-hero">
       <p class="eyebrow">Membership</p>
       <h1 class="heading-xl">Plan your <span class="accent">comeback</span></h1>
@@ -47,61 +16,35 @@
           <p>All tiers include 24/7 access, full gym floor, and community events.</p>
         </div>
 
-        <!-- Founding Price - Promotional Card -->
-        <article class="card card--plan card--founding">
-          <div class="founding-glow"></div>
-          <span class="badge badge--founding">Limited Time</span>
-          <p class="plan-name">Founding Member</p>
-          <p class="plan-price"><span class="accent">$93</span> <span class="unit">/month</span></p>
-          <ul class="plan-features">
-            <li>Lock in this rate forever</li>
-            <li>$0 joining fee</li>
-            <li>Priority booking for classes</li>
-            <li>Exclusive founding member perks</li>
-            <li>24/7 unlimited access</li>
-          </ul>
-          <a href="#membership-contact" class="btn btn--primary btn--block plan-cta" data-plan="Founding Member ($93/month)">Claim Your Spot</a>
-        </article>
+        {% for plan in membership.plans %}
+          {% if plan.isFounding %}
+          <article class="card card--plan card--founding">
+            <div class="founding-glow"></div>
+            {% if plan.badge %}<span class="badge badge--founding">{{ plan.badge }}</span>{% endif %}
+            <p class="plan-name">{{ plan.name }}</p>
+            <p class="plan-price"><span class="accent">{{ plan.price }}</span> <span class="unit">{{ plan.unit }}</span></p>
+            <ul class="plan-features">
+              {% for feature in plan.features %}<li>{{ feature }}</li>{% endfor %}
+            </ul>
+            <a href="#membership-contact" class="btn {{ plan.ctaStyle }} btn--block plan-cta" data-plan="{{ plan.dataPlan }}">{{ plan.ctaLabel }}</a>
+          </article>
+          {% endif %}
+          {% endfor %}
 
-        <!-- Regular Plans -->
         <div class="card-grid card-grid--plans" style="max-width: 1000px; margin-inline: auto; margin-top: var(--space-xl);">
-          <article class="card card--plan card--tall">
-            <p class="plan-name">1 Month</p>
-            <p class="plan-price"><span class="accent">$148</span> <span class="unit">/month</span></p>
+          {% for plan in membership.plans %}
+          {% if not plan.isFounding %}
+          <article class="card card--plan card--tall{% if plan.ctaStyle == 'btn--primary' %} card--highlight{% endif %}">
+            {% if plan.badge %}<span class="badge">{{ plan.badge }}</span>{% endif %}
+            <p class="plan-name">{{ plan.name }}</p>
+            <p class="plan-price"><span class="accent">{{ plan.price }}</span> <span class="unit">{{ plan.unit }}</span></p>
             <ul class="plan-features">
-              <li>No commitment</li>
-              <li>Full gym access</li>
-              <li>24/7 entry</li>
-              <li>Community events</li>
-              <li>Cancel anytime</li>
+              {% for feature in plan.features %}<li>{{ feature }}</li>{% endfor %}
             </ul>
-            <a href="#membership-contact" class="btn btn--outline plan-cta" data-plan="1 Month ($148/month)">Get Started</a>
+            <a href="#membership-contact" class="btn {{ plan.ctaStyle }} plan-cta" data-plan="{{ plan.dataPlan }}">{{ plan.ctaLabel }}</a>
           </article>
-          <article class="card card--plan card--tall card--highlight">
-            <span class="badge">Best Value</span>
-            <p class="plan-name">6 Months</p>
-            <p class="plan-price"><span class="accent">$128</span> <span class="unit">/month</span></p>
-            <ul class="plan-features">
-              <li>Save $120 vs monthly</li>
-              <li>Full gym access</li>
-              <li>24/7 entry</li>
-              <li>Community events</li>
-              <li>$0 joining fee</li>
-            </ul>
-            <a href="#membership-contact" class="btn btn--primary plan-cta" data-plan="6 Months ($128/month)">Get Started</a>
-          </article>
-          <article class="card card--plan card--tall">
-            <p class="plan-name">12 Months</p>
-            <p class="plan-price"><span class="accent">$108</span> <span class="unit">/month</span></p>
-            <ul class="plan-features">
-              <li>Save $480 vs monthly</li>
-              <li>Full gym access</li>
-              <li>24/7 entry</li>
-              <li>Community events</li>
-              <li>$0 joining fee</li>
-            </ul>
-            <a href="#membership-contact" class="btn btn--outline plan-cta" data-plan="12 Months ($108/month)">Get Started</a>
-          </article>
+          {% endif %}
+          {% endfor %}
         </div>
       </div>
     </section>
@@ -144,12 +87,9 @@
                   <label for="mem-topic">Topic</label>
                   <select id="mem-topic" name="topic" required>
                     <option value="">Choose an option</option>
-                    <option value="Gym Tour">Gym Tour</option>
-                    <option value="Gym Trial">Gym Trial</option>
-                    <option value="Personal Training">Personal Training</option>
-                    <option value="Group Classes">Group Classes</option>
-                    <option value="Current Promotions">Current Promotions</option>
-                    <option value="Others">Others</option>
+                    {% for topic in site.contactTopics %}
+                      <option value="{{ topic }}">{{ topic }}</option>
+                    {% endfor %}
                   </select>
                 </div>
                 <div class="form-group full">
@@ -163,13 +103,6 @@
         </div>
       </div>
     </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>© 2025 YNSGYM. All rights reserved.</p>
-  </footer>
-
-  <script src="/js/main.js"></script>
   <script>
     // Auto-populate form when clicking plan buttons
     document.querySelectorAll('.plan-cta').forEach(function(btn) {
@@ -190,5 +123,3 @@
       });
     });
   </script>
-</body>
-</html>
