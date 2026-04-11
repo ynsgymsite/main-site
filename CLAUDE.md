@@ -4,51 +4,86 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Static HTML/CSS/JS website for **YNSGYM** — a 24/7 gym in Singapore. No build step, no framework, no package manager. Files are deployed directly to Netlify (drag-and-drop or git-connected auto-deploy on push to `main`).
+Marketing site for **YNSGYM** — a 24/7 gym in Singapore. Built with **Eleventy (11ty)** SSG and **Decap CMS** (Git-based admin UI). Hosted on Netlify. Content is stored in `_data/*.json` files; admins edit via `/admin/`.
+
+## Branches
+
+| Branch | Purpose |
+|---|---|
+| `main` | Production site |
+| `cms/eleventy-decap` | CMS + Eleventy build (active development) |
+| `shopify-integration` | Shopify checkout (parked) |
 
 ## Development
 
-Preview locally with any static server — e.g.:
 ```bash
-python3 -m http.server 8080
-# or
-npx serve .
+npm install
+npx @11ty/eleventy --serve
+# Site at http://localhost:8080
 ```
 
-There is no linting, test suite, or build process.
+Build output goes to `_site/` (git-ignored). Never edit `_site/` directly. To build without serving: `npx @11ty/eleventy`.
+
+There is no linting or test suite.
 
 ## Site Structure
 
 | Path | Purpose |
 |---|---|
-| `index.html` | Homepage |
+| `index.njk` | Homepage |
 | `gyms/index.html` | Gym locations |
 | `membership/index.html` | Membership tiers |
 | `personal-training/index.html` | PT session packs + pricing |
 | `classes/index.html` | Class schedule/types |
 | `testimonials/index.html` | Testimonials with carousel |
-| `styles.css` | **Single global stylesheet** — all styles for every page live here |
+| `styles.css` | **Single global stylesheet** — all styles for every page |
 | `js/main.js` | **Single JS file** — all interactivity for every page |
-| `public/` | All images (JPEG/PNG) |
+| `public/` | Images (JPEG/PNG); CMS uploads go to `public/uploads/` |
 | `favicon/` | Favicon assets |
+| `_includes/` | Shared layout partials (`base.njk`, `nav.njk`, `footer.njk`) |
+| `_data/` | Content JSON files (CMS-editable, auto-exposed as template variables) |
+| `admin/` | Decap CMS SPA (`index.html`) and collection config (`config.yml`) |
 
 ## Architecture
 
-**CSS**: One file (`styles.css`) with CSS custom properties defined in `:root`. Design tokens:
+**Build**: Eleventy processes `.njk` and `.html` files as Nunjucks templates. Each page declares `layout`, `pageTitle`, `bodyClass`, and `navCtaHref` in YAML front matter. `_includes/base.njk` is the single shared HTML shell — it handles `<head>`, nav, footer, and Netlify Identity widget. Do not duplicate these in page files.
+
+**Data**: Files in `_data/` are auto-exposed by filename (e.g. `_data/classes.json` → `{{ classes.classes }}`). All structured content uses `{% for %}` loops — never hardcode repeating content in page templates.
+
+**CSS**: One file (`styles.css`) with CSS custom properties in `:root`. Design tokens:
 - Colors: `--color-bg`, `--color-surface`, `--color-surface-2`, `--color-accent` (`#ff3b3b` red)
 - Fonts: `--font-head` (Syne), `--font-body` (DM Sans) — loaded via Google Fonts
 - Spacing: `--space-xs` through `--space-3xl`
 - Layout: `.l-wrap` centers content at max `1200px`; `.section` handles vertical rhythm
 
 **JS** (`js/main.js`): Vanilla JS, IIFE-wrapped. Handles:
-- Mobile touch-active class on interactive elements (`.btn`, `.card`, `.bento__item`, etc.)
-- Contact form submit → WhatsApp deep link (`wa.me/6587675510`)
+- Mobile touch-active class on interactive elements
+- Contact form submit → WhatsApp deep link
 - Mobile nav toggle (hamburger + overlay)
 - Gallery image modal + custom scrollbar
-- Testimonials carousel (mobile merry-go-round; desktop grid) — driven by `[data-testimonial-carousel]`, `[data-carousel-viewport]`, `[data-carousel-prev/next/dots]` attributes
+- Testimonials carousel — driven by `[data-testimonial-carousel]`, `[data-carousel-viewport]`, `[data-carousel-prev/next/dots]` attributes
 
-**Contact forms** send to WhatsApp, not email. The `WHATSAPP_NUMBER` constant at the top of `main.js` is `6587675510`.
+**WhatsApp number**: Stored in `_data/site.json` as `whatsappNumber`. Injected onto `<body data-whatsapp="...">` in `base.njk`. `main.js` reads it via `document.body.getAttribute("data-whatsapp")`. Do not hardcode it in JS.
+
+**jsonSafe filter**: Custom Eleventy filter defined in `.eleventy.js`. Use it for any string value injected into inline `<script>` blocks to prevent XSS:
+```njk
+classData[{{ cls.key | jsonSafe | safe }}] = { ... };
+```
+
+**Contact forms** send to WhatsApp, not email.
+
+## CMS
+
+Admins edit content at `/admin/`. Changes commit to `_data/*.json` via Git Gateway → Netlify rebuilds → live in ~1–2 min.
+
+Collections defined in `admin/config.yml`:
+- **Site Settings** → `_data/site.json` (nav, WhatsApp, footer, contact topics)
+- **Membership** → `_data/membership.json`
+- **Personal Training** → `_data/pt.json`
+- **Classes** → `_data/classes.json`
+- **Testimonials** → `_data/testimonials.json`
+- **Gyms** → `_data/gyms.json`
 
 ## Shopify Integration (Pending)
 
-`SHOPIFY_INTEGRATION.md` documents the full plan for adding Shopify Buy Button checkout to `personal-training/index.html`. The recommended approach: replace `href="#pt-contact"` on the 5 PT pricing card CTAs with direct Shopify checkout URLs (`/cart/VARIANT_ID:1?channel=buy_button`). No iframe embeds needed. See that file for product SKUs, pricing, and setup steps.
+Parked on `shopify-integration` branch. See `SHOPIFY_INTEGRATION.md` for the plan — direct Shopify checkout URLs on PT pricing cards, no iframe embeds.
