@@ -16,39 +16,13 @@ navCtaHref: "#classes-contact"
           <p>Train together, push each other, get better together.</p>
         </div>
         <div class="class-tiles class-tiles--centered">
-          <button type="button" class="class-tile" data-class="hyrox">
-            <span style="background-image: url('/public/hyrox.jpeg');"></span>
-            <h3>Hyrox</h3>
-            <span class="class-tile__badge class-tile__badge--free">Free</span>
+          {% for cls in classes.classes %}
+          <button type="button" class="class-tile" data-class="{{ cls.key }}">
+            <span style="background-image: url('{{ cls.image }}');"></span>
+            <h3>{{ cls.name }}</h3>
+            {% if cls.isFree %}<span class="class-tile__badge class-tile__badge--free">Free</span>{% endif %}
           </button>
-          <button type="button" class="class-tile" data-class="hiit">
-            <span style="background-image: url('/public/hiit.jpeg');"></span>
-            <h3>HIIT</h3>
-            <span class="class-tile__badge class-tile__badge--free">Free</span>
-          </button>
-          <button type="button" class="class-tile" data-class="yoga">
-            <span style="background-image: url('/public/yoga.jpeg');"></span>
-            <h3>Yoga</h3>
-            <span class="class-tile__badge class-tile__badge--free">Free</span>
-          </button>
-          <button type="button" class="class-tile" data-class="zumba">
-            <span style="background-image: url('/public/zumba.jpeg');"></span>
-            <h3>Zumba</h3>
-            <span class="class-tile__badge class-tile__badge--free">Free</span>
-          </button>
-          <button type="button" class="class-tile" data-class="boxing">
-            <span style="background-image: url('/public/boxing.jpeg');"></span>
-            <h3>Boxing</h3>
-            <span class="class-tile__badge class-tile__badge--free">Free</span>
-          </button>
-          <button type="button" class="class-tile" data-class="reformer">
-            <span style="background-image: url('/public/reformer.jpeg');"></span>
-            <h3>Reformer Pilates</h3>
-          </button>
-          <button type="button" class="class-tile" data-class="mat">
-            <span style="background-image: url('/public/mat.jpeg');"></span>
-            <h3>Mat Pilates</h3>
-          </button>
+          {% endfor %}
         </div>
       </div>
     </section>
@@ -116,65 +90,18 @@ navCtaHref: "#classes-contact"
   </div>
 
   <script>
-    // Class data
-    var classData = {
-      hyrox: {
-        title: 'Hyrox',
-        image: '/public/hyrox.jpeg',
-        price: 'Free with Membership',
-        isFree: true,
-        desc: 'Train like a Hyrox athlete with our race-style conditioning classes. Combines running with functional exercises for the ultimate hybrid fitness challenge.',
-        features: ['60-minute sessions', 'Functional fitness movements', 'Running intervals', 'Competition prep available', 'All fitness levels welcome']
-      },
-      hiit: {
-        title: 'HIIT',
-        image: '/public/hiit.jpeg',
-        price: 'Free with Membership',
-        isFree: true,
-        desc: 'High-intensity interval training designed to torch calories, build strength, and boost your metabolism. Short bursts of intense effort with active recovery.',
-        features: ['45-minute sessions', 'Full-body workouts', 'Metabolic conditioning', 'Scalable for all levels', 'No equipment needed']
-      },
-      yoga: {
-        title: 'Yoga',
-        image: '/public/yoga.jpeg',
-        price: 'Free with Membership',
-        isFree: true,
-        desc: 'Find balance and flexibility with our yoga classes. From power flows to restorative sessions, perfect for recovery and mindfulness.',
-        features: ['60-minute sessions', 'Multiple styles offered', 'Improve flexibility', 'Stress relief & recovery', 'Beginner-friendly options']
-      },
-      zumba: {
-        title: 'Zumba',
-        image: '/public/zumba.jpeg',
-        price: 'Free with Membership',
-        isFree: true,
-        desc: 'Dance your way to fitness with high-energy Zumba classes. Latin-inspired rhythms and easy-to-follow moves make exercise feel like a party.',
-        features: ['60-minute sessions', 'Latin & international music', 'Burns 400-600 calories', 'No dance experience needed', 'Fun party atmosphere']
-      },
-      boxing: {
-        title: 'Boxing',
-        image: '/public/boxing.jpeg',
-        price: 'Free with Membership',
-        isFree: true,
-        desc: 'Learn proper boxing technique while getting an incredible cardio workout. Build strength, speed, and confidence with our coached sessions.',
-        features: ['60-minute sessions', 'Technique-focused coaching', 'Cardio & conditioning', 'Stress relief', 'Gloves provided']
-      },
-      reformer: {
-        title: 'Reformer Pilates',
-        image: '/public/reformer.jpeg',
-        price: '$79.90 for 4 sessions',
-        isFree: false,
-        desc: 'Experience low-impact, high-results training on our state-of-the-art reformer machines. Sculpt, tone, and strengthen with expert instruction.',
-        features: ['50-minute sessions', 'Small group sizes (max 8)', 'Core & full-body focus', 'Improves posture', 'Launch offer: Save $40.10']
-      },
-      mat: {
-        title: 'Mat Pilates',
-        image: '/public/mat.jpeg',
-        price: '$79.90 for 4 sessions',
-        isFree: false,
-        desc: 'Classic Pilates on the mat focusing on core strength, flexibility, and body control. Perfect for building a strong foundation.',
-        features: ['50-minute sessions', 'Core-focused exercises', 'Improves flexibility', 'Great for beginners', 'Launch offer: Save $40.10']
-      }
+    // Class data — generated at build time from _data/classes.json
+    var classData = {};
+    {% for cls in classes.classes %}
+    classData[{{ cls.key | jsonSafe | safe }}] = {
+      title: {{ cls.name | jsonSafe | safe }},
+      image: {{ cls.image | jsonSafe | safe }},
+      price: {{ cls.price | jsonSafe | safe }},
+      isFree: {{ "true" if cls.isFree else "false" }},
+      desc: {{ cls.desc | jsonSafe | safe }},
+      features: {{ cls.features | jsonSafe | safe }}
     };
+    {% endfor %}
 
     // Modal functionality
     var modal = document.getElementById('class-modal');
