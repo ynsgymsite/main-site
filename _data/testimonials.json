@@ -1,0 +1,94 @@
+{
+  "testimonials": [
+    {
+      "name": "Lena Park",
+      "avatar": "/public/avatar-1.png",
+      "role": "Desk-bound PM",
+      "duration": "9 months in",
+      "quote": "I stopped guessing and started progressing. The coaches actually track what you're doing week to week.",
+      "stats": [
+        { "label": "Deadlift", "value": "70kg → 115kg" },
+        { "label": "Body fat", "value": "29% → 23%" }
+      ],
+      "tags": [
+        { "label": "HIIT", "url": "/classes/#class-hiit" },
+        { "label": "Personal Training", "url": "/personal-training/" }
+      ]
+    },
+    {
+      "name": "Priya Nair",
+      "avatar": "/public/avatar-2.png",
+      "role": "Busy professional",
+      "duration": "5 months in",
+      "quote": "I finally found a routine that makes me feel strong without wrecking my schedule.",
+      "stats": [
+        { "label": "Core strength", "value": "2x plank time" },
+        { "label": "Lower-back pain", "value": "Gone" }
+      ],
+      "tags": [
+        { "label": "Reformer Pilates", "url": "/classes/#class-reformer" },
+        { "label": "Mat Pilates", "url": "/classes/#class-mat" }
+      ]
+    },
+    {
+      "name": "Sarah Lim",
+      "avatar": "/public/avatar-3.png",
+      "role": "Early-morning lifter",
+      "duration": "1 year in",
+      "quote": "The 6am crew pushes you without the ego. Best gym culture I've trained in.",
+      "stats": [
+        { "label": "Bench press", "value": "45kg → 70kg" },
+        { "label": "5K run", "value": "29:10 → 23:40" }
+      ],
+      "tags": [
+        { "label": "Hyrox", "url": "/classes/#class-hyrox" },
+        { "label": "HIIT", "url": "/classes/#class-hiit" }
+      ]
+    },
+    {
+      "name": "Marcus Tan",
+      "avatar": "/public/avatar-4.png",
+      "role": "New to lifting",
+      "duration": "4 months in",
+      "quote": "The coaching fixed my form fast. I went from zero to confident in about a month.",
+      "stats": [
+        { "label": "Squat", "value": "40kg → 80kg" },
+        { "label": "Pull-ups", "value": "0 → 5 reps" }
+      ],
+      "tags": [
+        { "label": "Personal Training", "url": "/personal-training/" },
+        { "label": "HIIT", "url": "/classes/#class-hiit" }
+      ]
+    },
+    {
+      "name": "Jasmine Koh",
+      "avatar": "/public/avatar-5.png",
+      "role": "Fitness enthusiast",
+      "duration": "2 years in",
+      "quote": "Everything is clean, the vibe is focused and the equipment is always available.",
+      "stats": [
+        { "label": "Deadlift", "value": "90kg → 140kg" },
+        { "label": "Bodyweight", "value": "68kg → 62kg" }
+      ],
+      "tags": [
+        { "label": "Hyrox", "url": "/classes/#class-hyrox" },
+        { "label": "Personal Training", "url": "/personal-training/" }
+      ]
+    },
+    {
+      "name": "David Lee",
+      "avatar": "/public/avatar-6.png",
+      "role": "Shift worker",
+      "duration": "6 months in",
+      "quote": "I needed accountability more than motivation. The 24/7 access means I train on my schedule, not the gym's.",
+      "stats": [
+        { "label": "Bench press", "value": "60kg → 85kg" },
+        { "label": "Bodyweight", "value": "92kg → 84kg" }
+      ],
+      "tags": [
+        { "label": "Personal Training", "url": "/personal-training/" },
+        { "label": "Boxing", "url": "/classes/#class-boxing" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "hero": {
+    "eyebrow": "Membership",
+    "heading": "Plan your",
+    "accent": "comeback"
+  },
+  "plans": [
+    {
+      "name": "Founding Member",
+      "price": "$93",
+      "unit": "/month",
+      "badge": "Limited Time",
+      "isFounding": true,
+      "ctaLabel": "Claim Your Spot",
+      "ctaStyle": "btn--primary",
+      "dataPlan": "Founding Member ($93/month)",
+      "features": [
+        "Lock in this rate forever",
+        "$0 joining fee",
+        "Priority booking for classes",
+        "Exclusive founding member perks",
+        "24/7 unlimited access"
+      ]
+    },
+    {
+      "name": "1 Month",
+      "price": "$148",
+      "unit": "/month",
+      "badge": "",
+      "isFounding": false,
+      "ctaLabel": "Get Started",
+      "ctaStyle": "btn--outline",
+      "dataPlan": "1 Month ($148/month)",
+      "features": [
+        "No commitment",
+        "Full gym access",
+        "24/7 entry",
+        "Community events",
+        "Cancel anytime"
+      ]
+    },
+    {
+      "name": "6 Months",
+      "price": "$128",
+      "unit": "/month",
+      "badge": "Best Value",
+      "isFounding": false,
+      "ctaLabel": "Get Started",
+      "ctaStyle": "btn--primary",
+      "dataPlan": "6 Months ($128/month)",
+      "features": [
+        "Save $120 vs monthly",
+        "Full gym access",
+        "24/7 entry",
+        "Community events",
+        "$0 joining fee"
+      ]
+    },
+    {
+      "name": "12 Months",
+      "price": "$108",
+      "unit": "/month",
+      "badge": "",
+      "isFounding": false,
+      "ctaLabel": "Get Started",
+      "ctaStyle": "btn--outline",
+      "dataPlan": "12 Months ($108/month)",
+      "features": [
+        "Save $480 vs monthly",
+        "Full gym access",
+        "24/7 entry",
+        "Community events",
+        "$0 joining fee"
+      ]
+    }
+  ]
+}
