@@ -29,13 +29,12 @@ The build compiles to `_site/` (git-ignored). Never edit files in `_site/` direc
 ├── package.json
 │
 ├── _includes/                # Shared layout partials
-│   ├── base.njk              # Full HTML shell (head, body, nav, footer)
+│   ├── base.njk              # Marketing-site HTML shell (head, body, nav, footer)
 │   ├── nav.njk               # Site nav — loops over site.json navLinks
 │   └── footer.njk            # Footer — renders site.json footerCopyright
 │
 ├── _data/                    # Content data files (CMS-editable)
 │   ├── site.json             # Global: logo, nav links, WhatsApp number, contact topics, footer
-│   ├── home.json             # Homepage: hero, bento items, split-content blocks
 │   ├── gyms.json             # Gym locations (name, address, phone, coordinates)
 │   ├── membership.json       # Membership plans (name, price, features, badges)
 │   ├── pt.json               # PT pricing: intro pack + session packs
@@ -46,7 +45,7 @@ The build compiles to `_site/` (git-ignored). Never edit files in `_site/` direc
 │   ├── index.html            # Decap CMS single-page app
 │   └── config.yml            # CMS collection definitions — maps UI fields to _data/*.json
 │
-├── index.njk                 # Homepage
+├── index.njk                 # Homepage (hardcoded template content)
 ├── gyms/index.html           # Gym locations page
 ├── membership/index.html     # Membership tiers page
 ├── personal-training/index.html  # PT pricing page
@@ -70,9 +69,9 @@ The build compiles to `_site/` (git-ignored). Never edit files in `_site/` direc
 
 ## Architecture Notes
 
-**Templates**: Pages use Nunjucks (`.njk` or `.html` processed as Nunjucks). Each page has YAML front matter declaring `layout`, `pageTitle`, `bodyClass`, and `navCtaHref`. The shared layout in `_includes/base.njk` eliminates duplicated `<head>`, nav, and footer.
+**Templates**: Marketing pages use Nunjucks (`.njk` or `.html` processed as Nunjucks). Each page has YAML front matter declaring `layout`, `pageTitle`, `bodyClass`, and `navCtaHref`. The shared layout in `_includes/base.njk` eliminates duplicated `<head>`, nav, and footer. The `/admin/` CMS app is a separate static page and does not use this layout.
 
-**Data binding**: `_data/*.json` files are auto-exposed as template variables by filename (e.g. `classes.json` → `{{ classes.classes }}`). All structured content (plans, classes, testimonials) is rendered via `{% for %}` loops.
+**Data binding**: Existing `_data/*.json` files are auto-exposed as template variables by filename (e.g. `classes.json` → `{{ classes.classes }}`). CMS-managed structured content is rendered via `{% for %}` loops. The homepage is currently hardcoded in `index.njk`; there is no `_data/home.json`.
 
 **WhatsApp number**: Stored in `_data/site.json` as `whatsappNumber`. Injected into the page as a `data-whatsapp` attribute on `<body>`. `js/main.js` reads it at runtime — no hardcoded number in JS.
 
@@ -86,6 +85,8 @@ The build compiles to `_site/` (git-ignored). Never edit files in `_site/` direc
 2. **Identity → Services** → Enable **Git Gateway**
 3. **Identity → Invite users** → invite admin email(s)
 4. Admin clicks invite link, sets password, accesses `/admin/`
+
+Netlify Identity is loaded only by `/admin/`. Public marketing pages should not load `netlify-identity-widget.js` or create a `netlify-identity-widget` iframe.
 
 ## Shopify Integration
 

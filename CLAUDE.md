@@ -46,9 +46,9 @@ There is no linting or test suite.
 
 ## Architecture
 
-**Build**: Eleventy processes `.njk` and `.html` files as Nunjucks templates. Each page declares `layout`, `pageTitle`, `bodyClass`, and `navCtaHref` in YAML front matter. `_includes/base.njk` is the single shared HTML shell — it handles `<head>`, nav, footer, and Netlify Identity widget. Do not duplicate these in page files.
+**Build**: Eleventy processes `.njk` and `.html` files as Nunjucks templates. Each marketing page declares `layout`, `pageTitle`, `bodyClass`, and `navCtaHref` in YAML front matter. `_includes/base.njk` is the shared marketing-site HTML shell — it handles `<head>`, nav, and footer. The `/admin/` CMS app is copied as a separate static page and does not use this layout. Do not duplicate shared marketing chrome in page files.
 
-**Data**: Files in `_data/` are auto-exposed by filename (e.g. `_data/classes.json` → `{{ classes.classes }}`). All structured content uses `{% for %}` loops — never hardcode repeating content in page templates.
+**Data**: Existing files in `_data/` are auto-exposed by filename (e.g. `_data/classes.json` → `{{ classes.classes }}`). CMS-managed structured content uses `{% for %}` loops. The homepage is currently hardcoded in `index.njk`; there is no `_data/home.json`.
 
 **CSS**: One file (`styles.css`) with CSS custom properties in `:root`. Design tokens:
 - Colors: `--color-bg`, `--color-surface`, `--color-surface-2`, `--color-accent` (`#ff3b3b` red)
@@ -75,6 +75,8 @@ classData[{{ cls.key | jsonSafe | safe }}] = { ... };
 ## CMS
 
 Admins edit content at `/admin/`. Changes commit to `_data/*.json` via Git Gateway → Netlify rebuilds → live in ~1–2 min.
+
+Netlify Identity is loaded only by `/admin/`. Public marketing pages should not load `netlify-identity-widget.js` or create a `netlify-identity-widget` iframe.
 
 Collections defined in `admin/config.yml`:
 - **Site Settings** → `_data/site.json` (nav, WhatsApp, footer, contact topics)
