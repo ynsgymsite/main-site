@@ -31,6 +31,25 @@ collections:
             widget: "list"
             field: { label: "Topic", name: "topic", widget: "string" }
 
+  # ── GYM LOCATIONS ────────────────────────────────────────────────
+  - name: "gyms"
+    label: "Gyms"
+    files:
+      - name: "locations"
+        label: "Gym Locations"
+        file: "_data/gyms.json"
+        format: json
+        fields:
+          - label: "Locations"
+            name: "locations"
+            widget: "list"
+            fields:
+              - { label: "Gym Name", name: "name", widget: "string" }
+              - { label: "Address", name: "address", widget: "string" }
+              - { label: "Phone", name: "phone", widget: "string" }
+              - { label: "Map Latitude", name: "lat", widget: "string" }
+              - { label: "Map Longitude", name: "lng", widget: "string" }
+
   # ── MEMBERSHIP ────────────────────────────────────────────────────
   - name: "membership"
     label: "Membership"
@@ -143,22 +162,3 @@ collections:
                 fields:
                   - { label: "Tag Label", name: "label", widget: "string" }
                   - { label: "Tag URL", name: "url", widget: "string" }
-
-  # ── GYM LOCATIONS ────────────────────────────────────────────────
-  - name: "gyms"
-    label: "Gyms"
-    files:
-      - name: "locations"
-        label: "Gym Locations"
-        file: "_data/gyms.json"
-        format: json
-        fields:
-          - label: "Locations"
-            name: "locations"
-            widget: "list"
-            fields:
-              - { label: "Gym Name", name: "name", widget: "string" }
-              - { label: "Address", name: "address", widget: "string" }
-              - { label: "Phone", name: "phone", widget: "string" }
-              - { label: "Map Latitude", name: "lat", widget: "string" }
-              - { label: "Map Longitude", name: "lng", widget: "string" }
