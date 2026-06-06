@@ -6,7 +6,7 @@ bodyClass: page-home
 navCtaHref: "#contact"
 ---
 
-<section class="hero-full">
+<section class="hero-full" style="--hero-bg: url('{{ site.homeHeroImage }}');">
   <h1 class="hero-full__title heading-hero">Ready to <span class="accent italic">SNAP?</span></h1>
   <p class="hero-full__tagline">The biggest 24/7 gym in the West — Hyrox, HIIT, Yoga, Pilates and more.</p>
   <div class="hero-full__actions">
@@ -74,49 +74,8 @@ navCtaHref: "#contact"
   </div>
 </section>
 
-<section id="contact" class="section">
-  <div class="l-wrap">
-    <div class="contact-block">
-      <div class="contact-block__grid">
-        <div class="contact-block__copy">
-          <h2 class="heading-lg">Let's talk <span class="accent">goals</span></h2>
-          <p>Tell us what you're chasing and we'll line you up with the right coach, class, or trial.</p>
-        </div>
-        <form class="contact-form" action="#" method="post">
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="home-first">First Name</label>
-              <input type="text" id="home-first" name="first_name" required>
-            </div>
-            <div class="form-group">
-              <label for="home-last">Last Name</label>
-              <input type="text" id="home-last" name="last_name" required>
-            </div>
-            <div class="form-group">
-              <label for="home-email">Email</label>
-              <input type="email" id="home-email" name="email" required>
-            </div>
-            <div class="form-group">
-              <label for="home-phone">Phone</label>
-              <input type="tel" id="home-phone" name="phone" required>
-            </div>
-            <div class="form-group full">
-              <label for="home-topic">Topic</label>
-              <select id="home-topic" name="topic" required>
-                <option value="">Choose an option</option>
-                {% for topic in site.contactTopics %}
-                  <option value="{{ topic }}">{{ topic }}</option>
-                {% endfor %}
-              </select>
-            </div>
-            <div class="form-group full">
-              <label for="home-message">Message</label>
-              <textarea id="home-message" name="message" rows="4" placeholder="Tell us what you need…"></textarea>
-            </div>
-          </div>
-          <button type="submit" class="btn btn--primary btn--block">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
+{% set contactSectionId = "contact" %}
+{% set contactPrefix = "home" %}
+{% set contactHeadingHtml = "Let's talk <span class='accent'>goals</span>" %}
+{% set contactDescription = "Tell us what you're chasing and we'll line you up with the right coach, class, or trial." %}
+{% include "contact-form.njk" %}

@@ -2,7 +2,8 @@
   "hero": {
     "eyebrow": "Membership",
     "heading": "Plan your",
-    "accent": "comeback"
+    "accent": "comeback",
+    "image": "/public/membership.jpeg"
   },
   "plans": [
     {

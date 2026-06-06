@@ -4,10 +4,10 @@ pageTitle: "YNSGYM – Classes"
 bodyClass: page-classes
 navCtaHref: "#classes-contact"
 ---
-    <section class="page-hero">
-      <p class="eyebrow">Group Classes</p>
-      <h1 class="heading-xl">Classes that make you <span class="accent" style="white-space: nowrap;">show up</span></h1>
-    </section>
+{% set heroImage = classes.heroImage %}
+{% set heroEyebrow = "Group Classes" %}
+{% set heroHeadingHtml = "Classes that make you <span class='accent' style='white-space: nowrap;'>show up</span>" %}
+{% include "page-hero.njk" %}
 
     <section class="section">
       <div class="l-wrap">
@@ -27,52 +27,11 @@ navCtaHref: "#classes-contact"
       </div>
     </section>
 
-    <section id="classes-contact" class="section">
-      <div class="l-wrap">
-        <div class="contact-block">
-          <div class="contact-block__grid">
-            <div class="contact-block__copy">
-              <h2 class="heading-lg">Plan your <span class="accent">class schedule</span></h2>
-              <p>Share a few details and which classes you’re interested in. We’ll get in touch to help you build your weekly routine.</p>
-            </div>
-            <form class="contact-form" action="#" method="post">
-              <div class="form-grid">
-                <div class="form-group">
-                  <label for="cls-first">First Name</label>
-                  <input type="text" id="cls-first" name="first_name" required>
-                </div>
-                <div class="form-group">
-                  <label for="cls-last">Last Name</label>
-                  <input type="text" id="cls-last" name="last_name" required>
-                </div>
-                <div class="form-group">
-                  <label for="cls-email">Email</label>
-                  <input type="email" id="cls-email" name="email" required>
-                </div>
-                <div class="form-group">
-                  <label for="cls-phone">Phone</label>
-                  <input type="tel" id="cls-phone" name="phone" required>
-                </div>
-                <div class="form-group full">
-                  <label for="cls-topic">Topic</label>
-                  <select id="cls-topic" name="topic" required>
-                    <option value="">Choose an option</option>
-                    {% for topic in site.contactTopics %}
-                      <option value="{{ topic }}">{{ topic }}</option>
-                    {% endfor %}
-                  </select>
-                </div>
-                <div class="form-group full">
-                  <label for="cls-message">Message</label>
-                  <textarea id="cls-message" name="message" rows="4" placeholder="Tell us what you need…"></textarea>
-                </div>
-              </div>
-              <button type="submit" class="btn btn--primary btn--block">Send Message</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+{% set contactSectionId = "classes-contact" %}
+{% set contactPrefix = "cls" %}
+{% set contactHeadingHtml = "Plan your <span class=’accent’>class schedule</span>" %}
+{% set contactDescription = "Share a few details and which classes you’re interested in. We’ll get in touch to help you build your weekly routine." %}
+{% include "contact-form.njk" %}
   <!-- Class Info Modal -->
   <div id="class-modal" class="class-modal" aria-hidden="true">
     <div class="class-modal__overlay"></div>

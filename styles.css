@@ -39,15 +39,12 @@ html {
 }
 
 body {
-  overflow-x: hidden;
-}
-
-body {
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.6;
   color: var(--color-text);
   background: var(--color-bg);
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -291,13 +288,11 @@ ul, ol {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(12,12,13,0.5) 0%, var(--color-bg) 100%);
+  background-image: linear-gradient(180deg, rgba(12,12,13,0.5) 0%, var(--color-bg) 100%), var(--hero-bg);
   background-size: cover;
   background-position: center;
   z-index: -1;
 }
-
-body.page-home .hero-full::before { background-image: linear-gradient(180deg, rgba(12,12,13,0.5) 0%, var(--color-bg) 100%), url("public/landing.jpeg"); }
 
 .hero-full__title {
   margin-bottom: var(--space-md);
@@ -509,17 +504,11 @@ body.page-home .hero-full::before { background-image: linear-gradient(180deg, rg
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(12,12,13,0.6) 0%, var(--color-bg) 100%);
+  background-image: linear-gradient(180deg, rgba(12,12,13,0.6) 0%, var(--color-bg) 100%), var(--hero-bg);
   background-size: cover;
   background-position: center;
   z-index: -1;
 }
-
-body.page-gyms .page-hero::before { background-image: linear-gradient(180deg, rgba(12,12,13,0.6) 0%, var(--color-bg) 100%), url("public/gyms.jpeg"); }
-body.page-membership .page-hero::before { background-image: linear-gradient(180deg, rgba(12,12,13,0.6) 0%, var(--color-bg) 100%), url("public/membership.jpeg"); }
-body.page-pt .page-hero::before { background-image: linear-gradient(180deg, rgba(12,12,13,0.6) 0%, var(--color-bg) 100%), url("public/pt.jpeg"); }
-body.page-classes .page-hero::before { background-image: linear-gradient(180deg, rgba(12,12,13,0.6) 0%, var(--color-bg) 100%), url("public/classes.jpeg"); }
-body.page-testimonials .page-hero::before { background-image: linear-gradient(180deg, rgba(12,12,13,0.6) 0%, var(--color-bg) 100%), url("public/testimonials.jpeg"); }
 
 .page-hero .eyebrow { margin-bottom: var(--space-sm); }
 .page-hero .heading-xl { margin-bottom: var(--space-md); }
@@ -642,21 +631,21 @@ body.page-testimonials .page-hero::before { background-image: linear-gradient(18
   list-style: none;
 }
 
-.plan-features li::before {
+.plan-features li::before,
+.class-modal__features li::before {
   content: "";
   position: absolute;
   left: 2px;
-  top: 8px;
   display: block;
   width: 6px;
   height: 10px;
   border-style: solid;
   border-color: var(--color-accent);
   border-width: 0 2px 2px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+.plan-features li::before { top: 8px; }
 
 /* Founding Member Card - Striking promotional style */
 .card--plan.card--founding {
@@ -1228,19 +1217,7 @@ body.page-testimonials .page-hero::before { background-image: linear-gradient(18
   color: var(--color-text-muted);
 }
 
-.class-modal__features li::before {
-  content: "";
-  position: absolute;
-  left: 2px;
-  top: 6px;
-  display: block;
-  width: 6px;
-  height: 10px;
-  border-style: solid;
-  border-color: var(--color-accent);
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
+.class-modal__features li::before { top: 6px; }
 
 .class-modal__cta {
   margin-top: var(--space-md);

@@ -1,0 +1,46 @@
+<section id="{{ contactSectionId }}" class="section">
+  <div class="l-wrap">
+    <div class="contact-block">
+      <div class="contact-block__grid">
+        <div class="contact-block__copy">
+          <h2 class="heading-lg">{{ contactHeadingHtml | safe }}</h2>
+          <p>{{ contactDescription }}</p>
+        </div>
+        <form class="contact-form" action="#" method="post">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="{{ contactPrefix }}-first">First Name</label>
+              <input type="text" id="{{ contactPrefix }}-first" name="first_name" required>
+            </div>
+            <div class="form-group">
+              <label for="{{ contactPrefix }}-last">Last Name</label>
+              <input type="text" id="{{ contactPrefix }}-last" name="last_name" required>
+            </div>
+            <div class="form-group">
+              <label for="{{ contactPrefix }}-email">Email</label>
+              <input type="email" id="{{ contactPrefix }}-email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="{{ contactPrefix }}-phone">Phone</label>
+              <input type="tel" id="{{ contactPrefix }}-phone" name="phone" required>
+            </div>
+            <div class="form-group full">
+              <label for="{{ contactPrefix }}-topic">Topic</label>
+              <select id="{{ contactPrefix }}-topic" name="topic" required>
+                <option value="">Choose an option</option>
+                {% for topic in site.contactTopics %}
+                  <option value="{{ topic }}">{{ topic }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="form-group full">
+              <label for="{{ contactPrefix }}-message">Message</label>
+              <textarea id="{{ contactPrefix }}-message" name="message" rows="4" placeholder="Tell us what you need…"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

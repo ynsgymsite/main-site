@@ -58,6 +58,20 @@
     });
   });
 
+  document.querySelectorAll("[data-autofill-form]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var prefix = this.getAttribute("data-autofill-form");
+      var topic = this.getAttribute("data-autofill-topic") || "";
+      var message = this.getAttribute("data-autofill-message") || "";
+      setTimeout(function () {
+        var topicEl = document.getElementById(prefix + "-topic");
+        var msgEl = document.getElementById(prefix + "-message");
+        if (topicEl && topic) topicEl.value = topic;
+        if (msgEl && message) msgEl.value = message;
+      }, 100);
+    });
+  });
+
   var toggle = document.getElementById("nav-toggle");
   var links = document.getElementById("nav-links");
   var overlay = document.getElementById("nav-overlay");

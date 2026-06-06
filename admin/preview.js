@@ -2,6 +2,7 @@
   var site = {
     logo: "YNSGYM",
     description: "The biggest 24/7 gym in the West - Hyrox, HIIT, Yoga, Pilates and more. Get in touch for a free trial today.",
+    homeHeroImage: "/public/landing.jpeg",
     navCtaLabel: "Free Trial",
     whatsappNumber: "6587675510",
     footerCopyright: "2025 YNSGYM. All rights reserved.",
@@ -51,6 +52,10 @@
 
   function attr(value) {
     return escapeHtml(value);
+  }
+
+  function heroStyle(image, fallback) {
+    return ' style="--hero-bg: url(\'' + attr(text(image, fallback)) + '\');"';
   }
 
   function getH() {
@@ -173,7 +178,7 @@
     var standardPlans = plans.filter(function (plan) { return !plan || !plan.isFounding; });
 
     var content = [
-      '<section class="page-hero">',
+      '<section class="page-hero"' + heroStyle(hero.image, "/public/membership.jpeg") + '>',
       '<p class="eyebrow">' + escapeHtml(text(hero.eyebrow, "Membership")) + "</p>",
       '<h1 class="heading-xl">' + escapeHtml(text(hero.heading, "Plan your")) + ' <span class="accent">' + escapeHtml(text(hero.accent, "comeback")) + "</span></h1>",
       "</section>",
@@ -246,7 +251,7 @@
     var sessionPacks = list(data.sessionPacks);
 
     var content = [
-      '<section class="page-hero">',
+      '<section class="page-hero"' + heroStyle(data.heroImage, "/public/pt.jpeg") + '>',
       '<p class="eyebrow">Personal Training</p>',
       '<h1 class="heading-xl">Workouts built <span class="accent" style="white-space: nowrap;">just for you</span></h1>',
       "</section>",
@@ -337,6 +342,7 @@
     var siteData = {
       logo: text(data.logo, site.logo),
       description: text(data.description, site.description),
+      homeHeroImage: text(data.homeHeroImage, site.homeHeroImage),
       navCtaLabel: text(data.navCtaLabel, site.navCtaLabel),
       whatsappNumber: text(data.whatsappNumber, site.whatsappNumber),
       footerCopyright: text(data.footerCopyright, site.footerCopyright),
@@ -345,7 +351,7 @@
     };
 
     var content = [
-      '<section class="hero-full">',
+      '<section class="hero-full"' + heroStyle(siteData.homeHeroImage, "/public/landing.jpeg") + '>',
       '<h1 class="hero-full__title heading-hero">Ready to <span class="accent italic">SNAP?</span></h1>',
       '<p class="hero-full__tagline">The biggest 24/7 gym in the West - Hyrox, HIIT, Yoga, Pilates and more.</p>',
       '<div class="hero-full__actions">',
@@ -418,7 +424,7 @@
     });
 
     var content = [
-      '<section class="page-hero">',
+      '<section class="page-hero"' + heroStyle(data.heroImage, "/public/classes.jpeg") + '>',
       '<p class="eyebrow">Group Classes</p>',
       '<h1 class="heading-xl">Classes that make you <span class="accent" style="white-space: nowrap;">show up</span></h1>',
       "</section>",
@@ -480,7 +486,7 @@
   function testimonialsPageHtml(data) {
     var testimonials = list(data.testimonials);
     var content = [
-      '<section class="page-hero"><p class="eyebrow">Testimonials</p><h1 class="heading-xl">Meet the crew who <span class="accent">train here</span></h1></section>',
+      '<section class="page-hero"' + heroStyle(data.heroImage, "/public/testimonials.jpeg") + '><p class="eyebrow">Testimonials</p><h1 class="heading-xl">Meet the crew who <span class="accent">train here</span></h1></section>',
       '<section class="section"><div class="l-wrap">',
       '<div class="section-header"><p class="eyebrow">Member Results</p><h2 class="heading-lg">Proof that <span class="accent">consistency wins</span></h2><p>Real members, real numbers, and stories from the community that trains here every week.</p></div>',
       '<div class="testimonial-carousel" data-testimonial-carousel><div class="testimonial-carousel__viewport" data-carousel-viewport tabindex="0" aria-label="Testimonials carousel"><div class="testimonial-grid">' + testimonials.map(renderTestimonial).join("") + '</div></div><div class="testimonial-carousel__controls" aria-hidden="true"><button type="button" class="carousel-btn" data-carousel-prev aria-label="Previous testimonial">Prev</button><div class="testimonial-carousel__dots" data-carousel-dots aria-hidden="true"></div><button type="button" class="carousel-btn" data-carousel-next aria-label="Next testimonial">Next</button></div><p class="testimonial-carousel__hint" aria-hidden="true">Swipe to shuffle</p></div>',
@@ -518,7 +524,7 @@
     var gallery = ["/public/landing-1.jpeg", "/public/landing-2.jpeg", "/public/landing-3.jpeg", "/public/pt-1.jpeg", "/public/pt-2.jpeg", "/public/gyms.jpeg"];
 
     var content = [
-      '<section class="page-hero"><p class="eyebrow">Our Gyms</p><h1 class="heading-xl">Find your <span class="accent" style="white-space: nowrap;">home base</span></h1></section>',
+      '<section class="page-hero"' + heroStyle(data.heroImage, "/public/gyms.jpeg") + '><p class="eyebrow">Our Gyms</p><h1 class="heading-xl">Find your <span class="accent" style="white-space: nowrap;">home base</span></h1></section>',
       '<section class="section"><div class="l-wrap"><div class="map-block"><div class="map-block__map">',
       '<iframe title="' + attr(name) + '" src="https://www.google.com/maps?q=' + attr(lat) + ',' + attr(lng) + '&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
       '</div><div class="map-block__info"><h2 class="heading-lg">' + escapeHtml(name) + "</h2><p>" + escapeHtml(address) + '</p><p><a href="tel:' + attr(phone.replace(/\s+/g, "")) + '" class="link-phone">' + escapeHtml(phone) + "</a></p></div></div></div></section>",

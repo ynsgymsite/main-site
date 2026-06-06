@@ -4,10 +4,10 @@ pageTitle: "YNSGYM – Our Gyms"
 bodyClass: page-gyms
 navCtaHref: "#gyms-contact"
 ---
-    <section class="page-hero">
-      <p class="eyebrow">Our Gyms</p>
-      <h1 class="heading-xl">Find your <span class="accent" style="white-space: nowrap;">home base</span></h1>
-    </section>
+{% set heroImage = gyms.heroImage %}
+{% set heroEyebrow = "Our Gyms" %}
+{% set heroHeadingHtml = "Find your <span class='accent' style='white-space: nowrap;'>home base</span>" %}
+{% include "page-hero.njk" %}
 
     <section class="section">
       <div class="l-wrap">
@@ -60,49 +60,8 @@ navCtaHref: "#gyms-contact"
       <img class="gallery-modal__img" src="" alt="Full size image">
     </div>
 
-    <section id="gyms-contact" class="section">
-      <div class="l-wrap">
-        <div class="contact-block">
-          <div class="contact-block__grid">
-            <div class="contact-block__copy">
-              <h2 class="heading-lg">Plan your <span class="accent">visit</span></h2>
-              <p>Share a few details and when you’d like to come. We’ll get in touch to schedule your tour or trial.</p>
-            </div>
-            <form class="contact-form" action="#" method="post">
-              <div class="form-grid">
-                <div class="form-group">
-                  <label for="gyms-first">First Name</label>
-                  <input type="text" id="gyms-first" name="first_name" required>
-                </div>
-                <div class="form-group">
-                  <label for="gyms-last">Last Name</label>
-                  <input type="text" id="gyms-last" name="last_name" required>
-                </div>
-                <div class="form-group">
-                  <label for="gyms-email">Email</label>
-                  <input type="email" id="gyms-email" name="email" required>
-                </div>
-                <div class="form-group">
-                  <label for="gyms-phone">Phone</label>
-                  <input type="tel" id="gyms-phone" name="phone" required>
-                </div>
-                <div class="form-group full">
-                  <label for="gyms-topic">Topic</label>
-                  <select id="gyms-topic" name="topic" required>
-                    <option value="">Choose an option</option>
-                    {% for topic in site.contactTopics %}
-                      <option value="{{ topic }}">{{ topic }}</option>
-                    {% endfor %}
-                  </select>
-                </div>
-                <div class="form-group full">
-                  <label for="gyms-message">Message</label>
-                  <textarea id="gyms-message" name="message" rows="4" placeholder="Tell us what you need…"></textarea>
-                </div>
-              </div>
-              <button type="submit" class="btn btn--primary btn--block">Send Message</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+{% set contactSectionId = "gyms-contact" %}
+{% set contactPrefix = "gyms" %}
+{% set contactHeadingHtml = "Plan your <span class=’accent’>visit</span>" %}
+{% set contactDescription = "Share a few details and when you’d like to come. We’ll get in touch to schedule your tour or trial." %}
+{% include "contact-form.njk" %}

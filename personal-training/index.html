@@ -4,10 +4,10 @@ pageTitle: "YNSGYM – Personal Training"
 bodyClass: page-pt
 navCtaHref: "#pt-contact"
 ---
-    <section class="page-hero">
-      <p class="eyebrow">Personal Training</p>
-      <h1 class="heading-xl">Workouts built <span class="accent" style="white-space: nowrap;">just for you</span></h1>
-    </section>
+{% set heroImage = pt.heroImage %}
+{% set heroEyebrow = "Personal Training" %}
+{% set heroHeadingHtml = "Workouts built <span class='accent' style='white-space: nowrap;'>just for you</span>" %}
+{% include "page-hero.njk" %}
 
     <section class="section">
       <div class="l-wrap">
@@ -48,14 +48,14 @@ navCtaHref: "#pt-contact"
             </div>
           </div>
           <div class="pt-pricing-layout__cards">
-            <a href="#pt-contact" class="pt-intro-card pt-pack-cta" data-pack="{{ pt.introPack.label }} - {{ pt.introPack.sessionsText }} {{ pt.introPack.price }}">
+            <a href="#pt-contact" class="pt-intro-card" data-autofill-form="pt" data-autofill-topic="Personal Training" data-autofill-message="I'm interested in the {{ pt.introPack.label }} - {{ pt.introPack.sessionsText }} {{ pt.introPack.price }} package.">
               <p class="pt-intro-card__label">{{ pt.introPack.label }}</p>
               <p class="pt-intro-card__price">{{ pt.introPack.sessionsText }} <span class="pt-intro-card__amount">{{ pt.introPack.price }}</span></p>
               <p class="pt-intro-card__note">{{ pt.introPack.note }}</p>
             </a>
             <div class="pt-session-grid">
               {% for pack in pt.sessionPacks %}
-              <a href="#pt-contact" class="pt-session-card pt-pack-cta" data-pack="{{ pack.sessions }} ({{ pack.pricePerSession }}/session)" data-shopify-product="{{ pack.shopifyProduct }}">
+              <a href="#pt-contact" class="pt-session-card" data-autofill-form="pt" data-autofill-topic="Personal Training" data-autofill-message="I'm interested in the {{ pack.sessions }} ({{ pack.pricePerSession }}/session) package." data-shopify-product="{{ pack.shopifyProduct }}">
                 <p class="pt-session-card__sessions">{{ pack.sessions }}</p>
                 <p class="pt-session-card__price"><span class="pt-session-card__amount">{{ pack.pricePerSession }}</span><span class="pt-session-card__unit">/session</span></p>
               </a>
@@ -95,69 +95,8 @@ navCtaHref: "#pt-contact"
       </div>
     </section>
 
-    <section id="pt-contact" class="section">
-      <div class="l-wrap">
-        <div class="contact-block">
-          <div class="contact-block__grid">
-            <div class="contact-block__copy">
-              <h2 class="heading-lg">Let’s plan your <span class="accent">PT sessions</span></h2>
-              <p>Share a few details and when you’d like to train. We’ll match you with a coach and lock in your 3-session starter pack.</p>
-            </div>
-            <form class="contact-form" action="#" method="post">
-              <div class="form-grid">
-                <div class="form-group">
-                  <label for="pt-first">First Name</label>
-                  <input type="text" id="pt-first" name="first_name" required>
-                </div>
-                <div class="form-group">
-                  <label for="pt-last">Last Name</label>
-                  <input type="text" id="pt-last" name="last_name" required>
-                </div>
-                <div class="form-group">
-                  <label for="pt-email">Email</label>
-                  <input type="email" id="pt-email" name="email" required>
-                </div>
-                <div class="form-group">
-                  <label for="pt-phone">Phone</label>
-                  <input type="tel" id="pt-phone" name="phone" required>
-                </div>
-                <div class="form-group full">
-                  <label for="pt-topic">Topic</label>
-                  <select id="pt-topic" name="topic" required>
-                    <option value="">Choose an option</option>
-                    {% for topic in site.contactTopics %}
-                      <option value="{{ topic }}">{{ topic }}</option>
-                    {% endfor %}
-                  </select>
-                </div>
-                <div class="form-group full">
-                  <label for="pt-message">Message</label>
-                  <textarea id="pt-message" name="message" rows="4" placeholder="Tell us what you need…"></textarea>
-                </div>
-              </div>
-              <button type="submit" class="btn btn--primary btn--block">Send Message</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  <script>
-    // Auto-populate form when clicking PT package cards
-    document.querySelectorAll('.pt-pack-cta').forEach(function(card) {
-      card.addEventListener('click', function() {
-        var pack = this.getAttribute('data-pack');
-        if (pack) {
-          setTimeout(function() {
-            var topicSelect = document.getElementById('pt-topic');
-            var messageField = document.getElementById('pt-message');
-            if (topicSelect) {
-              topicSelect.value = 'Personal Training';
-            }
-            if (messageField) {
-              messageField.value = "I'm interested in the " + pack + " package.";
-            }
-          }, 100);
-        }
-      });
-    });
-  </script>
+{% set contactSectionId = "pt-contact" %}
+{% set contactPrefix = "pt" %}
+{% set contactHeadingHtml = "Let’s plan your <span class=’accent’>PT sessions</span>" %}
+{% set contactDescription = "Share a few details and when you’d like to train. We’ll match you with a coach and lock in your 3-session starter pack." %}
+{% include "contact-form.njk" %}

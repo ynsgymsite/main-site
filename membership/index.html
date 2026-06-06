@@ -4,10 +4,10 @@ pageTitle: "YNSGYM – Membership"
 bodyClass: page-membership
 navCtaHref: "#membership-contact"
 ---
-    <section class="page-hero">
-      <p class="eyebrow">Membership</p>
-      <h1 class="heading-xl">Plan your <span class="accent">comeback</span></h1>
-    </section>
+{% set heroImage = membership.hero.image %}
+{% set heroEyebrow = "Membership" %}
+{% set heroHeadingHtml = "Plan your <span class='accent'>comeback</span>" %}
+{% include "page-hero.njk" %}
 
     <section class="section">
       <div class="l-wrap">
@@ -26,7 +26,7 @@ navCtaHref: "#membership-contact"
             <ul class="plan-features">
               {% for feature in plan.features %}<li>{{ feature }}</li>{% endfor %}
             </ul>
-            <a href="#membership-contact" class="btn {{ plan.ctaStyle }} btn--block plan-cta" data-plan="{{ plan.dataPlan }}">{{ plan.ctaLabel }}</a>
+            <a href="#membership-contact" class="btn {{ plan.ctaStyle }} btn--block" data-autofill-form="mem" data-autofill-topic="Others" data-autofill-message="I'm interested in the {{ plan.dataPlan }} membership plan.">{{ plan.ctaLabel }}</a>
           </article>
           {% endif %}
           {% endfor %}
@@ -41,7 +41,7 @@ navCtaHref: "#membership-contact"
             <ul class="plan-features">
               {% for feature in plan.features %}<li>{{ feature }}</li>{% endfor %}
             </ul>
-            <a href="#membership-contact" class="btn {{ plan.ctaStyle }} plan-cta" data-plan="{{ plan.dataPlan }}">{{ plan.ctaLabel }}</a>
+            <a href="#membership-contact" class="btn {{ plan.ctaStyle }}" data-autofill-form="mem" data-autofill-topic="Others" data-autofill-message="I'm interested in the {{ plan.dataPlan }} membership plan.">{{ plan.ctaLabel }}</a>
           </article>
           {% endif %}
           {% endfor %}
@@ -57,69 +57,8 @@ navCtaHref: "#membership-contact"
       </div>
     </section>
 
-    <section id="membership-contact" class="section">
-      <div class="l-wrap">
-        <div class="contact-block">
-          <div class="contact-block__grid">
-            <div class="contact-block__copy">
-              <h2 class="heading-lg">Let’s talk <span class="accent">membership</span></h2>
-              <p>Share a few details and the tier you’re interested in. We’ll get in touch to walk you through availability and next steps.</p>
-            </div>
-            <form class="contact-form" action="#" method="post">
-              <div class="form-grid">
-                <div class="form-group">
-                  <label for="mem-first">First Name</label>
-                  <input type="text" id="mem-first" name="first_name" required>
-                </div>
-                <div class="form-group">
-                  <label for="mem-last">Last Name</label>
-                  <input type="text" id="mem-last" name="last_name" required>
-                </div>
-                <div class="form-group">
-                  <label for="mem-email">Email</label>
-                  <input type="email" id="mem-email" name="email" required>
-                </div>
-                <div class="form-group">
-                  <label for="mem-phone">Phone</label>
-                  <input type="tel" id="mem-phone" name="phone" required>
-                </div>
-                <div class="form-group full">
-                  <label for="mem-topic">Topic</label>
-                  <select id="mem-topic" name="topic" required>
-                    <option value="">Choose an option</option>
-                    {% for topic in site.contactTopics %}
-                      <option value="{{ topic }}">{{ topic }}</option>
-                    {% endfor %}
-                  </select>
-                </div>
-                <div class="form-group full">
-                  <label for="mem-message">Message</label>
-                  <textarea id="mem-message" name="message" rows="4" placeholder="Tell us what you need…"></textarea>
-                </div>
-              </div>
-              <button type="submit" class="btn btn--primary btn--block">Send Message</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  <script>
-    // Auto-populate form when clicking plan buttons
-    document.querySelectorAll('.plan-cta').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var plan = this.getAttribute('data-plan');
-        if (plan) {
-          setTimeout(function() {
-            var topicSelect = document.getElementById('mem-topic');
-            var messageField = document.getElementById('mem-message');
-            if (topicSelect) {
-              topicSelect.value = 'Others';
-            }
-            if (messageField) {
-              messageField.value = "I'm interested in the " + plan + " membership plan.";
-            }
-          }, 100);
-        }
-      });
-    });
-  </script>
+{% set contactSectionId = "membership-contact" %}
+{% set contactPrefix = "mem" %}
+{% set contactHeadingHtml = "Let’s talk <span class=’accent’>membership</span>" %}
+{% set contactDescription = "Share a few details and the tier you’re interested in. We’ll get in touch to walk you through availability and next steps." %}
+{% include "contact-form.njk" %}

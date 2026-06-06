@@ -4,10 +4,10 @@ pageTitle: "YNSGYM – Testimonials"
 bodyClass: page-testimonials
 navCtaHref: "#testimonials-contact"
 ---
-    <section class="page-hero">
-      <p class="eyebrow">Testimonials</p>
-      <h1 class="heading-xl">Meet the crew who <span class="accent">train here</span></h1>
-    </section>
+{% set heroImage = testimonials.heroImage %}
+{% set heroEyebrow = "Testimonials" %}
+{% set heroHeadingHtml = "Meet the crew who <span class='accent'>train here</span>" %}
+{% include "page-hero.njk" %}
 
     <section class="section">
       <div class="l-wrap">
@@ -54,49 +54,8 @@ navCtaHref: "#testimonials-contact"
       </div>
     </section>
 
-    <section id="testimonials-contact" class="section">
-      <div class="l-wrap">
-        <div class="contact-block">
-          <div class="contact-block__grid">
-            <div class="contact-block__copy">
-              <h2 class="heading-lg">Let’s talk <span class="accent">goals</span></h2>
-              <p>Share a few details and what you’re looking for. We’ll get in touch to help you get started.</p>
-            </div>
-            <form class="contact-form" action="#" method="post">
-              <div class="form-grid">
-                <div class="form-group">
-                  <label for="test-first">First Name</label>
-                  <input type="text" id="test-first" name="first_name" required>
-                </div>
-                <div class="form-group">
-                  <label for="test-last">Last Name</label>
-                  <input type="text" id="test-last" name="last_name" required>
-                </div>
-                <div class="form-group">
-                  <label for="test-email">Email</label>
-                  <input type="email" id="test-email" name="email" required>
-                </div>
-                <div class="form-group">
-                  <label for="test-phone">Phone</label>
-                  <input type="tel" id="test-phone" name="phone" required>
-                </div>
-                <div class="form-group full">
-                  <label for="test-topic">Topic</label>
-                  <select id="test-topic" name="topic" required>
-                    <option value="">Choose an option</option>
-                    {% for topic in site.contactTopics %}
-                      <option value="{{ topic }}">{{ topic }}</option>
-                    {% endfor %}
-                  </select>
-                </div>
-                <div class="form-group full">
-                  <label for="test-message">Message</label>
-                  <textarea id="test-message" name="message" rows="4" placeholder="Tell us what you need…"></textarea>
-                </div>
-              </div>
-              <button type="submit" class="btn btn--primary btn--block">Send Message</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+{% set contactSectionId = "testimonials-contact" %}
+{% set contactPrefix = "test" %}
+{% set contactHeadingHtml = "Let’s talk <span class=’accent’>goals</span>" %}
+{% set contactDescription = "Share a few details and what you’re looking for. We’ll get in touch to help you get started." %}
+{% include "contact-form.njk" %}
