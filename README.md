@@ -23,7 +23,9 @@ The build compiles to `_site/` (git-ignored). Never edit files in `_site/` direc
 ├── _includes/                # Shared layout partials
 │   ├── base.njk              # Marketing-site HTML shell (head, body, nav, footer)
 │   ├── nav.njk               # Site nav — loops over site.json navLinks
-│   └── footer.njk            # Footer — renders site.json footerCopyright
+│   ├── footer.njk            # Footer — renders site.json footerCopyright
+│   ├── page-hero.njk         # Reusable page hero section
+│   └── contact-form.njk      # WhatsApp contact form partial
 │
 ├── _data/                    # Content data files (CMS-editable)
 │   ├── site.json             # Global: logo, nav links, WhatsApp number, contact topics, footer
@@ -35,7 +37,8 @@ The build compiles to `_site/` (git-ignored). Never edit files in `_site/` direc
 │
 ├── admin/
 │   ├── index.html            # Decap CMS single-page app
-│   └── config.yml            # CMS collection definitions — maps UI fields to _data/*.json
+│   ├── config.yml            # CMS collection definitions — maps UI fields to _data/*.json
+│   └── preview.js            # CMS live preview styles
 │
 ├── index.njk                 # Homepage (hardcoded template content)
 ├── gyms/index.html           # Gym locations page
