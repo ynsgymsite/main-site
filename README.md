@@ -2,14 +2,6 @@
 
 Marketing site for YNSGYM, a 24/7 gym in Singapore. Built with [Eleventy](https://www.11ty.dev/) and managed via [Decap CMS](https://decapcms.org/). Hosted on Netlify.
 
-## Branches
-
-| Branch | Purpose | URL |
-|---|---|---|
-| `main` | Production site | Primary Netlify domain |
-| `cms/eleventy-decap` | CMS + Eleventy build | `cms-eleventy-decap--neon-torte-74f9bb.netlify.app` |
-| `shopify-integration` | Shopify checkout (parked) | — |
-
 ## Local Development
 
 ```bash
@@ -87,7 +79,3 @@ The build compiles to `_site/` (git-ignored). Never edit files in `_site/` direc
 4. Admin clicks invite link, sets password, accesses `/admin/`
 
 Netlify Identity is loaded only by `/admin/`. Public marketing pages should not load `netlify-identity-widget.js` or create a `netlify-identity-widget` iframe.
-
-## Shopify Integration
-
-Planned but parked on the `shopify-integration` branch. See `SHOPIFY_INTEGRATION.md` for the approach (direct Shopify checkout URLs on PT pricing cards, no iframe embeds).

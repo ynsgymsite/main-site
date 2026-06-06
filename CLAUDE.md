@@ -6,14 +6,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Marketing site for **YNSGYM** — a 24/7 gym in Singapore. Built with **Eleventy (11ty)** SSG and **Decap CMS** (Git-based admin UI). Hosted on Netlify. Content is stored in `_data/*.json` files; admins edit via `/admin/`.
 
-## Branches
-
-| Branch | Purpose |
-|---|---|
-| `main` | Production site |
-| `cms/eleventy-decap` | CMS + Eleventy build (active development) |
-| `shopify-integration` | Shopify checkout (parked) |
-
 ## Development
 
 ```bash
@@ -85,7 +77,3 @@ Collections defined in `admin/config.yml`:
 - **Classes** → `_data/classes.json`
 - **Testimonials** → `_data/testimonials.json`
 - **Gyms** → `_data/gyms.json`
-
-## Shopify Integration (Pending)
-
-Parked on `shopify-integration` branch. See `SHOPIFY_INTEGRATION.md` for the plan — direct Shopify checkout URLs on PT pricing cards, no iframe embeds.
